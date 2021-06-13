@@ -1,31 +1,30 @@
 package team.natlex.NatLex.api;
 
-
 import lombok.Data;
+import org.hibernate.annotations.Type;
+import org.hibernate.annotations.TypeDef;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Data
 @Table(name = "SECTIONS")
+@TypeDef(
+        name = "list-array",
+        typeClass = ArrayList.class
+)
 class Section {
 
     @Id
+    @GeneratedValue
+    private Long id;
+
     private String name;
-
-    @Column(name = "geo_name")
-    private String geoName;
-
-    @Column(name = "geo_code")
-    private String geoCode;
-
-    public Section(SectionDTO sectionDTO) {
-        this.name = sectionDTO.getName();
-        this.geoName = sectionDTO.getGeoClassList().get(0).getName();
-        this.geoCode = sectionDTO.getGeoClassList().get(0).getCode();
-    }
-
+        private String[] codes;
+//    @Type(type = "list-array")
+//    @Column(name = "codes",
+//            columnDefinition = "text[]")
+//    private List<String> codes;
 }
