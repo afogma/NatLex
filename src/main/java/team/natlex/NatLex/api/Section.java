@@ -1,5 +1,6 @@
 package team.natlex.NatLex.api;
 
+import com.vladmihalcea.hibernate.type.array.ListArrayType;
 import lombok.Data;
 import org.hibernate.annotations.Type;
 import org.hibernate.annotations.TypeDef;
@@ -13,18 +14,16 @@ import java.util.List;
 @Table(name = "SECTIONS")
 @TypeDef(
         name = "list-array",
-        typeClass = ArrayList.class
+        typeClass = ListArrayType.class
 )
 class Section {
 
     @Id
-    @GeneratedValue
-    private Long id;
-
     private String name;
-        private String[] codes;
-//    @Type(type = "list-array")
-//    @Column(name = "codes",
-//            columnDefinition = "text[]")
-//    private List<String> codes;
+
+    @Type(type = "list-array")
+    @Column(name = "codes",
+            columnDefinition = "text[]")
+    private List<String> codes;
+
 }

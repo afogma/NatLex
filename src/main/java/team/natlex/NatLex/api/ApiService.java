@@ -11,11 +11,7 @@ import org.apache.poi.ss.usermodel.Row;
 import org.springframework.stereotype.Service;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import static java.util.stream.Collectors.toList;
 
@@ -23,11 +19,11 @@ import static java.util.stream.Collectors.toList;
 @RequiredArgsConstructor
 class ApiService {
 
-    private final ApiRepository apiRepository;
+    private final SectionRepository sectionRepository;
     private final GeologicalClassRepo geologicalClassRepo;
 
     public List<Section> findAllSections() {
-        return apiRepository.findAll();
+        return sectionRepository.findAll();
     }
 
     public List<GeologicalClass> findAllClasses() {
@@ -41,7 +37,6 @@ class ApiService {
         style.setFont(font);
         return style;
     }
-
 
     public void createFile() {
         HSSFWorkbook workbook = new HSSFWorkbook();
@@ -108,18 +103,20 @@ class ApiService {
 
     public Section addNewSection(SectionCreateRequest sectionRequest) {
         if (sectionRequest == null) throw new RuntimeException();
-        Section section = new Section();
-        section.setName(sectionRequest.getName());
-
         List<GeologicalClass> listOfClasses = sectionRequest.getGeologicalClasses();
-
-        List<String> list = listOfClasses.stream()
+        List<String> classCodes = listOfClasses.stream()
                 .map(c -> c.getCode())
-                .collect(Collectors.toList());
-
-        section.setCodes(list.toArray(new String[0]));
-//        section.setCodes(list);
-
+                .collect(toList());
+        String name = sectionRequest.getName();
+        Section section = new Section();
+        if (sectionRepository.findSectionByName(name) != null) {
+            section = sectionRepository.findSectionByName(name);
+            List<String> codes = section.getCodes();
+            codes.addAll(classCodes);
+        } else {
+            section.setName(sectionRequest.getName());
+            section.setCodes(classCodes);
+        }
         for (GeologicalClass gc : listOfClasses) {
             var sec = geologicalClassRepo.save(gc);
         }
@@ -127,12 +124,12 @@ class ApiService {
         System.out.println("================");
         System.out.println(section);
         System.out.println("================");
-        apiRepository.save(section);
+        sectionRepository.save(section);
         return section;
     }
 
     public List<String> findSectionsByCode(String classCode) {
-        return apiRepository.findSectionsByCode(classCode);
+        return sectionRepository.findSectionsByCode(classCode);
     }
 
 }
