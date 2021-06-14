@@ -108,9 +108,8 @@ class ApiService {
                 .map(c -> c.getCode())
                 .collect(toList());
         String name = sectionRequest.getName();
-        Section section = new Section();
-        if (sectionRepository.findSectionByName(name) != null) {
-            section = sectionRepository.findSectionByName(name);
+        Section section = sectionRepository.findById(name).orElse(new Section());
+        if (sectionRepository.findById(name).isPresent()) {
             List<String> codes = section.getCodes();
             codes.addAll(classCodes);
         } else {
