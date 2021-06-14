@@ -105,7 +105,7 @@ class ApiService {
         if (sectionRequest == null) throw new RuntimeException();
         List<GeologicalClass> listOfClasses = sectionRequest.getGeologicalClasses();
         List<String> classCodes = listOfClasses.stream()
-                .map(c -> c.getCode())
+                .map(GeologicalClass::getCode)
                 .collect(toList());
         String name = sectionRequest.getName();
         Section section = sectionRepository.findById(name).orElse(new Section());
