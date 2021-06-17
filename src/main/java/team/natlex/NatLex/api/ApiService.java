@@ -48,28 +48,98 @@ public class ApiService {
 
         System.out.println(classNumbers);
 
-        int rownum = 0;
+        drawHeader(classNumbers, sheet);
+        drawSections(sectionList, sheet, classNumbers);
+//
+//        row = sheet.createRow(rownum);
+//
+//        cell = row.createCell(0, CellType.STRING);
+//        cell.setCellValue("Section name");
+//
+//        int s = 0;
+//        for (Character className : classNumbers) {
+////            String name = geologicalClass.getName().replaceAll("[^\\d]", "").replaceFirst(".$","");
+//            cell = row.createCell(s + 1, CellType.STRING);
+//            cell.setCellValue("Class " + className + " name");
+//
+//            cell = row.createCell(s + 2, CellType.STRING);
+//            cell.setCellValue("Class " + className + " code");
+//            s = s + 2;
+//        }
+//        for (Section section : sectionList) {
+//            rownum++;
+//            row = sheet.createRow(rownum);
+//
+//            cell = row.createCell(0, CellType.STRING);
+//            cell.setCellValue(section.getName());
+//
+//            List<String> codes = section.getCodes().stream()
+//                    .sorted()
+//                    .collect(toList());
+//            int p = 0;
+//            int i = 0;
+//            for (int j = 0; j < codes.size(); j++) {
+//                GeologicalClass geologicalClass = findClassByCode(codes.get(j));
+//                String name = geologicalClass.getName();
+//
+//                System.out.println(name.charAt(name.length() - 1));
+//                System.out.println(classNumbers.get(i));
+//                if (name.charAt(name.length() - 1) == classNumbers.get(i)) {
+//                    cell = row.createCell(p + 1, CellType.STRING);
+//                    cell.setCellValue(name);
+//
+//                    cell = row.createCell(p + 2, CellType.STRING);
+//                    cell.setCellValue(codes.get(j));
+//
+//                } else {
+//                    cell = row.createCell(p + 1, CellType.STRING);
+//                    cell.setCellValue("");
+//
+//                    cell = row.createCell(p + 2, CellType.STRING);
+//                    cell.setCellValue("");
+//                    j--;
+//                }
+//                i++;
+//                p += 2;
+//            }
+//        }
+
+        File file = new File("sections.xls");
+//        file.getParentFile().mkdirs();
+
+        try (FileOutputStream outFile = new FileOutputStream(file)) {
+            workbook.write(outFile);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        System.out.println("Created file: " + file.getAbsolutePath());
+    }
+
+
+    public void drawHeader(List<Character> classNumbers, HSSFSheet sheet) {
         Cell cell;
         Row row;
-        //
-
-        row = sheet.createRow(rownum);
+        row = sheet.createRow(0);
 
         cell = row.createCell(0, CellType.STRING);
         cell.setCellValue("Section name");
 
-        int k = 0;
+        int s = 0;
         for (Character className : classNumbers) {
 //            String name = geologicalClass.getName().replaceAll("[^\\d]", "").replaceFirst(".$","");
-            cell = row.createCell(k + 1, CellType.STRING);
+            cell = row.createCell(s + 1, CellType.STRING);
             cell.setCellValue("Class " + className + " name");
 
-            cell = row.createCell(k + 2, CellType.STRING);
+            cell = row.createCell(s + 2, CellType.STRING);
             cell.setCellValue("Class " + className + " code");
-            k = k + 2;
+            s = s + 2;
         }
+    }
 
-
+    public void drawSections(List<Section> sectionList, HSSFSheet sheet, List<Character> classNumbers) {
+        int rownum = 0;
+        Cell cell;
+        Row row;
         for (Section section : sectionList) {
             rownum++;
             row = sheet.createRow(rownum);
@@ -95,7 +165,7 @@ public class ApiService {
                     cell = row.createCell(p + 2, CellType.STRING);
                     cell.setCellValue(codes.get(j));
 
-                }  else {
+                } else {
                     cell = row.createCell(p + 1, CellType.STRING);
                     cell.setCellValue("");
 
@@ -107,17 +177,8 @@ public class ApiService {
                 p += 2;
             }
         }
-        File file = new File("sections.xls");
-//        file.getParentFile().mkdirs();
 
-        FileOutputStream outFile = null;
-        try {
-            outFile = new FileOutputStream(file);
-            workbook.write(outFile);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        System.out.println("Created file: " + file.getAbsolutePath());
+
     }
 
     public Section addNewSection(SectionCreateRequest sectionRequest) {
