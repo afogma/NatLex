@@ -11,7 +11,7 @@ import javax.persistence.*;
 @Entity
 @Data
 @Table(name = "CLASSES")
-class GeologicalClass {
+public class GeologicalClass {
 
     @Id
     private String name;

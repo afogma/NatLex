@@ -26,22 +26,26 @@ public class ApiController {
         return ResponseEntity.ok("section added");
     }
 
-    @PostMapping
+    @GetMapping
     @RequestMapping("/export")
     public ResponseEntity createFile() {
         apiService.createFile();
         return ResponseEntity.ok("file created");
     }
 
-//    @GetMapping
-//    @RequestMapping("/classList")
-//    public List<Section> showAllGeoClassesBySection(@PathVariable String name) {
-//        return apiService.findAllClassesBySections(name);
-//    }
+    @GetMapping
+    @RequestMapping("/sections/by-code")
+    public List<String> showAllSectionsByClassCode(@RequestParam String code) {
+        return apiService.findSectionsByCode(code);
+    }
 
     @GetMapping
-    @RequestMapping("/sections/{classCode}")
-    public List<String> showAllSectionsByClassCode(@PathVariable String classCode) {
-        return apiService.findSectionsByCode(classCode);
+    @RequestMapping("/classes/{code}")
+    public GeologicalClass showAllClassesByCode(@PathVariable String code) {
+        return apiService.findClassByCode(code);
     }
+
+
+
+
 }
