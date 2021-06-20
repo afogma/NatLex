@@ -14,11 +14,12 @@ import java.util.List;
 public class ApiController {
 
     private final ApiService apiService;
+    private final FileService fileService;
 
     @GetMapping
     @RequestMapping("/sections")
     public List<SectionFullDTO> showSectionList() {
-        List<SectionFullDTO> section =  apiService.findAllSections();
+        List<SectionFullDTO> section = apiService.findAllSections();
         return section;
     }
 
@@ -32,17 +33,16 @@ public class ApiController {
     @GetMapping
     @RequestMapping("/export")
     public ResponseEntity createFile() {
-        apiService.createFile();
+        fileService.createFile();
         return ResponseEntity.ok("file created");
     }
 
     @GetMapping
     @RequestMapping("/import")
     public ResponseEntity readFile() throws IOException {
-        apiService.readFile();
+        fileService.readFile();
         return ResponseEntity.ok("file loaded");
     }
-
 
     @GetMapping
     @RequestMapping("/sections/by-code")

@@ -1,16 +1,20 @@
 package team.natlex.NatLex.api;
 
 import com.vladmihalcea.hibernate.type.array.ListArrayType;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.hibernate.annotations.Type;
 import org.hibernate.annotations.TypeDef;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "SECTIONS")
 @TypeDef(
         name = "list-array",
