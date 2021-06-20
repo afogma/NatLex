@@ -5,7 +5,7 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-class SectionCreateRequest {
+class SectionFullDTO {
     private String name;
     private List<GeologicalClass> geologicalClasses;
 }

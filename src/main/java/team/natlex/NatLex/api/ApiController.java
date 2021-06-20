@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
 import java.util.List;
 
 @RestController
@@ -15,14 +16,16 @@ public class ApiController {
     private final ApiService apiService;
 
     @GetMapping
-    public List<Section> showCabinetList() {
-        return apiService.findAllSections();
+    @RequestMapping("/sections")
+    public List<SectionFullDTO> showSectionList() {
+        List<SectionFullDTO> section =  apiService.findAllSections();
+        return section;
     }
 
     @PostMapping
-    public ResponseEntity addNewSection(@RequestBody SectionCreateRequest sectionCreateRequest) {
-        apiService.addNewSection(sectionCreateRequest);
-        System.out.println(sectionCreateRequest);
+    public ResponseEntity addNewSection(@RequestBody SectionFullDTO sectionFullDTO) {
+        apiService.addNewSection(sectionFullDTO);
+        System.out.println(sectionFullDTO);
         return ResponseEntity.ok("section added");
     }
 
@@ -32,6 +35,14 @@ public class ApiController {
         apiService.createFile();
         return ResponseEntity.ok("file created");
     }
+
+    @GetMapping
+    @RequestMapping("/import")
+    public ResponseEntity readFile() throws IOException {
+        apiService.readFile();
+        return ResponseEntity.ok("file loaded");
+    }
+
 
     @GetMapping
     @RequestMapping("/sections/by-code")
@@ -45,7 +56,17 @@ public class ApiController {
         return apiService.findClassByCode(code);
     }
 
+    @PutMapping
+    @RequestMapping("/section/update/{name}")
+    public ResponseEntity<String> updateSection(@RequestBody SectionFullDTO sectionFullDTO, @PathVariable String name) {
+        apiService.updateSection(sectionFullDTO, name);
+        return ResponseEntity.ok("section updated");
+    }
 
-
-
+    @DeleteMapping
+    @RequestMapping("/section/delete/{name}")
+    public ResponseEntity deleteSection(@PathVariable String name) {
+        apiService.deleteSection(name);
+        return ResponseEntity.ok("section " + name + " deleted");
+    }
 }
