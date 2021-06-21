@@ -1,9 +1,6 @@
 package team.natlex.NatLex.api;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
+import lombok.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
@@ -11,13 +8,17 @@ import java.util.UUID;
 
 @Data
 @Component
+@NoArgsConstructor
 @AllArgsConstructor
-public class XlsJobExecutor {
+public class XlsJob {
 
     private UUID id;
     private byte[] file;
     private JobStatus status;
 
+    public XlsJob(byte[] file) {
+        this.file = file;
+    }
 
     @RequiredArgsConstructor
     @Getter

@@ -78,7 +78,6 @@ public class ApiService {
     }
 
     public void deleteSection(String name) {
-        var section = sectionRepository.findById(name).orElseThrow(RuntimeException::new);
-        sectionRepository.delete(section);
+        sectionRepository.deleteById(name);
     }
 }

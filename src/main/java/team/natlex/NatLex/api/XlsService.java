@@ -6,7 +6,9 @@ import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.Row;
-import org.springframework.core.task.TaskExecutor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -23,11 +25,18 @@ public class XlsService {
 
     private final SectionRepository sectionRepository;
     private final GeologicalClassRepo geologicalClassRepo;
-    private final XlsJobExecutor xlsJobExecutor;
+    private final XlsJob xlsJob;
 
-    private final ExecutorService executorService;
 
-    private Map<UUID, XlsJobExecutor> jobs;
+    @Bean("singleThreaded")
+    public ExecutorService singleThreadedExecutor() {
+        return Executors.newSingleThreadExecutor();
+    }
+
+    @Autowired
+    private ExecutorService executorService;
+
+    private Map<UUID, XlsJob> jobs;
 
     public UUID createFile() {
         var workbook = new HSSFWorkbook();
@@ -122,60 +131,62 @@ public class XlsService {
         }
     }
 
-    public void readFile(MultipartFile file) throws IOException {
+    public void loadFile(XlsJob job, String name) throws IOException {
 
-        if (file.isEmpty()) throw new RuntimeException();
-        String name = file.getOriginalFilename();
-
-        try  {
-            byte[] bytes = file.getBytes();
+        try {
+            byte[] bytes = job.getFile();
             File targetFile = new File(name);
             try (OutputStream outStream = new FileOutputStream(targetFile)) {
-                executorService.submit(() -> {
-                    outStream.write(bytes);
-                    return Thread.currentThread().getState().toString();
-                });
+                outStream.write(bytes);
             }
-            UUID id = randomUUID();
-        jobs.put(id, new XlsJobExecutor(id, bytes, xlsJobExecutor.getStatus()));
-            System.out.println("file " + name + " uploaded");
-        } catch (Exception e) {
-            System.out.println("Вам не удалось загрузить " + name + " => " + e.getMessage());
+                System.out.println("file " + name + " uploaded");
+            } catch (Exception e) {
+                System.out.println("Вам не удалось загрузить " + name + " => " + e.getMessage());
+            }
+
+            FileInputStream inputStream = new FileInputStream(name);
+            HSSFWorkbook workbook = new HSSFWorkbook(inputStream);
+            HSSFSheet sheet = workbook.getSheetAt(0);
+
+            Iterator<Row> rowIterator = sheet.iterator();
+            rowIterator.next();
+            while (rowIterator.hasNext()) {
+                Row row = rowIterator.next();
+                Iterator<Cell> cellIterator = row.cellIterator();
+                List<String> codes = new ArrayList<>();
+                List<GeologicalClass> geologicalClassList = new ArrayList<>();
+                var className = "";
+                var classCode = "";
+                var sectionName = cellIterator.next().getStringCellValue();
+                while (cellIterator.hasNext()) {
+                    var value = cellIterator.next().getStringCellValue();
+                    if (!value.isEmpty()) {
+                        className = value;
+                    }
+                    value = cellIterator.next().getStringCellValue();
+                    if (!value.isEmpty() && !className.isEmpty()) {
+                        classCode = value;
+                        codes.add(classCode);
+                        geologicalClassList.add(new GeologicalClass(className, classCode));
+                    }
+                }
+                var section = new Section(sectionName, codes);
+                sectionRepository.save(section);
+                for (GeologicalClass gc : geologicalClassList) {
+                    geologicalClassRepo.save(gc);
+                }
+            }
         }
 
-    FileInputStream inputStream = new FileInputStream(name);
-    HSSFWorkbook workbook = new HSSFWorkbook(inputStream);
-    HSSFSheet sheet = workbook.getSheetAt(0);
-
-    Iterator<Row> rowIterator = sheet.iterator();
-        rowIterator.next();
-        while(rowIterator.hasNext())
-
-    {
-        Row row = rowIterator.next();
-        Iterator<Cell> cellIterator = row.cellIterator();
-        List<String> codes = new ArrayList<>();
-        List<GeologicalClass> geologicalClassList = new ArrayList<>();
-        var className = "";
-        var classCode = "";
-        var sectionName = cellIterator.next().getStringCellValue();
-        while (cellIterator.hasNext()) {
-            var value = cellIterator.next().getStringCellValue();
-            if (!value.isEmpty()) {
-                className = value;
-            }
-            value = cellIterator.next().getStringCellValue();
-            if (!value.isEmpty() && !className.isEmpty()) {
-                classCode = value;
-                codes.add(classCode);
-                geologicalClassList.add(new GeologicalClass(className, classCode));
-            }
-        }
-        var section = new Section(sectionName, codes);
-        sectionRepository.save(section);
-        for (GeologicalClass gc : geologicalClassList) {
-            geologicalClassRepo.save(gc);
-        }
+    public XlsJob loadXls(MultipartFile file) throws IOException {
+            var job = new XlsJob(file.getBytes());
+            executorService.submit(() -> {
+                try {
+                    loadFile(job, file.getOriginalFilename());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            });
+            return null;
     }
-}
 }
