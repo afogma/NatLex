@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/api")
@@ -14,7 +15,7 @@ import java.util.List;
 public class ApiController {
 
     private final ApiService apiService;
-    private final FileService fileService;
+    private final XlsService xlsService;
 
     @GetMapping
     @RequestMapping("/sections")
@@ -33,14 +34,14 @@ public class ApiController {
     @GetMapping
     @RequestMapping("/export")
     public ResponseEntity createFile() {
-        fileService.createFile();
-        return ResponseEntity.ok("file created");
+        UUID id = xlsService.createFile();
+        return ResponseEntity.ok("id: " + id);
     }
 
     @GetMapping
     @RequestMapping("/import")
     public ResponseEntity readFile() throws IOException {
-        fileService.readFile();
+        xlsService.readFile();
         return ResponseEntity.ok("file loaded");
     }
 

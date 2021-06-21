@@ -8,25 +8,26 @@ import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.Row;
 import org.springframework.stereotype.Service;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.Iterator;
-import java.util.List;
+import java.io.*;
+import java.util.*;
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 
+import static java.util.UUID.randomUUID;
 import static java.util.stream.Collectors.toList;
 
 @Service
 @RequiredArgsConstructor
-public class FileService {
+public class XlsService {
 
     private final SectionRepository sectionRepository;
     private final GeologicalClassRepo geologicalClassRepo;
+    private final XlsJobExecutor xlsJobExecutor;
 
-    public void createFile() {
+    private Map<UUID, XlsJobExecutor> jobs;
+
+    public UUID createFile() {
         var workbook = new HSSFWorkbook();
         var sheet = workbook.createSheet("Sections sheet");
 
@@ -41,8 +42,6 @@ public class FileService {
                 .sorted()
                 .collect(toList());
 
-        System.out.println(classNumbers);
-
         drawHeader(classNumbers, sheet);
         drawSections(sectionList, sheet, classNumbers);
 
@@ -55,6 +54,8 @@ public class FileService {
             e.printStackTrace();
         }
         System.out.println("Created file: " + file.getAbsolutePath());
+        UUID id = randomUUID();
+        return id;
     }
 
     public void drawHeader(List<Character> classNumbers, HSSFSheet sheet) {
@@ -154,6 +155,4 @@ public class FileService {
             }
         }
     }
-
-
 }
