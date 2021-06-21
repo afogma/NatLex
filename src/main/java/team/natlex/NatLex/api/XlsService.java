@@ -6,14 +6,13 @@ import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.Row;
+import org.springframework.core.task.TaskExecutor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.*;
 import java.util.*;
-import java.util.concurrent.Executor;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
+import java.util.concurrent.*;
 
 import static java.util.UUID.randomUUID;
 import static java.util.stream.Collectors.toList;
@@ -25,6 +24,8 @@ public class XlsService {
     private final SectionRepository sectionRepository;
     private final GeologicalClassRepo geologicalClassRepo;
     private final XlsJobExecutor xlsJobExecutor;
+
+    private final ExecutorService executorService;
 
     private Map<UUID, XlsJobExecutor> jobs;
 
@@ -130,7 +131,10 @@ public class XlsService {
             byte[] bytes = file.getBytes();
             File targetFile = new File(name);
             try (OutputStream outStream = new FileOutputStream(targetFile)) {
-                outStream.write(bytes);
+                executorService.submit(() -> {
+                    outStream.write(bytes);
+                    return Thread.currentThread().getState().toString();
+                });
             }
             UUID id = randomUUID();
         jobs.put(id, new XlsJobExecutor(id, bytes, xlsJobExecutor.getStatus()));
