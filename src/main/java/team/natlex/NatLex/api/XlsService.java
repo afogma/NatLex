@@ -7,6 +7,7 @@ import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.Row;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.io.*;
 import java.util.*;
@@ -120,39 +121,57 @@ public class XlsService {
         }
     }
 
-    public void readFile() throws IOException {
+    public void readFile(MultipartFile file) throws IOException {
 
-        FileInputStream inputStream = new FileInputStream(new File("sections_import.xls"));
-        HSSFWorkbook workbook = new HSSFWorkbook(inputStream);
-        HSSFSheet sheet = workbook.getSheetAt(0);
+        if (file.isEmpty()) throw new RuntimeException();
+        String name = file.getOriginalFilename();
 
-        Iterator<Row> rowIterator = sheet.iterator();
-        rowIterator.next();
-        while (rowIterator.hasNext()) {
-            Row row = rowIterator.next();
-            Iterator<Cell> cellIterator = row.cellIterator();
-            List<String> codes = new ArrayList<>();
-            List<GeologicalClass> geologicalClassList = new ArrayList<>();
-            var className = "";
-            var classCode = "";
-            var sectionName = cellIterator.next().getStringCellValue();
-            while (cellIterator.hasNext()) {
-                var value = cellIterator.next().getStringCellValue();
-                if (!value.isEmpty()) {
-                    className = value;
-                }
-                value = cellIterator.next().getStringCellValue();
-                if (!value.isEmpty() && !className.isEmpty()) {
-                    classCode = value;
-                    codes.add(classCode);
-                    geologicalClassList.add(new GeologicalClass(className, classCode));
-                }
+        try  {
+            byte[] bytes = file.getBytes();
+            File targetFile = new File(name);
+            try (OutputStream outStream = new FileOutputStream(targetFile)) {
+                outStream.write(bytes);
             }
-            var section = new Section(sectionName, codes);
-            sectionRepository.save(section);
-            for (GeologicalClass gc : geologicalClassList) {
-                geologicalClassRepo.save(gc);
+            UUID id = randomUUID();
+        jobs.put(id, new XlsJobExecutor(id, bytes, xlsJobExecutor.getStatus()));
+            System.out.println("file " + name + " uploaded");
+        } catch (Exception e) {
+            System.out.println("Вам не удалось загрузить " + name + " => " + e.getMessage());
+        }
+
+    FileInputStream inputStream = new FileInputStream(name);
+    HSSFWorkbook workbook = new HSSFWorkbook(inputStream);
+    HSSFSheet sheet = workbook.getSheetAt(0);
+
+    Iterator<Row> rowIterator = sheet.iterator();
+        rowIterator.next();
+        while(rowIterator.hasNext())
+
+    {
+        Row row = rowIterator.next();
+        Iterator<Cell> cellIterator = row.cellIterator();
+        List<String> codes = new ArrayList<>();
+        List<GeologicalClass> geologicalClassList = new ArrayList<>();
+        var className = "";
+        var classCode = "";
+        var sectionName = cellIterator.next().getStringCellValue();
+        while (cellIterator.hasNext()) {
+            var value = cellIterator.next().getStringCellValue();
+            if (!value.isEmpty()) {
+                className = value;
+            }
+            value = cellIterator.next().getStringCellValue();
+            if (!value.isEmpty() && !className.isEmpty()) {
+                classCode = value;
+                codes.add(classCode);
+                geologicalClassList.add(new GeologicalClass(className, classCode));
             }
         }
+        var section = new Section(sectionName, codes);
+        sectionRepository.save(section);
+        for (GeologicalClass gc : geologicalClassList) {
+            geologicalClassRepo.save(gc);
+        }
     }
+}
 }

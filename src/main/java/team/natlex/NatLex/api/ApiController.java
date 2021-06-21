@@ -3,6 +3,7 @@ package team.natlex.NatLex.api;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.util.List;
@@ -38,10 +39,10 @@ public class ApiController {
         return ResponseEntity.ok("id: " + id);
     }
 
-    @GetMapping
+    @PostMapping
     @RequestMapping("/import")
-    public ResponseEntity readFile() throws IOException {
-        xlsService.readFile();
+    public ResponseEntity uploadFile(@RequestParam("file") MultipartFile file) throws IOException {
+        xlsService.readFile(file);
         return ResponseEntity.ok("file loaded");
     }
 

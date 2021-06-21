@@ -1,13 +1,17 @@
 package team.natlex.NatLex.api;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Component;
 
 import java.util.UUID;
 
-
 @Data
+@Component
+@AllArgsConstructor
 public class XlsJobExecutor {
 
     private UUID id;
