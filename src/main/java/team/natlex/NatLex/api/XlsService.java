@@ -132,7 +132,6 @@ public class XlsService {
     }
 
     public void loadFile(XlsJob job, String name) throws IOException {
-
         try {
             byte[] bytes = job.getFile();
             File targetFile = new File(name);
