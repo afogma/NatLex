@@ -175,7 +175,7 @@ public class XlsService {
             try {
                 loadFile(job);
             } catch (IOException e) {
-                e.printStackTrace();
+               job.setStatus(XlsJob.JobStatus.ERROR);
             }
         });
         return job;
