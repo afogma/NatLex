@@ -7,7 +7,6 @@ import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.Row;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -131,61 +130,54 @@ public class XlsService {
         }
     }
 
-    public void loadFile(XlsJob job, String name) throws IOException {
-        try {
-            byte[] bytes = job.getFile();
-            File targetFile = new File(name);
-            try (OutputStream outStream = new FileOutputStream(targetFile)) {
-                outStream.write(bytes);
-            }
-                System.out.println("file " + name + " uploaded");
-            } catch (Exception e) {
-                System.out.println("Вам не удалось загрузить " + name + " => " + e.getMessage());
-            }
+    public void loadFile(XlsJob job) throws IOException {
 
-            FileInputStream inputStream = new FileInputStream(name);
-            HSSFWorkbook workbook = new HSSFWorkbook(inputStream);
-            HSSFSheet sheet = workbook.getSheetAt(0);
+        ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(job.getContent());
+        HSSFWorkbook workbook = new HSSFWorkbook(byteArrayInputStream);
+        HSSFSheet sheet = workbook.getSheetAt(0);
 
-            Iterator<Row> rowIterator = sheet.iterator();
-            rowIterator.next();
-            while (rowIterator.hasNext()) {
-                Row row = rowIterator.next();
-                Iterator<Cell> cellIterator = row.cellIterator();
-                List<String> codes = new ArrayList<>();
-                List<GeologicalClass> geologicalClassList = new ArrayList<>();
-                var className = "";
-                var classCode = "";
-                var sectionName = cellIterator.next().getStringCellValue();
-                while (cellIterator.hasNext()) {
-                    var value = cellIterator.next().getStringCellValue();
-                    if (!value.isEmpty()) {
-                        className = value;
-                    }
-                    value = cellIterator.next().getStringCellValue();
-                    if (!value.isEmpty() && !className.isEmpty()) {
-                        classCode = value;
-                        codes.add(classCode);
-                        geologicalClassList.add(new GeologicalClass(className, classCode));
-                    }
+        Iterator<Row> rowIterator = sheet.iterator();
+        rowIterator.next();
+        while (rowIterator.hasNext()) {
+            Row row = rowIterator.next();
+            Iterator<Cell> cellIterator = row.cellIterator();
+            List<String> codes = new ArrayList<>();
+            List<GeologicalClass> geologicalClassList = new ArrayList<>();
+            var className = "";
+            var classCode = "";
+            var sectionName = cellIterator.next().getStringCellValue();
+            while (cellIterator.hasNext()) {
+                var value = cellIterator.next().getStringCellValue();
+                if (!value.isEmpty()) {
+                    className = value;
                 }
-                var section = new Section(sectionName, codes);
-                sectionRepository.save(section);
-                for (GeologicalClass gc : geologicalClassList) {
-                    geologicalClassRepo.save(gc);
+                value = cellIterator.next().getStringCellValue();
+                if (!value.isEmpty() && !className.isEmpty()) {
+                    classCode = value;
+                    codes.add(classCode);
+                    geologicalClassList.add(new GeologicalClass(className, classCode));
                 }
+            }
+            var section = new Section(sectionName, codes);
+            sectionRepository.save(section);
+            for (GeologicalClass gc : geologicalClassList) {
+                geologicalClassRepo.save(gc);
             }
         }
+        job.setStatus(XlsJob.JobStatus.DONE);
+    }
 
     public XlsJob loadXls(MultipartFile file) throws IOException {
-            var job = new XlsJob(file.getBytes());
-            executorService.submit(() -> {
-                try {
-                    loadFile(job, file.getOriginalFilename());
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            });
-            return null;
+        UUID id = randomUUID();
+        var job = new XlsJob(id, file.getBytes(), XlsJob.JobStatus.IN_PROGRESS);
+        jobs.put(id, job);
+        executorService.submit(() -> {
+            try {
+                loadFile(job);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+        return job;
     }
 }

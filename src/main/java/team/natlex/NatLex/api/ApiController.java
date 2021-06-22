@@ -42,8 +42,8 @@ public class ApiController {
     @PostMapping
     @RequestMapping("/import")
     public ResponseEntity uploadFile(@RequestParam("file") MultipartFile file) throws IOException {
-        xlsService.loadXls(file);
-        return ResponseEntity.ok("file loaded");
+        XlsJob job = xlsService.loadXls(file);
+        return ResponseEntity.ok("file loaded, id: " + job.getId());
     }
 
     @GetMapping

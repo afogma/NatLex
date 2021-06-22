@@ -1,7 +1,6 @@
 package team.natlex.NatLex.api;
 
 import lombok.*;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
 import java.util.UUID;
@@ -13,16 +12,16 @@ import java.util.UUID;
 public class XlsJob {
 
     private UUID id;
-    private byte[] file;
+    private byte[] content;
     private JobStatus status;
 
-    public XlsJob(byte[] file) {
-        this.file = file;
+    public XlsJob(byte[] content) {
+        this.content = content;
     }
 
     @RequiredArgsConstructor
     @Getter
-    private static enum JobStatus {
+    public static enum JobStatus {
 
         DONE("DONE"),
         IN_PROGRESS("IN PROGRESS"),
