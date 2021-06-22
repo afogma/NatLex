@@ -35,9 +35,9 @@ public class XlsService {
     @Autowired
     private ExecutorService executorService;
 
-    private Map<UUID, XlsJob> jobs;
+    private Map<UUID, XlsJob> jobs = new ConcurrentHashMap<>();
 
-    public UUID createFile() {
+    public void downloadFile() {
         var workbook = new HSSFWorkbook();
         var sheet = workbook.createSheet("Sections sheet");
 
@@ -131,7 +131,6 @@ public class XlsService {
     }
 
     public void loadFile(XlsJob job) throws IOException {
-
         ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(job.getContent());
         HSSFWorkbook workbook = new HSSFWorkbook(byteArrayInputStream);
         HSSFSheet sheet = workbook.getSheetAt(0);
