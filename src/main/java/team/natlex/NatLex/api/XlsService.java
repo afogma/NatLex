@@ -37,7 +37,7 @@ public class XlsService {
 
     private Map<UUID, XlsJob> jobs = new ConcurrentHashMap<>();
 
-    public ByteArrayOutputStream xlsExportProcess() {
+    public void xlsExportProcess(XlsJob job) {
         var workbook = new HSSFWorkbook();
         var sheet = workbook.createSheet("Sections sheet");
 
@@ -56,13 +56,13 @@ public class XlsService {
         drawSections(sectionList, sheet, classNumbers);
 
         ByteArrayOutputStream outFile = new ByteArrayOutputStream();
-        try  {
+        try {
             workbook.write(outFile);
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-        return outFile;
+        jobs.get(job.getId()).setContent(outFile.toByteArray());
+        job.setStatus(XlsJob.JobStatus.DONE);
     }
 
     public void drawHeader(List<Character> classNumbers, HSSFSheet sheet) {
@@ -171,7 +171,7 @@ public class XlsService {
             try {
                 loadFile(job);
             } catch (IOException e) {
-               job.setStatus(XlsJob.JobStatus.ERROR);
+                job.setStatus(XlsJob.JobStatus.ERROR);
             }
         });
         return job;
@@ -179,10 +179,12 @@ public class XlsService {
 
     public XlsJob exportXls() {
         var id = randomUUID();
-        ByteArrayOutputStream output  = (ByteArrayOutputStream) executorService.submit((Runnable) this::xlsExportProcess);
-        byte[] content = output.toByteArray();
-        var job = new XlsJob(id, content, XlsJob.JobStatus.IN_PROGRESS);
+        var job = new XlsJob(id, null, XlsJob.JobStatus.IN_PROGRESS);
         jobs.put(id, job);
+        executorService.submit(() -> {
+            xlsExportProcess(job);
+        });
+
         return job;
     }
 
