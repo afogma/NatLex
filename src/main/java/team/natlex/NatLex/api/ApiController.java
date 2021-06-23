@@ -1,6 +1,9 @@
 package team.natlex.NatLex.api;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -35,9 +38,21 @@ public class ApiController {
 
     @GetMapping
     @RequestMapping("/export")
-    public ResponseEntity<Resource> downloadFile() {
-        UUID id = xlsService.downloadFile();
-        return ResponseEntity.ok("id: " + id);
+    public ResponseEntity downloadFile() throws IOException {
+        XlsJob job = xlsService.exportXls();
+        return ResponseEntity.ok("file processing. id: " + job.getId());
+    }
+
+    @GetMapping
+    @RequestMapping("/export/{id}/file")
+    public ResponseEntity<byte[]> downloadFile(@PathVariable UUID id) {
+        byte[] content = xlsService.downloadFile(id);
+        HttpHeaders responseHeaders = new HttpHeaders();
+        responseHeaders.setContentType(MediaType.APPLICATION_OCTET_STREAM);
+        responseHeaders.setContentLength(content.length);
+        responseHeaders.set("Content-disposition", "attachment; filename=job_" + id + ".xls");
+
+        return new ResponseEntity<>(content, responseHeaders, HttpStatus.OK);
     }
 
     @PostMapping
