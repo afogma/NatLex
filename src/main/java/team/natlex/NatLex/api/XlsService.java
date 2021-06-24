@@ -169,9 +169,8 @@ public class XlsService {
     }
 
     public XlsJob exportXls() {
-        var id = randomUUID();
-        var job = new XlsJob(id, null, XlsJob.JobStatus.IN_PROGRESS);
-        jobs.put(id, job);
+        var job = new XlsJob(null);
+        jobs.put(job.getId(), job);
         executorService.submit(() -> {
             xlsExportProcess(job);
         });
