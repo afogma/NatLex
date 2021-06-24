@@ -16,7 +16,9 @@ public class XlsJob {
     private JobStatus status;
 
     public XlsJob(byte[] content) {
+        this.id = randomUUID();
         this.content = content;
+        this.status = IN_PROGRESS;
     }
 
     @RequiredArgsConstructor

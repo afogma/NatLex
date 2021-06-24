@@ -120,9 +120,9 @@ public class XlsService {
     }
 
     public void loadFile(XlsJob job) throws IOException {
-        ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(job.getContent());
-        HSSFWorkbook workbook = new HSSFWorkbook(byteArrayInputStream);
-        HSSFSheet sheet = workbook.getSheetAt(0);
+        var byteArrayInputStream = new ByteArrayInputStream(job.getContent());
+        var workbook = new HSSFWorkbook(byteArrayInputStream);
+        var sheet = workbook.getSheetAt(0);
 
         Iterator<Row> rowIterator = sheet.iterator();
         rowIterator.next();
@@ -156,9 +156,8 @@ public class XlsService {
     }
 
     public XlsJob loadXls(MultipartFile file) throws IOException {
-        var id = randomUUID();
-        var job = new XlsJob(id, file.getBytes(), XlsJob.JobStatus.IN_PROGRESS);
-        jobs.put(id, job);
+        var job = new XlsJob(file.getBytes());
+        jobs.put(job.getId(), job);
         executorService.submit(() -> {
             try {
                 loadFile(job);
