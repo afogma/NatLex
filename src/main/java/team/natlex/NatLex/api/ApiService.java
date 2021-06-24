@@ -21,7 +21,7 @@ public class ApiService {
         var sections = sectionRepository.findAll();
         for (Section s : sections) {
             var classes = geologicalClassRepo.findByCodes(s.getCodes()).stream()
-                    .sorted(Comparator.comparing(GeologicalClass::getCode))
+//                    .sorted(Comparator.comparing(GeologicalClass::getCode))
                     .collect(toList());
             SectionFullDTO sectionFullDTO = new SectionFullDTO(s.getName(), classes);
             sectionDto.add(sectionFullDTO);

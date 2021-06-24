@@ -7,7 +7,6 @@ import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.Row;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -24,16 +23,9 @@ public class XlsService {
 
     private final SectionRepository sectionRepository;
     private final GeologicalClassRepo geologicalClassRepo;
-    private final XlsJob xlsJob;
-
-
-    @Bean("singleThreaded")
-    public ExecutorService singleThreadedExecutor() {
-        return Executors.newSingleThreadExecutor();
-    }
 
     @Autowired
-    private ExecutorService executorService;
+    private ExecutorService executorService = Executors.newSingleThreadExecutor();
 
     private Map<UUID, XlsJob> jobs = new ConcurrentHashMap<>();
 
