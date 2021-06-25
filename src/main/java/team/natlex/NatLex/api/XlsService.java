@@ -24,7 +24,6 @@ public class XlsService {
     private final SectionRepository sectionRepository;
     private final GeologicalClassRepo geologicalClassRepo;
 
-    @Autowired
     private ExecutorService executorService = Executors.newSingleThreadExecutor();
 
     private Map<UUID, XlsJob> jobs = new ConcurrentHashMap<>();

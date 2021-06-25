@@ -20,13 +20,13 @@ public class ApiService {
         List<SectionFullDTO> sectionDto = new ArrayList<>();
         var sections = sectionRepository.findAll();
         for (Section s : sections) {
-            var classes = geologicalClassRepo.findByCodes(s.getCodes()).stream()
-//                    .sorted(Comparator.comparing(GeologicalClass::getCode))
-                    .collect(toList());
+            var classes = new ArrayList<>(geologicalClassRepo.findByCodes(s.getCodes()));
             SectionFullDTO sectionFullDTO = new SectionFullDTO(s.getName(), classes);
             sectionDto.add(sectionFullDTO);
         }
-        return sectionDto;
+        return sectionDto.stream().
+                sorted(Comparator.comparing(SectionFullDTO::getName))
+                .collect(toList());
     }
 
     public List<GeologicalClass> findAllClasses() {

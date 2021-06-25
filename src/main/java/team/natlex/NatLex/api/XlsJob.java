@@ -5,6 +5,9 @@ import org.springframework.stereotype.Component;
 
 import java.util.UUID;
 
+import static java.util.UUID.randomUUID;
+import static team.natlex.NatLex.api.XlsJob.JobStatus.IN_PROGRESS;
+
 @Data
 @Component
 @NoArgsConstructor
