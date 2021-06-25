@@ -30,10 +30,11 @@ public class ApiController {
     }
 
     @PostMapping
+    @RequestMapping("/section/add")
     public ResponseEntity addNewSection(@RequestBody SectionFullDTO sectionFullDTO) {
         apiService.addNewSection(sectionFullDTO);
         System.out.println(sectionFullDTO);
-        return ResponseEntity.ok("section added");
+        return ResponseEntity.ok("section(s) added");
     }
 
     @GetMapping
@@ -50,7 +51,7 @@ public class ApiController {
         HttpHeaders responseHeaders = new HttpHeaders();
         responseHeaders.setContentType(MediaType.APPLICATION_OCTET_STREAM);
         responseHeaders.setContentLength(content.length);
-        responseHeaders.set("Content-disposition", "attachment; filename=job_" + id + ".xls");
+        responseHeaders.set("Content-disposition", "job_" + id + ".xls");
 
         return new ResponseEntity<>(content, responseHeaders, HttpStatus.OK);
     }
@@ -85,6 +86,6 @@ public class ApiController {
     @RequestMapping("/section/delete/{name}")
     public ResponseEntity deleteSection(@PathVariable String name) {
         apiService.deleteSection(name);
-        return ResponseEntity.ok("section " + name + " deleted");
+        return ResponseEntity.ok(name + " deleted");
     }
 }

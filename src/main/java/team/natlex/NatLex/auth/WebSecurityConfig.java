@@ -20,18 +20,28 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests().antMatchers("/").permitAll().antMatchers("/login")
-                .hasAnyRole("USER", "ADMIN").antMatchers("/api/sections").hasAnyRole("USER", "ADMIN")
-                .antMatchers("/api/*").hasAnyRole("ADMIN").anyRequest().authenticated().and().formLogin()
-                .permitAll().and().logout().permitAll();
+        http
 
-        http.csrf().disable();
+                .anonymous()
+                .and()
+                .authorizeRequests()
+//                .anyRequest()
+                .antMatchers("/api/sections").permitAll()
+                .antMatchers("/api/sections/by-code*").permitAll()
+                .antMatchers("/api/classes/*").hasAnyAuthority("USER")
+                .antMatchers("/api/sections/*").hasAnyAuthority("USER")
+                .antMatchers("/api/section/**").hasAnyAuthority("USER")
+                .antMatchers("/api/import/**").hasAnyAuthority("USER")
+                .antMatchers("/api/export/**").hasAnyAuthority("USER")
+                .and()
+                .httpBasic()
+                .and()
+                .csrf().disable();
     }
 
     protected void configure(final AuthenticationManagerBuilder auth) throws Exception {
         auth.inMemoryAuthentication()
-                .withUser("user").password(passwordEncoder().encode("userPass")).roles("USER")
-                .and()
-                .withUser("admin").password(passwordEncoder().encode("adminPass")).roles("ADMIN");
+                .withUser("admin").password(passwordEncoder().encode("admin"))
+                .authorities("USER");
     }
 }
