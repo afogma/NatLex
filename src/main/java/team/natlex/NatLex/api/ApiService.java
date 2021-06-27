@@ -41,7 +41,7 @@ public class ApiService {
                 .collect(toList());
         var name = sectionFullDTO.getName();
         var section = sectionRepository.findById(name).orElse(new Section());
-        if (sectionRepository.findById(name).isPresent()) {
+        if (sectionRepository.existsById(name)) {
             var codes = section.getCodes();
             codes.addAll(classCodes);
         } else {
@@ -79,5 +79,20 @@ public class ApiService {
 
     public void deleteSection(String name) {
         sectionRepository.deleteById(name);
+    }
+
+    public void addNewClass(GeologicalClass geoClass) {
+        if (geologicalClassRepo.existsById(geoClass.getName())) throw new RuntimeException();
+        geologicalClassRepo.save(geoClass);
+    }
+
+    public void deleteClass(String name) {
+        if(!geologicalClassRepo.existsById(name)) throw new RuntimeException();
+        geologicalClassRepo.deleteById(name);
+    }
+
+    public void updateClass(GeologicalClass geoClass, String name) {
+        if (!geologicalClassRepo.existsById(name)) throw new RuntimeException();
+        geologicalClassRepo.save(geoClass);
     }
 }
