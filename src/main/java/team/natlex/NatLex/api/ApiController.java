@@ -23,87 +23,75 @@ public class ApiController {
     private final ApiService apiService;
     private final XlsService xlsService;
 
-    @GetMapping
-    @RequestMapping("/sections")
+    @GetMapping("/sections")
     @PreAuthorize("permitAll")
     public List<SectionFullDTO> showSectionList() {
         List<SectionFullDTO> section = apiService.findAllSections();
         return section;
     }
 
-    @GetMapping
-    @RequestMapping("/sections/by-code")
+    @GetMapping("/sections/by-code")
     @PreAuthorize("permitAll")
     public List<String> showAllSectionsByClassCode(@RequestParam String code) {
         return apiService.findSectionsByCode(code);
     }
 
-    @GetMapping
-    @RequestMapping("/classes/{code}")
+    @GetMapping("/classes/{code}")
     @PreAuthorize("permitAll")
     public GeologicalClass showAllClassesByCode(@PathVariable String code) {
         return apiService.findClassByCode(code);
     }
 
-    @PutMapping
-    @RequestMapping("/section/update/{name}")
+    @PutMapping("/section/update/{name}")
     public ResponseEntity<String> updateSection(@RequestBody SectionFullDTO sectionFullDTO, @PathVariable String name) {
         apiService.updateSection(sectionFullDTO, name);
         return ResponseEntity.ok("section updated");
     }
 
-    @DeleteMapping
-    @RequestMapping("/section/delete/{name}")
+    @DeleteMapping("/section/delete/{name}")
     public ResponseEntity<String> deleteSection(@PathVariable String name) {
         apiService.deleteSection(name);
         return ResponseEntity.ok(name + " deleted");
     }
 
-    @PostMapping
-    @RequestMapping("/section/add")
+    @PostMapping("/section/add")
     public ResponseEntity<String> addNewSection(@RequestBody SectionFullDTO sectionFullDTO) {
         apiService.addNewSection(sectionFullDTO);
         System.out.println(sectionFullDTO);
         return ResponseEntity.ok("section(s) added");
     }
 
-    @PostMapping
-    @RequestMapping("/class/add")
+    @PostMapping("/class/add")
     public ResponseEntity<String> addNewClass(@RequestBody GeologicalClass geoClass) {
         apiService.addNewClass(geoClass);
         return ResponseEntity.ok("class added");
     }
 
-    @PutMapping
-    @RequestMapping("/class/update/{name}")
+    @PutMapping("/class/update/{name}")
     public ResponseEntity<String> updateClass(@RequestBody GeologicalClass geoClass, @PathVariable String name) {
         apiService.updateClass(geoClass, name);
         return ResponseEntity.ok("class updated");
     }
 
-    @DeleteMapping
-    @RequestMapping("/class/delete/{name}")
+    @DeleteMapping("/class/delete/{name}")
     public ResponseEntity<String> deleteClass(@PathVariable String name) {
         apiService.deleteClass(name);
         return ResponseEntity.ok(name + " removed");
     }
 
-    @PostMapping
-    @RequestMapping("/import")
+    @PostMapping("/import")
     public ResponseEntity<String> uploadFile(@RequestParam("file") MultipartFile file) throws IOException {
         XlsJob job = xlsService.loadXls(file);
         return ResponseEntity.ok("file uploaded, id: " + job.getId());
     }
 
-    @GetMapping
-    @RequestMapping("/export")
-    public ResponseEntity<String> downloadFile() throws IOException {
+    @GetMapping("/export")
+    public ResponseEntity<String> downloadFile() {
         XlsJob job = xlsService.exportXls();
         return ResponseEntity.ok("file processing. id: " + job.getId());
     }
 
-    @GetMapping
-    @RequestMapping("/export/{id}/file")
+    @GetMapping("/export/{id}/file")
     public ResponseEntity<byte[]> downloadFile(@PathVariable UUID id) {
         byte[] content = xlsService.downloadFile(id);
         HttpHeaders responseHeaders = new HttpHeaders();
@@ -111,5 +99,17 @@ public class ApiController {
         responseHeaders.setContentLength(content.length);
         responseHeaders.set("Content-disposition","attachment; filename=\""+  "job_" + id + ".xls");
         return new ResponseEntity<>(content, responseHeaders, HttpStatus.OK);
+    }
+
+    @GetMapping("/export/{id}")
+    public ResponseEntity<String> getExportStatus(@PathVariable UUID id) {
+        XlsJob.JobStatus status  = xlsService.getJobStatus(id);
+        return ResponseEntity.ok("status: " + status);
+    }
+
+    @GetMapping("/import/{id}")
+    public ResponseEntity<String> getImportStatus(@PathVariable UUID id) {
+        XlsJob.JobStatus status  = xlsService.getJobStatus(id);
+        return ResponseEntity.ok("status: " + status);
     }
 }

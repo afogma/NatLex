@@ -6,8 +6,12 @@ import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.Row;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
+import team.natlex.NatLex.exceptions.ExportStillInProgressExcetption;
+import team.natlex.NatLex.exceptions.ImportErrorException;
 
 import java.io.*;
 import java.util.*;
@@ -19,7 +23,9 @@ import static java.util.stream.Collectors.toList;
 @RequiredArgsConstructor
 public class XlsService {
 
-    private final SectionRepository sectionRepository;
+    Logger logger = LoggerFactory.getLogger(XlsService.class);
+
+    private final SectionRepo sectionRepo;
     private final GeologicalClassRepo geologicalClassRepo;
 
     private ExecutorService executorService = Executors.newSingleThreadExecutor();
@@ -30,7 +36,7 @@ public class XlsService {
         var workbook = new HSSFWorkbook();
         var sheet = workbook.createSheet("Sections sheet");
 
-        var sectionList = sectionRepository.findAll().stream()
+        var sectionList = sectionRepo.findAll().stream()
                 .sorted(Comparator.comparing(Section::getName))
                 .collect(toList());
         var geologicalClassList = geologicalClassRepo.findAll();
@@ -52,6 +58,7 @@ public class XlsService {
         }
         jobs.get(job.getId()).setContent(outFile.toByteArray());
         job.setStatus(XlsJob.JobStatus.DONE);
+        logger.info("job {} finished export", job.getId());
     }
 
     public void drawHeader(List<Character> classNumbers, HSSFSheet sheet) {
@@ -144,12 +151,13 @@ public class XlsService {
                 }
             }
             var section = new Section(sectionName, codes);
-            sectionRepository.save(section);
+            sectionRepo.save(section);
             for (GeologicalClass gc : geologicalClassList) {
                 geologicalClassRepo.save(gc);
             }
         }
         job.setStatus(XlsJob.JobStatus.DONE);
+        logger.info("job {} finished import", job.getId());
     }
 
     public XlsJob loadXls(MultipartFile file) throws IOException {
@@ -160,6 +168,7 @@ public class XlsService {
                 loadFile(job);
             } catch (IOException e) {
                 job.setStatus(XlsJob.JobStatus.ERROR);
+                throw new ImportErrorException();
             }
         });
         return job;
@@ -175,6 +184,11 @@ public class XlsService {
     }
 
     public byte[] downloadFile(UUID id) {
+        if (jobs.get(id).getStatus().equals(XlsJob.JobStatus.IN_PROGRESS)) throw new ExportStillInProgressExcetption();
         return jobs.get(id).getContent();
+    }
+
+    public XlsJob.JobStatus getJobStatus(UUID id) {
+        return jobs.get(id).getStatus();
     }
 }

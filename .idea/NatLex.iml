@@ -119,5 +119,18 @@
     <orderEntry type="library" name="Maven: org.jetbrains.kotlin:kotlin-stdlib-common:1.5.0" level="project" />
     <orderEntry type="library" name="Maven: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.5.0" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.security:spring-security-web:5.5.0" level="project" />
+    <orderEntry type="library" name="Maven: org.springdoc:springdoc-openapi-ui:1.5.2" level="project" />
+    <orderEntry type="library" name="Maven: org.springdoc:springdoc-openapi-webmvc-core:1.5.2" level="project" />
+    <orderEntry type="library" name="Maven: org.springdoc:springdoc-openapi-common:1.5.2" level="project" />
+    <orderEntry type="library" name="Maven: io.swagger.core.v3:swagger-models:2.1.6" level="project" />
+    <orderEntry type="library" name="Maven: io.swagger.core.v3:swagger-annotations:2.1.6" level="project" />
+    <orderEntry type="library" name="Maven: io.swagger.core.v3:swagger-integration:2.1.6" level="project" />
+    <orderEntry type="library" name="Maven: io.swagger.core.v3:swagger-core:2.1.6" level="project" />
+    <orderEntry type="library" name="Maven: com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.12.3" level="project" />
+    <orderEntry type="library" name="Maven: jakarta.validation:jakarta.validation-api:2.0.2" level="project" />
+    <orderEntry type="library" name="Maven: io.github.classgraph:classgraph:4.8.69" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.commons:commons-lang3:3.12.0" level="project" />
+    <orderEntry type="library" name="Maven: org.webjars:swagger-ui:3.38.0" level="project" />
+    <orderEntry type="library" name="Maven: org.webjars:webjars-locator-core:0.46" level="project" />
   </component>
 </module>
