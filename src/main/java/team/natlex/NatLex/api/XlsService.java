@@ -53,11 +53,13 @@ public class XlsService {
         var outFile = new ByteArrayOutputStream();
         try {
             workbook.write(outFile);
+            workbook.close();
+            outFile.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
         jobs.get(job.getId()).setContent(outFile.toByteArray());
-        job.setStatus(XlsJob.JobStatus.DONE);
+        jobs.get(job.getId()).setStatus(XlsJob.JobStatus.DONE);
         logger.info("job {} finished export", job.getId());
     }
 
@@ -156,7 +158,7 @@ public class XlsService {
                 geologicalClassRepo.save(gc);
             }
         }
-        job.setStatus(XlsJob.JobStatus.DONE);
+        jobs.get(job.getId()).setStatus(XlsJob.JobStatus.DONE);
         logger.info("job {} finished import", job.getId());
     }
 

@@ -9,9 +9,7 @@ import team.natlex.NatLex.exceptions.GeoClassNotFoundException;
 import team.natlex.NatLex.exceptions.SectionNotFoundException;
 import team.natlex.NatLex.exceptions.WrongInputException;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
 import static java.util.stream.Collectors.toList;
 
@@ -50,8 +48,9 @@ public class ApiService {
         var name = sectionFullDTO.getName();
         var section = sectionRepo.findById(name).orElse(new Section());
         if (sectionRepo.existsById(name)) {
-            var codes = section.getCodes();
-            codes.addAll(classCodes);
+            var codesSet = new LinkedHashSet<>(section.getCodes());
+            codesSet.addAll(classCodes);
+            section.setCodes(new ArrayList<>(codesSet));
         } else {
             section.setName(name);
             section.setCodes(classCodes);
