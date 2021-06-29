@@ -15,14 +15,13 @@ class ApiServiceTest {
     GeologicalClassRepo geologicalClassRepo = mock(GeologicalClassRepo.class);
     ApiService apiService = new ApiService(sectionRepo, geologicalClassRepo);
 
-    public Section getSection () {
+    public Section getSection() {
         Section section = new Section("Section 1", asList("GC11", "GC12", "GC15", "GC17"));
         return section;
     }
 
     public GeologicalClass getGeoClass() {
-        GeologicalClass geologicalClass = new GeologicalClass("Geo Class 11", "GC11");
-        return geologicalClass;
+        return new GeologicalClass("Geo Class 11", "GC11");
     }
 
     public SectionFullDTO getFullSection() {
@@ -81,21 +80,54 @@ class ApiServiceTest {
 
     @Test
     void updateSection() {
+        Section section = getSection();
+        SectionFullDTO sectionFullDTO = new SectionFullDTO("Section 1", asList(new GeologicalClass("Geo Class 14", "GC14")));
+        Section newSection = new Section("Section 1", asList("GC11", "GC12", "GC14", "GC15", "GC17"));
+
+        when(sectionRepo.findById("Section 1")).thenReturn(java.util.Optional.ofNullable(section));
+        when(sectionRepo.save(newSection)).thenReturn(newSection);
+        apiService.updateSection(sectionFullDTO, "Section 1");
+        Section sect = sectionRepo.findById("Section 1").orElse(null);
+        assertEquals(sect, section);
     }
 
     @Test
     void deleteSection() {
+        Section section = getSection();
+        when(sectionRepo.findById("Section 1")).thenReturn(java.util.Optional.ofNullable(section));
+        apiService.deleteSection("Section 1");
+        assert section != null;
+        verify(sectionRepo).deleteById(section.getName());
     }
 
     @Test
     void addNewClass() {
+        GeologicalClass newGeoClass = new GeologicalClass("Geo Class 28", "GC28");
+        when(geologicalClassRepo.save(newGeoClass)).thenReturn(newGeoClass);
+        GeologicalClass geoClass = apiService.addNewClass(newGeoClass);
+        assertEquals(geoClass, newGeoClass);
+        verify(geologicalClassRepo).save(newGeoClass);
     }
 
     @Test
     void deleteClass() {
+        GeologicalClass geologicalClass = getGeoClass();
+        when(geologicalClassRepo.findById("Geo Class 11")).thenReturn(java.util.Optional.ofNullable(geologicalClass));
+        apiService.deleteClass("Geo Class 11");
+        assert geologicalClass != null;
+        verify(geologicalClassRepo).deleteById(geologicalClass.getName());
     }
 
     @Test
     void updateClass() {
+        Section section = getSection();
+        SectionFullDTO sectionFullDTO = new SectionFullDTO("Section 1", asList(new GeologicalClass("Geo Class 14", "GC14")));
+        Section newSection = new Section("Section 1", asList("GC11", "GC12", "GC14", "GC15", "GC17"));
+
+        when(sectionRepo.findById("Section 1")).thenReturn(java.util.Optional.ofNullable(section));
+        when(sectionRepo.save(newSection)).thenReturn(newSection);
+        apiService.updateSection(sectionFullDTO, "Section 1");
+        Section sect = sectionRepo.findById("Section 1").orElse(null);
+        assertEquals(sect, section);
     }
 }

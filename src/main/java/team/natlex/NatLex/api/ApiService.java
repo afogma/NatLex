@@ -71,42 +71,45 @@ public class ApiService {
         return geologicalClassRepo.findByCode(code);
     }
 
-    public void updateSection(SectionFullDTO section, String name) {
+    public Section updateSection(SectionFullDTO sectionFullDTO, String name) {
         if (sectionRepo.findById(name).isEmpty()) throw new SectionNotFoundException();
-        if (section == null) throw new RuntimeException();
-        var codes = section.getGeologicalClasses().stream()
+        if (sectionFullDTO == null) throw new RuntimeException();
+        var codes = sectionFullDTO.getGeologicalClasses().stream()
                 .map(GeologicalClass::getCode)
                 .collect(toList());
-        var newSection = new Section(section.getName(), codes);
-        sectionRepo.save(newSection);
-        var listOfClasses = section.getGeologicalClasses();
+        var newSection = new Section(sectionFullDTO.getName(), codes);
+        var savedSection = sectionRepo.save(newSection);
+        var listOfClasses = sectionFullDTO.getGeologicalClasses();
         for (GeologicalClass gc : listOfClasses) {
             var sec = geologicalClassRepo.save(gc);
         }
         logger.info("{} updated", newSection.getName());
+        return savedSection;
     }
 
     public void deleteSection(String name) {
-        if(!sectionRepo.existsById(name)) throw new SectionNotFoundException();
+        if(sectionRepo.findById(name).isEmpty()) throw new SectionNotFoundException();
         sectionRepo.deleteById(name);
         logger.info("{} removed", name);
     }
 
-    public void addNewClass(GeologicalClass geoClass) {
-        if (geologicalClassRepo.existsById(geoClass.getName())) throw new ClassAlreadyExistsException();
-        geologicalClassRepo.save(geoClass);
+    public GeologicalClass addNewClass(GeologicalClass geoClass) {
+        if (geologicalClassRepo.findById(geoClass.getName()).isPresent()) throw new ClassAlreadyExistsException();
+        var clazz =  geologicalClassRepo.save(geoClass);
         logger.info("{} added", geoClass.getName());
+        return clazz;
     }
 
     public void deleteClass(String name) {
-        if(!geologicalClassRepo.existsById(name)) throw new GeoClassNotFoundException();
+        if(geologicalClassRepo.findById(name).isEmpty()) throw new GeoClassNotFoundException();
         geologicalClassRepo.deleteById(name);
         logger.info("{} removed", name);
     }
 
-    public void updateClass(GeologicalClass geoClass, String name) {
-        if (!geologicalClassRepo.existsById(name)) throw new GeoClassNotFoundException();
-        geologicalClassRepo.save(geoClass);
+    public GeologicalClass updateClass(GeologicalClass geoClass, String name) {
+        if (geologicalClassRepo.findById(name).isEmpty()) throw new GeoClassNotFoundException();
+        var clazz =  geologicalClassRepo.save(geoClass);
         logger.info("{} updated", geoClass.getName());
+        return clazz;
     }
 }
