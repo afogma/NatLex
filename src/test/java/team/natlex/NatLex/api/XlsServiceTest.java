@@ -56,11 +56,13 @@ class XlsServiceTest {
 
     @Test
     void downloadFile() throws IOException {
-//        var job = new XlsJob(Files.readAllBytes(Paths.get("sections.xls")));
-//        xlsService.xlsExportProcess(job);
         var job = xlsService.exportXls();
+        job.setContent(Files.readAllBytes(Paths.get("sections.xls")));
+        System.out.println(job.getContent().length);
+        xlsService.xlsExportProcess(job);
         var content = xlsService.downloadFile(job.getId());
-//        assertEquals(content, job.getContent());
+        System.out.println(content.length);
+        assertEquals(content, job.getContent());
 
     }
 

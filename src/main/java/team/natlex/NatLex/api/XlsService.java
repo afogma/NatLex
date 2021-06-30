@@ -32,6 +32,12 @@ public class XlsService {
 
     private Map<UUID, XlsJob> jobs = new ConcurrentHashMap<>();
 
+//    public XlsService(SectionRepo sectionRepo, GeologicalClassRepo geologicalClassRepo, Map<UUID, XlsJob> jobs) {
+//        this.sectionRepo = sectionRepo;
+//        this.geologicalClassRepo = geologicalClassRepo;
+//        this.jobs = jobs;
+//    }
+
     public void xlsExportProcess(XlsJob job) {
         var workbook = new HSSFWorkbook();
         var sheet = workbook.createSheet("Sections sheet");
