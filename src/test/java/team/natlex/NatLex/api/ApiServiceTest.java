@@ -2,7 +2,6 @@ package team.natlex.NatLex.api;
 
 import org.junit.jupiter.api.Test;
 
-import java.util.Arrays;
 import java.util.List;
 
 import static java.util.Arrays.asList;
@@ -30,8 +29,7 @@ class ApiServiceTest {
                 new GeologicalClass("Geo Class 12", "GC12"),
                 new GeologicalClass("Geo Class 15", "GC15"),
                 new GeologicalClass("Geo Class 17", "GC17"));
-        SectionFullDTO sectionFullDTO = new SectionFullDTO("Section 1", geologicalClassList);
-        return sectionFullDTO;
+        return new SectionFullDTO("Section 1", geologicalClassList);
     }
 
 
@@ -120,14 +118,11 @@ class ApiServiceTest {
 
     @Test
     void updateClass() {
-        Section section = getSection();
-        SectionFullDTO sectionFullDTO = new SectionFullDTO("Section 1", asList(new GeologicalClass("Geo Class 14", "GC14")));
-        Section newSection = new Section("Section 1", asList("GC11", "GC12", "GC14", "GC15", "GC17"));
-
-        when(sectionRepo.findById("Section 1")).thenReturn(java.util.Optional.ofNullable(section));
-        when(sectionRepo.save(newSection)).thenReturn(newSection);
-        apiService.updateSection(sectionFullDTO, "Section 1");
-        Section sect = sectionRepo.findById("Section 1").orElse(null);
-        assertEquals(sect, section);
+        GeologicalClass geoClass = getGeoClass();
+        when(geologicalClassRepo.findById("Geo Class 11")).thenReturn(java.util.Optional.ofNullable(geoClass));
+        GeologicalClass newGeoClass = new GeologicalClass("Geo Class 11" , "GC22");
+        when(geologicalClassRepo.save(newGeoClass)).thenReturn(newGeoClass);
+        GeologicalClass testClass = apiService.updateClass(newGeoClass, "Geo Class 11");
+        assertEquals(testClass, newGeoClass);
     }
 }

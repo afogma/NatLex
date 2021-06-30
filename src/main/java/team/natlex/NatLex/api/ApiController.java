@@ -97,7 +97,7 @@ public class ApiController {
         HttpHeaders responseHeaders = new HttpHeaders();
         responseHeaders.setContentType(MediaType.APPLICATION_OCTET_STREAM);
         responseHeaders.setContentLength(content.length);
-        responseHeaders.set("Content-disposition","attachment; filename=\""+  "job_" + id + ".xls");
+        responseHeaders.set("Content-disposition","attachment; filename=job_" + id + ".xls");
         return new ResponseEntity<>(content, responseHeaders, HttpStatus.OK);
     }
 
