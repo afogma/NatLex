@@ -10,7 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
-import team.natlex.NatLex.exceptions.ExportStillInProgressExcetption;
+import team.natlex.NatLex.exceptions.ExportStillInProgressException;
 import team.natlex.NatLex.exceptions.ImportErrorException;
 
 import java.io.*;
@@ -58,12 +58,12 @@ public class XlsService {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        jobs.get(job.getId()).setContent(outFile.toByteArray());
-        jobs.get(job.getId()).setStatus(XlsJob.JobStatus.DONE);
+        job.setContent(outFile.toByteArray());
+        job.setStatus(XlsJob.JobStatus.DONE);
         logger.info("job {} finished export", job.getId());
     }
 
-    public void drawHeader(List<Character> classNumbers, HSSFSheet sheet) {
+    private void drawHeader(List<Character> classNumbers, HSSFSheet sheet) {
         Cell cell;
         Row row;
         row = sheet.createRow(0);
@@ -82,7 +82,7 @@ public class XlsService {
         }
     }
 
-    public void drawSections(List<Section> sectionList, HSSFSheet sheet, List<Character> classNumbers) {
+    private void drawSections(List<Section> sectionList, HSSFSheet sheet, List<Character> classNumbers) {
         var rownum = 0;
         Cell cell;
         Row row;
@@ -125,7 +125,7 @@ public class XlsService {
         }
     }
 
-    public void loadFile(XlsJob job) throws IOException {
+    void loadFile(XlsJob job) throws IOException {
         var byteArrayInputStream = new ByteArrayInputStream(job.getContent());
         var workbook = new HSSFWorkbook(byteArrayInputStream);
         var sheet = workbook.getSheetAt(0);
@@ -158,7 +158,7 @@ public class XlsService {
                 geologicalClassRepo.save(gc);
             }
         }
-        jobs.get(job.getId()).setStatus(XlsJob.JobStatus.DONE);
+        job.setStatus(XlsJob.JobStatus.DONE);
         logger.info("job {} finished import", job.getId());
     }
 
@@ -186,7 +186,7 @@ public class XlsService {
     }
 
     public byte[] downloadFile(UUID id) {
-        if (jobs.get(id).getStatus().equals(XlsJob.JobStatus.IN_PROGRESS)) throw new ExportStillInProgressExcetption();
+        if (jobs.get(id).getStatus() == XlsJob.JobStatus.IN_PROGRESS) throw new ExportStillInProgressException();
         return jobs.get(id).getContent();
     }
 

@@ -8,8 +8,10 @@ import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
+import static java.util.Arrays.asList;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
 
 class XlsServiceTest {
 
@@ -23,28 +25,47 @@ class XlsServiceTest {
 
     @Test
     void loadFile() throws IOException {
-        MultipartFile multipartFile = new MockMultipartFile("file", Files.readAllBytes(Paths.get("sections.xls")));
+        var multipartFile = new MockMultipartFile("file", Files.readAllBytes(Paths.get("sections.xls")));
         var job = new XlsJob(multipartFile.getBytes());
         xlsService.loadFile(job);
         assertEquals(XlsJob.JobStatus.DONE, job.getStatus());
-
+        verify(sectionRepo).save(new Section("Section 1", asList("GC11", "GC12", "GC13")));
+        verify(sectionRepo).save(new Section("Section 2", asList("GC21", "GC23")));
+        verify(sectionRepo).save(new Section("Section 3", asList("GC31", "GC32")));
+        verify(geologicalClassRepo).save(new GeologicalClass("Geo Class 11","GC11"));
+        verify(geologicalClassRepo).save(new GeologicalClass("Geo Class 12","GC12"));
+        verify(geologicalClassRepo).save(new GeologicalClass("Geo Class 13","GC13"));
+        verify(geologicalClassRepo).save(new GeologicalClass("Geo Class 21","GC21"));
+        verify(geologicalClassRepo).save(new GeologicalClass("Geo Class 23","GC23"));
+        verify(geologicalClassRepo).save(new GeologicalClass("Geo Class 31","GC31"));
+        verify(geologicalClassRepo).save(new GeologicalClass("Geo Class 32","GC32"));
     }
 
     @Test
-    void loadXls() {
-
-
+    void loadXls() throws IOException {
+        var multipartFile = new MockMultipartFile("file", Files.readAllBytes(Paths.get("sections.xls")));
+        var job = xlsService.loadXls(multipartFile);
+        assertEquals(XlsJob.JobStatus.IN_PROGRESS, job.getStatus());
     }
 
     @Test
     void exportXls() {
+        var job = xlsService.exportXls();
+        assertEquals(XlsJob.JobStatus.IN_PROGRESS, job.getStatus());
     }
 
     @Test
-    void downloadFile() {
+    void downloadFile() throws IOException {
+//        var job = new XlsJob(Files.readAllBytes(Paths.get("sections.xls")));
+//        xlsService.xlsExportProcess(job);
+        var job = xlsService.exportXls();
+        var content = xlsService.downloadFile(job.getId());
+//        assertEquals(content, job.getContent());
+
     }
 
     @Test
     void getJobStatus() {
+
     }
 }

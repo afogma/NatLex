@@ -16,7 +16,7 @@ public class RestResponseEntityExceptionHandler extends ResponseEntityExceptionH
             return new ResponseEntity<>("Section not found", new HttpHeaders(), HttpStatus.NOT_FOUND);
         if (ex instanceof ClassAlreadyExistsException)
             return new ResponseEntity<>("Class already exist", new HttpHeaders(), HttpStatus.BAD_REQUEST);
-        if (ex instanceof ExportStillInProgressExcetption)
+        if (ex instanceof ExportStillInProgressException)
             return new ResponseEntity<>("Export still in progress", new HttpHeaders(), HttpStatus.BAD_REQUEST);
         if (ex instanceof GeoClassNotFoundException)
             return new ResponseEntity<>("Class not found", new HttpHeaders(), HttpStatus.NOT_FOUND);
