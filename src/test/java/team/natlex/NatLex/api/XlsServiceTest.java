@@ -13,11 +13,11 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.UUID;
 
 import static java.util.Arrays.asList;
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.*;
 
 class XlsServiceTest {
 
@@ -94,18 +94,21 @@ class XlsServiceTest {
                 }
             }
             var section = new Section(sectionName, codes);
-            sectionRepo.save(section);
+            verify(sectionRepo).save(section);
             for (GeologicalClass gc : geologicalClassList) {
-                geologicalClassRepo.save(gc);
+                verify(geologicalClassRepo).save(gc);
             }
         }
-
-
-
     }
 
     @Test
     void getJobStatus() {
-
+        var job = xlsService.exportXls();
+        UUID id = job.getId();
+        XlsJob.JobStatus status = xlsService.getJobStatus(id);
+        assertEquals(status, XlsJob.JobStatus.IN_PROGRESS);
+        xlsService.xlsExportProcess(job);
+        XlsJob.JobStatus newStatus = xlsService.getJobStatus(id);
+        assertEquals(newStatus, XlsJob.JobStatus.DONE);
     }
 }
