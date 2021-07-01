@@ -13,6 +13,3 @@ CREATE TABLE sections
     name VARCHAR(255),
     PRIMARY KEY (name)
 );
-
-INSERT INTO SECTIONS  VALUES  (ARRAY['GC11', 'GC12'], 'section 1');
-INSERT INTO SECTIONS  VALUES  (ARRAY['GC21', 'GC22'], 'section 2');
