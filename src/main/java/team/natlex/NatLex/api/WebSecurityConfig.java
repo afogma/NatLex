@@ -1,4 +1,4 @@
-package team.natlex.NatLex.auth;
+package team.natlex.NatLex.api;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
