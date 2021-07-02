@@ -21,7 +21,7 @@ class ApiServiceTest {
     ApiService apiService = new ApiService(sectionRepo, geologicalClassRepo);
 
     public Section getSection() {
-        Section section = new Section("Section 1", asList("GC11", "GC12", "GC15", "GC17"));
+        var section = new Section("Section 1", asList("GC11", "GC12", "GC15", "GC17"));
         return section;
     }
 
@@ -41,63 +41,63 @@ class ApiServiceTest {
 
     @Test
     void findAllSections() {
-        List<Section> sections = asList(getSection());
+        var sections = asList(getSection());
         when(sectionRepo.findAll()).thenReturn(sections);
-        List<Section> sectionList = sectionRepo.findAll();
+        var sectionList = sectionRepo.findAll();
         assertEquals(sections, sectionList);
         verify(sectionRepo).findAll();
     }
 
     @Test
     void findAllClasses() {
-        List<GeologicalClass> classes = asList(getGeoClass());
+        var classes = asList(getGeoClass());
         when(geologicalClassRepo.findAll()).thenReturn(classes);
-        List<GeologicalClass> geologicalClassList = geologicalClassRepo.findAll();
+        var geologicalClassList = geologicalClassRepo.findAll();
         assertEquals(classes, geologicalClassList);
         verify(geologicalClassRepo).findAll();
     }
 
     @Test
     void addNewSection() {
-        Section section = getSection();
+        var section = getSection();
         when(sectionRepo.save(section)).thenReturn(section);
-        Section newSection = apiService.addNewSection(getFullSection());
+        var newSection = apiService.addNewSection(getFullSection());
         assertEquals(section, newSection);
         verify(sectionRepo).save(section);
     }
 
     @Test
     void findSectionsByCode() {
-        List<String> sections = asList(getSection().getName());
+        var sections = asList(getSection().getName());
         when(sectionRepo.findSectionsByCode("GC11")).thenReturn(sections);
-        List<String> sectionList = apiService.findSectionsByCode("GC11");
+        var sectionList = apiService.findSectionsByCode("GC11");
         assertEquals(sectionList, sections);
     }
 
     @Test
     void findClassByCode() {
-        GeologicalClass geoClass = getGeoClass();
+        var geoClass = getGeoClass();
         when(geologicalClassRepo.findByCode("GC11")).thenReturn(geoClass);
-        GeologicalClass clazz = apiService.findClassByCode("GC11");
+        var clazz = apiService.findClassByCode("GC11");
         assertEquals(clazz, geoClass);
     }
 
     @Test
     void updateSection() {
-        Section section = getSection();
-        SectionFullDTO sectionFullDTO = new SectionFullDTO("Section 1", asList(new GeologicalClass("Geo Class 14", "GC14")));
-        Section newSection = new Section("Section 1", asList("GC11", "GC12", "GC14", "GC15", "GC17"));
+        var section = getSection();
+        var sectionFullDTO = new SectionFullDTO("Section 1", asList(new GeologicalClass("Geo Class 14", "GC14")));
+        var newSection = new Section("Section 1", asList("GC11", "GC12", "GC14", "GC15", "GC17"));
 
         when(sectionRepo.findById("Section 1")).thenReturn(java.util.Optional.ofNullable(section));
         when(sectionRepo.save(newSection)).thenReturn(newSection);
         apiService.updateSection(sectionFullDTO, "Section 1");
-        Section sect = sectionRepo.findById("Section 1").orElse(null);
+        var sect = sectionRepo.findById("Section 1").orElse(null);
         assertEquals(sect, section);
     }
 
     @Test
     void deleteSection() {
-        Section section = getSection();
+        var section = getSection();
         when(sectionRepo.findById("Section 1")).thenReturn(java.util.Optional.ofNullable(section));
         apiService.deleteSection("Section 1");
         assert section != null;
@@ -106,16 +106,16 @@ class ApiServiceTest {
 
     @Test
     void addNewClass() {
-        GeologicalClass newGeoClass = new GeologicalClass("Geo Class 28", "GC28");
+        var newGeoClass = new GeologicalClass("Geo Class 28", "GC28");
         when(geologicalClassRepo.save(newGeoClass)).thenReturn(newGeoClass);
-        GeologicalClass geoClass = apiService.addNewClass(newGeoClass);
+        var geoClass = apiService.addNewClass(newGeoClass);
         assertEquals(geoClass, newGeoClass);
         verify(geologicalClassRepo).save(newGeoClass);
     }
 
     @Test
     void deleteClass() {
-        GeologicalClass geologicalClass = getGeoClass();
+        var geologicalClass = getGeoClass();
         when(geologicalClassRepo.findById("Geo Class 11")).thenReturn(java.util.Optional.ofNullable(geologicalClass));
         apiService.deleteClass("Geo Class 11");
         assert geologicalClass != null;
@@ -124,11 +124,11 @@ class ApiServiceTest {
 
     @Test
     void updateClass() {
-        GeologicalClass geoClass = getGeoClass();
+        var geoClass = getGeoClass();
         when(geologicalClassRepo.findById("Geo Class 11")).thenReturn(java.util.Optional.ofNullable(geoClass));
-        GeologicalClass newGeoClass = new GeologicalClass("Geo Class 11" , "GC22");
+        var newGeoClass = new GeologicalClass("Geo Class 11" , "GC22");
         when(geologicalClassRepo.save(newGeoClass)).thenReturn(newGeoClass);
-        GeologicalClass testClass = apiService.updateClass(newGeoClass, "Geo Class 11");
+        var testClass = apiService.updateClass(newGeoClass, "Geo Class 11");
         assertEquals(testClass, newGeoClass);
     }
 }

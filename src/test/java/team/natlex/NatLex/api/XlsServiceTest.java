@@ -109,7 +109,7 @@ class XlsServiceTest {
     @Test
     void getJobStatus() {
         var job = xlsService.exportXls();
-        UUID id = job.getId();
+        var id = job.getId();
         XlsJob.JobStatus status = xlsService.getJobStatus(id);
         assertEquals(status, XlsJob.JobStatus.IN_PROGRESS);
         xlsService.xlsExportProcess(job);
