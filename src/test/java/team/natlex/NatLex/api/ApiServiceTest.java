@@ -1,6 +1,12 @@
 package team.natlex.NatLex.api;
 
 import org.junit.jupiter.api.Test;
+import team.natlex.NatLex.api.entity.GeologicalClass;
+import team.natlex.NatLex.api.entity.Section;
+import team.natlex.NatLex.api.model.SectionFullDTO;
+import team.natlex.NatLex.api.repository.GeologicalClassRepo;
+import team.natlex.NatLex.api.repository.SectionRepo;
+import team.natlex.NatLex.api.service.ApiService;
 
 import java.util.List;
 

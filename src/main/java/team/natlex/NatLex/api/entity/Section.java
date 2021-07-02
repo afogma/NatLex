@@ -1,4 +1,4 @@
-package team.natlex.NatLex.api;
+package team.natlex.NatLex.api.entity;
 
 import com.vladmihalcea.hibernate.type.array.ListArrayType;
 import lombok.AllArgsConstructor;
@@ -20,7 +20,7 @@ import java.util.List;
         name = "list-array",
         typeClass = ListArrayType.class
 )
-class Section {
+public class Section {
 
     @Id
     private String name;

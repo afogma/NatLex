@@ -1,9 +1,14 @@
-package team.natlex.NatLex.api;
+package team.natlex.NatLex.api.service;
 
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
+import team.natlex.NatLex.api.entity.GeologicalClass;
+import team.natlex.NatLex.api.entity.Section;
+import team.natlex.NatLex.api.model.SectionFullDTO;
+import team.natlex.NatLex.api.repository.GeologicalClassRepo;
+import team.natlex.NatLex.api.repository.SectionRepo;
 import team.natlex.NatLex.exceptions.ClassAlreadyExistsException;
 import team.natlex.NatLex.exceptions.GeoClassNotFoundException;
 import team.natlex.NatLex.exceptions.SectionNotFoundException;

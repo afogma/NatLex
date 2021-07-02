@@ -1,4 +1,4 @@
-package team.natlex.NatLex.api;
+package team.natlex.NatLex.api.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpHeaders;
@@ -8,6 +8,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import team.natlex.NatLex.api.service.ApiService;
+import team.natlex.NatLex.api.service.XlsService;
+import team.natlex.NatLex.api.entity.GeologicalClass;
+import team.natlex.NatLex.api.model.SectionFullDTO;
+import team.natlex.NatLex.api.model.XlsJob;
 
 import java.io.IOException;
 import java.util.List;

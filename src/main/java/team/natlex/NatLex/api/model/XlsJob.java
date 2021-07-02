@@ -1,4 +1,4 @@
-package team.natlex.NatLex.api;
+package team.natlex.NatLex.api.model;
 
 import lombok.*;
 import org.springframework.stereotype.Component;
@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 import java.util.UUID;
 
 import static java.util.UUID.randomUUID;
-import static team.natlex.NatLex.api.XlsJob.JobStatus.IN_PROGRESS;
+import static team.natlex.NatLex.api.model.XlsJob.JobStatus.IN_PROGRESS;
 
 @Data
 @Component
@@ -26,7 +26,7 @@ public class XlsJob {
 
     @RequiredArgsConstructor
     @Getter
-    public static enum JobStatus {
+    public enum JobStatus {
 
         DONE("DONE"),
         IN_PROGRESS("IN PROGRESS"),

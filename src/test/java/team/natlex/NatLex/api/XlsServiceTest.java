@@ -5,6 +5,12 @@ import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.junit.jupiter.api.Test;
 import org.springframework.mock.web.MockMultipartFile;
+import team.natlex.NatLex.api.entity.GeologicalClass;
+import team.natlex.NatLex.api.entity.Section;
+import team.natlex.NatLex.api.model.XlsJob;
+import team.natlex.NatLex.api.repository.GeologicalClassRepo;
+import team.natlex.NatLex.api.repository.SectionRepo;
+import team.natlex.NatLex.api.service.XlsService;
 
 import java.io.*;
 import java.nio.file.Files;
