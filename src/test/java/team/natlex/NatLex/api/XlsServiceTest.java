@@ -5,12 +5,12 @@ import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.junit.jupiter.api.Test;
 import org.springframework.mock.web.MockMultipartFile;
-import team.natlex.NatLex.api.entity.GeologicalClass;
-import team.natlex.NatLex.api.entity.Section;
-import team.natlex.NatLex.api.model.XlsJob;
-import team.natlex.NatLex.api.repository.GeologicalClassRepo;
-import team.natlex.NatLex.api.repository.SectionRepo;
-import team.natlex.NatLex.api.service.XlsService;
+import team.natlex.NatLex.entity.GeologicalClass;
+import team.natlex.NatLex.entity.Section;
+import team.natlex.NatLex.model.XlsJob;
+import team.natlex.NatLex.repository.GeologicalClassRepo;
+import team.natlex.NatLex.repository.SectionRepo;
+import team.natlex.NatLex.service.XlsService;
 
 import java.io.*;
 import java.nio.file.Files;
@@ -18,11 +18,11 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.UUID;
 
 import static java.util.Arrays.asList;
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
 
 class XlsServiceTest {
 

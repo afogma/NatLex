@@ -11,5 +11,5 @@ id of the process), stored in memory for test purposes.
 
 To simplify basic authentication/authorization: username, password and role was written directly in web configuration class.
 
-Project built with jdk16.
+Project built with jdk11.
 To inspect all crud methods follow url: server-ip:8080/swagger-ui/index.html?configUrl=/v3/api-docs/swagger-config#/

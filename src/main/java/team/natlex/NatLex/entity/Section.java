@@ -1,10 +1,9 @@
-package team.natlex.NatLex.api.entity;
+package team.natlex.NatLex.entity;
 
 import com.vladmihalcea.hibernate.type.array.ListArrayType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
 import org.hibernate.annotations.Type;
 import org.hibernate.annotations.TypeDef;
 
@@ -16,10 +15,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "SECTIONS")
-@TypeDef(
-        name = "list-array",
-        typeClass = ListArrayType.class
-)
+@TypeDef(name = "list-array", typeClass = ListArrayType.class)
 public class Section {
 
     @Id

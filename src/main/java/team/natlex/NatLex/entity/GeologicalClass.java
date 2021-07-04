@@ -1,4 +1,4 @@
-package team.natlex.NatLex.api.entity;
+package team.natlex.NatLex.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

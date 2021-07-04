@@ -1,4 +1,4 @@
-package team.natlex.NatLex.api.service;
+package team.natlex.NatLex.service;
 
 import lombok.RequiredArgsConstructor;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
@@ -10,11 +10,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
-import team.natlex.NatLex.api.entity.GeologicalClass;
-import team.natlex.NatLex.api.entity.Section;
-import team.natlex.NatLex.api.model.XlsJob;
-import team.natlex.NatLex.api.repository.GeologicalClassRepo;
-import team.natlex.NatLex.api.repository.SectionRepo;
+import team.natlex.NatLex.entity.GeologicalClass;
+import team.natlex.NatLex.entity.Section;
+import team.natlex.NatLex.model.XlsJob;
+import team.natlex.NatLex.repository.GeologicalClassRepo;
+import team.natlex.NatLex.repository.SectionRepo;
 import team.natlex.NatLex.exceptions.ExportStillInProgressException;
 import team.natlex.NatLex.exceptions.ImportErrorException;
 

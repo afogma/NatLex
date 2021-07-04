@@ -1,8 +1,8 @@
-package team.natlex.NatLex.api.repository;
+package team.natlex.NatLex.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-import team.natlex.NatLex.api.entity.Section;
+import team.natlex.NatLex.entity.Section;
 
 import java.util.List;
 

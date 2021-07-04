@@ -1,4 +1,4 @@
-package team.natlex.NatLex.api.model;
+package team.natlex.NatLex.model;
 
 import lombok.*;
 import org.springframework.stereotype.Component;
@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 import java.util.UUID;
 
 import static java.util.UUID.randomUUID;
-import static team.natlex.NatLex.api.model.XlsJob.JobStatus.IN_PROGRESS;
+import static team.natlex.NatLex.model.XlsJob.JobStatus.IN_PROGRESS;
 
 @Data
 @Component
@@ -14,14 +14,12 @@ import static team.natlex.NatLex.api.model.XlsJob.JobStatus.IN_PROGRESS;
 @AllArgsConstructor
 public class XlsJob {
 
-    private UUID id;
+    private UUID id = randomUUID();
     private byte[] content;
-    private JobStatus status;
+    private JobStatus status = IN_PROGRESS;
 
     public XlsJob(byte[] content) {
-        this.id = randomUUID();
         this.content = content;
-        this.status = IN_PROGRESS;
     }
 
     @RequiredArgsConstructor
@@ -35,5 +33,4 @@ public class XlsJob {
         private final String code;
 
     }
-
 }

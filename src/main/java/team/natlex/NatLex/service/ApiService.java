@@ -1,14 +1,14 @@
-package team.natlex.NatLex.api.service;
+package team.natlex.NatLex.service;
 
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
-import team.natlex.NatLex.api.entity.GeologicalClass;
-import team.natlex.NatLex.api.entity.Section;
-import team.natlex.NatLex.api.model.SectionFullDTO;
-import team.natlex.NatLex.api.repository.GeologicalClassRepo;
-import team.natlex.NatLex.api.repository.SectionRepo;
+import team.natlex.NatLex.entity.GeologicalClass;
+import team.natlex.NatLex.entity.Section;
+import team.natlex.NatLex.model.SectionFullDTO;
+import team.natlex.NatLex.repository.GeologicalClassRepo;
+import team.natlex.NatLex.repository.SectionRepo;
 import team.natlex.NatLex.exceptions.ClassAlreadyExistsException;
 import team.natlex.NatLex.exceptions.GeoClassNotFoundException;
 import team.natlex.NatLex.exceptions.SectionNotFoundException;
@@ -93,27 +93,27 @@ public class ApiService {
     }
 
     public void deleteSection(String name) {
-        if(sectionRepo.findById(name).isEmpty()) throw new SectionNotFoundException();
+        if (sectionRepo.findById(name).isEmpty()) throw new SectionNotFoundException();
         sectionRepo.deleteById(name);
         logger.info("{} removed", name);
     }
 
     public GeologicalClass addNewClass(GeologicalClass geoClass) {
         if (geologicalClassRepo.findById(geoClass.getName()).isPresent()) throw new ClassAlreadyExistsException();
-        var clazz =  geologicalClassRepo.save(geoClass);
+        var clazz = geologicalClassRepo.save(geoClass);
         logger.info("{} added", geoClass.getName());
         return clazz;
     }
 
     public void deleteClass(String name) {
-        if(geologicalClassRepo.findById(name).isEmpty()) throw new GeoClassNotFoundException();
+        if (geologicalClassRepo.findById(name).isEmpty()) throw new GeoClassNotFoundException();
         geologicalClassRepo.deleteById(name);
         logger.info("{} removed", name);
     }
 
     public GeologicalClass updateClass(GeologicalClass geoClass, String name) {
         if (geologicalClassRepo.findById(name).isEmpty()) throw new GeoClassNotFoundException();
-        var clazz =  geologicalClassRepo.save(geoClass);
+        var clazz = geologicalClassRepo.save(geoClass);
         logger.info("{} updated", geoClass.getName());
         return clazz;
     }

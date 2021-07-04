@@ -1,4 +1,4 @@
-package team.natlex.NatLex.api.controller;
+package team.natlex.NatLex.api;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpHeaders;
@@ -8,11 +8,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import team.natlex.NatLex.api.service.ApiService;
-import team.natlex.NatLex.api.service.XlsService;
-import team.natlex.NatLex.api.entity.GeologicalClass;
-import team.natlex.NatLex.api.model.SectionFullDTO;
-import team.natlex.NatLex.api.model.XlsJob;
+import team.natlex.NatLex.service.ApiService;
+import team.natlex.NatLex.service.XlsService;
+import team.natlex.NatLex.entity.GeologicalClass;
+import team.natlex.NatLex.model.SectionFullDTO;
+import team.natlex.NatLex.model.XlsJob;
 
 import java.io.IOException;
 import java.util.List;
@@ -102,19 +102,19 @@ public class ApiController {
         HttpHeaders responseHeaders = new HttpHeaders();
         responseHeaders.setContentType(MediaType.APPLICATION_OCTET_STREAM);
         responseHeaders.setContentLength(content.length);
-        responseHeaders.set("Content-disposition","attachment; filename=job_" + id + ".xls");
+        responseHeaders.set("Content-disposition", "attachment; filename=job_" + id + ".xls");
         return new ResponseEntity<>(content, responseHeaders, HttpStatus.OK);
     }
 
     @GetMapping("/export/{id}")
     public ResponseEntity<String> getExportStatus(@PathVariable UUID id) {
-        XlsJob.JobStatus status  = xlsService.getJobStatus(id);
+        XlsJob.JobStatus status = xlsService.getJobStatus(id);
         return ResponseEntity.ok("status: " + status);
     }
 
     @GetMapping("/import/{id}")
     public ResponseEntity<String> getImportStatus(@PathVariable UUID id) {
-        XlsJob.JobStatus status  = xlsService.getJobStatus(id);
+        XlsJob.JobStatus status = xlsService.getJobStatus(id);
         return ResponseEntity.ok("status: " + status);
     }
 }
