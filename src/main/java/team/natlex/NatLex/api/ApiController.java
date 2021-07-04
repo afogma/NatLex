@@ -48,9 +48,8 @@ public class ApiController {
     }
 
     @PutMapping("/section/update/{name}")
-    public ResponseEntity<String> updateSection(@RequestBody SectionFullDTO sectionFullDTO, @PathVariable String name) {
+    public void updateSection(@RequestBody SectionFullDTO sectionFullDTO, @PathVariable String name) {
         apiService.updateSection(sectionFullDTO, name);
-        return ResponseEntity.ok("section updated");
     }
 
     @DeleteMapping("/section/delete/{name}")
@@ -62,7 +61,6 @@ public class ApiController {
     @PostMapping("/section/add")
     public ResponseEntity<String> addNewSection(@RequestBody SectionFullDTO sectionFullDTO) {
         apiService.addNewSection(sectionFullDTO);
-        System.out.println(sectionFullDTO);
         return ResponseEntity.ok("section(s) added");
     }
 
@@ -85,9 +83,9 @@ public class ApiController {
     }
 
     @PostMapping("/import")
-    public ResponseEntity<String> uploadFile(@RequestParam("file") MultipartFile file) throws IOException {
+    public ResponseEntity<UUID> uploadFile(@RequestParam("file") MultipartFile file) {
         XlsJob job = xlsService.loadXls(file);
-        return ResponseEntity.ok("file uploaded, id: " + job.getId());
+        return ResponseEntity.ok(job.getId());
     }
 
     @GetMapping("/export")

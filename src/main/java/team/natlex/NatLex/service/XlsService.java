@@ -23,6 +23,7 @@ import java.util.*;
 import java.util.concurrent.*;
 
 import static java.util.stream.Collectors.toList;
+import static team.natlex.NatLex.model.XlsJob.JobStatus.IN_PROGRESS;
 
 @Service
 @RequiredArgsConstructor
@@ -107,8 +108,6 @@ public class XlsService {
                 var geologicalClass = geologicalClassRepo.findByCode(codes.get(j));
                 var name = geologicalClass.getName();
 
-                System.out.println(name.charAt(name.length() - 1));
-                System.out.println(classNumbers.get(i));
                 if (name.charAt(name.length() - 1) == classNumbers.get(i)) {
                     cell = row.createCell(p + 1, CellType.STRING);
                     cell.setCellValue(name);
@@ -167,31 +166,37 @@ public class XlsService {
         logger.info("job {} finished import", job.getId());
     }
 
-    public XlsJob loadXls(MultipartFile file) throws IOException {
-        var job = new XlsJob(file.getBytes());
+    public XlsJob loadXls(MultipartFile file) {
+        var job = new XlsJob(bytes(file));
         jobs.put(job.getId(), job);
         executorService.submit(() -> {
             try {
                 loadFile(job);
             } catch (IOException e) {
                 job.setStatus(XlsJob.JobStatus.ERROR);
-                throw new ImportErrorException();
+                logger.info(e.getMessage());
             }
         });
         return job;
     }
 
+    private byte[] bytes(MultipartFile file) {
+        try {
+            return file.getBytes();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public XlsJob exportXls() {
         var job = new XlsJob(null);
         jobs.put(job.getId(), job);
-        executorService.submit(() -> {
-            xlsExportProcess(job);
-        });
+        executorService.submit(() -> xlsExportProcess(job));
         return job;
     }
 
     public byte[] downloadFile(UUID id) {
-        if (jobs.get(id).getStatus() == XlsJob.JobStatus.IN_PROGRESS) throw new ExportStillInProgressException();
+        if (jobs.get(id).getStatus() == IN_PROGRESS) throw new ExportStillInProgressException();
         return jobs.get(id).getContent();
     }
 

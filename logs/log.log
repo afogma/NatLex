@@ -732,3 +732,89 @@ java.lang.IllegalArgumentException: Invalid character found in method name [0x16
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:831)
+04-07-2021 12:50:28.296 [main] INFO  team.natlex.NatLex.NatLexApplication.logStarting - Starting NatLexApplication using Java 16 on fogmatic with PID 14332 (C:\Users\fogma\IdeaProjects\NatLex\target\classes started by fogma in C:\Users\fogma\IdeaProjects\NatLex)
+04-07-2021 12:50:28.300 [main] INFO  team.natlex.NatLex.NatLexApplication.logStartupProfileInfo - No active profile set, falling back to default profiles: default
+04-07-2021 12:50:28.484 [background-preinit] WARN  o.s.h.c.j.Jackson2ObjectMapperBuilder.warn - For Jackson Kotlin classes support please add "com.fasterxml.jackson.module:jackson-module-kotlin" to the classpath
+04-07-2021 12:50:29.368 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+04-07-2021 12:50:29.428 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn - Finished Spring Data repository scanning in 53 ms. Found 2 JPA repository interfaces.
+04-07-2021 12:50:29.843 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker.postProcessAfterInitialization - Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@7e19755a' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+04-07-2021 12:50:29.857 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker.postProcessAfterInitialization - Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+04-07-2021 12:50:30.352 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer.initialize - Tomcat initialized with port(s): 8080 (http)
+04-07-2021 12:50:30.366 [main] INFO  o.a.coyote.http11.Http11NioProtocol.log - Initializing ProtocolHandler ["http-nio-8080"]
+04-07-2021 12:50:30.367 [main] INFO  o.a.catalina.core.StandardService.log - Starting service [Tomcat]
+04-07-2021 12:50:30.368 [main] INFO  o.a.catalina.core.StandardEngine.log - Starting Servlet engine: [Apache Tomcat/9.0.46]
+04-07-2021 12:50:30.564 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/].log - Initializing Spring embedded WebApplicationContext
+04-07-2021 12:50:30.566 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext.prepareWebApplicationContext - Root WebApplicationContext: initialization completed in 2197 ms
+04-07-2021 12:50:30.726 [main] INFO  o.f.c.i.license.VersionPrinter.info - Flyway Community Edition 7.8.2 by Redgate
+04-07-2021 12:50:30.737 [main] INFO  com.zaxxer.hikari.HikariDataSource.getConnection - HikariPool-1 - Starting...
+04-07-2021 12:50:31.158 [main] INFO  com.zaxxer.hikari.HikariDataSource.getConnection - HikariPool-1 - Start completed.
+04-07-2021 12:50:31.238 [main] INFO  o.f.c.i.d.base.BaseDatabaseType.info - Database: jdbc:postgresql://127.0.0.1:5432/natlex (PostgreSQL 13.3)
+04-07-2021 12:50:31.394 [main] INFO  o.f.core.internal.command.DbValidate.info - Successfully validated 1 migration (execution time 00:00.065s)
+04-07-2021 12:50:31.420 [main] INFO  o.f.core.internal.command.DbMigrate.info - Current version of schema "public": 1
+04-07-2021 12:50:31.422 [main] INFO  o.f.core.internal.command.DbMigrate.info - Schema "public" is up to date. No migration necessary.
+04-07-2021 12:50:32.754 [main] INFO  Hibernate Types.printBanner - This framework is proudly powered by:
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+ _    _                           _     _
+| |  | |                         (_)   | |
+| |__| |_   _ _ __   ___ _ __ ___ _ ___| |_ ___ _ __   ___ ___
+|  __  | | | | '_ \ / _ \ '__/ __| / __| __/ _ \ '_ \ / __/ _ \
+| |  | | |_| | |_) |  __/ |  \__ \ \__ \ ||  __/ | | | (_|  __/
+|_|  |_|\__, | .__/ \___|_|  |___/_|___/\__\___|_| |_|\___\___|
+         __/ | |
+        |___/|_|
+
+At Hypersistence, we only build amazing tools, like Hibernate Types, Flexy Pool, or Hypersistence Optimizer.
+
+What if there were a tool that could automatically detect JPA and Hibernate performance issues?
+
+Hypersistence Optimizer is that tool! For more details, go to: 
+
+https://vladmihalcea.com/hypersistence-optimizer/
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+04-07-2021 12:50:33.279 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean.buildNativeEntityManagerFactory - Initialized JPA EntityManagerFactory for persistence unit 'default'
+04-07-2021 12:50:33.493 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration.openEntityManagerInViewInterceptor - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+04-07-2021 12:50:34.257 [main] INFO  o.s.s.web.DefaultSecurityFilterChain.<init> - Will secure Ant [pattern='/**'] with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@411ae0d7, org.springframework.security.web.context.SecurityContextPersistenceFilter@2352c21f, org.springframework.security.web.header.HeaderWriterFilter@5adc71e7, org.springframework.security.web.authentication.logout.LogoutFilter@779448b8, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@779ef5cb, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@25a2f432, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@25e203e6, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@608c2042, org.springframework.security.web.session.SessionManagementFilter@7aef8000, org.springframework.security.web.access.ExceptionTranslationFilter@1fc4483f, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3e4636c3]
+04-07-2021 12:50:34.371 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerAdapter.initControllerAdviceCache - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+04-07-2021 12:50:34.445 [main] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping.detectHandlerMethods - 
+	t.n.N.a.ApiController:
+	{GET [/api/sections/by-code]}: showAllSectionsByClassCode(String)
+	{GET [/api/classes/{code}]}: showAllClassesByCode(String)
+	{DELETE [/api/section/delete/{name}]}: deleteSection(String)
+	{PUT [/api/section/update/{name}]}: updateSection(SectionFullDTO,String)
+	{POST [/api/section/add]}: addNewSection(SectionFullDTO)
+	{POST [/api/class/add]}: addNewClass(GeologicalClass)
+	{PUT [/api/class/update/{name}]}: updateClass(GeologicalClass,String)
+	{GET [/api/export/{id}/file]}: downloadFile(UUID)
+	{GET [/api/export]}: downloadFile()
+	{GET [/api/sections]}: showSectionList()
+	{DELETE [/api/class/delete/{name}]}: deleteClass(String)
+	{POST [/api/import]}: uploadFile(MultipartFile)
+	{GET [/api/export/{id}]}: getExportStatus(UUID)
+	{GET [/api/import/{id}]}: getImportStatus(UUID)
+04-07-2021 12:50:34.453 [main] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping.detectHandlerMethods - 
+	o.s.b.a.w.s.e.BasicErrorController:
+	{ [/error]}: error(HttpServletRequest)
+	{ [/error], produces [text/html]}: errorHtml(HttpServletRequest,HttpServletResponse)
+04-07-2021 12:50:34.493 [main] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping.detectHandlerMethods - 
+	o.s.w.a.OpenApiWebMvcResource:
+	{GET [/v3/api-docs], produces [application/json]}: openapiJson(HttpServletRequest,String)
+	{GET [/v3/api-docs.yaml], produces [application/vnd.oai.openapi]}: openapiYaml(HttpServletRequest,String)
+04-07-2021 12:50:34.499 [main] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping.detectHandlerMethods - 
+	o.s.w.u.SwaggerWelcomeWebMvc:
+	{GET [/v3/api-docs/swagger-config], produces [application/json]}: openapiJson(HttpServletRequest)
+	{GET [/swagger-ui.html]}: redirectToUi(HttpServletRequest)
+04-07-2021 12:50:34.502 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping.handlerMethodsInitialized - 20 mappings in 'requestMappingHandlerMapping'
+04-07-2021 12:50:34.527 [main] DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping.detectHandlers - Detected 0 mappings in 'beanNameHandlerMapping'
+04-07-2021 12:50:34.534 [main] TRACE o.s.w.s.f.s.RouterFunctionMapping.logRouterFunctions - 0 RouterFunction(s) in 'routerFunctionMapping'
+04-07-2021 12:50:35.350 [main] TRACE o.s.w.s.h.SimpleUrlHandlerMapping.registerHandler - Mapped [/webjars/**] onto ResourceHttpRequestHandler [Classpath [META-INF/resources/webjars/]]
+04-07-2021 12:50:35.351 [main] TRACE o.s.w.s.h.SimpleUrlHandlerMapping.registerHandler - Mapped [/**] onto ResourceHttpRequestHandler [Classpath [META-INF/resources/], Classpath [resources/], Classpath [static/], Classpath [public/], ServletContext [/]]
+04-07-2021 12:50:35.352 [main] TRACE o.s.w.s.h.SimpleUrlHandlerMapping.registerHandler - Mapped [/**/swagger-ui/**] onto ResourceHttpRequestHandler [Classpath [META-INF/resources/webjars/]]
+04-07-2021 12:50:35.353 [main] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping.logMappings - Patterns [/webjars/**, /**, /**/swagger-ui/**] in 'resourceHandlerMapping'
+04-07-2021 12:50:35.365 [main] DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver.initExceptionHandlerAdviceCache - ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+04-07-2021 12:50:35.545 [main] INFO  o.a.coyote.http11.Http11NioProtocol.log - Starting ProtocolHandler ["http-nio-8080"]
+04-07-2021 12:50:35.605 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer.start - Tomcat started on port(s): 8080 (http) with context path ''
+04-07-2021 12:50:35.617 [main] INFO  team.natlex.NatLex.NatLexApplication.logStarted - Started NatLexApplication in 8.0 seconds (JVM running for 8.601)
+04-07-2021 12:50:35.619 [main] INFO  o.s.b.a.ApplicationAvailabilityBean.logStateChange - Application availability state LivenessState changed to CORRECT
+04-07-2021 12:50:35.621 [main] INFO  o.s.b.a.ApplicationAvailabilityBean.logStateChange - Application availability state ReadinessState changed to ACCEPTING_TRAFFIC
