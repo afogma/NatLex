@@ -1,4 +1,4 @@
-package team.natlex.NatLex.entity;
+package team.natlex.NatLex.db;
 
 import com.vladmihalcea.hibernate.type.array.ListArrayType;
 import lombok.AllArgsConstructor;

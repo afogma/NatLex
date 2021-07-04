@@ -1,28 +1,22 @@
 package team.natlex.NatLex.service;
 
 import lombok.RequiredArgsConstructor;
-import org.apache.poi.hssf.usermodel.HSSFSheet;
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.CellType;
-import org.apache.poi.ss.usermodel.Row;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
-import team.natlex.NatLex.entity.GeologicalClass;
-import team.natlex.NatLex.entity.Section;
+import team.natlex.NatLex.model.SectionFullDTO;
 import team.natlex.NatLex.model.XlsJob;
-import team.natlex.NatLex.repository.GeologicalClassRepo;
-import team.natlex.NatLex.repository.SectionRepo;
+import team.natlex.NatLex.db.GeologicalClassRepo;
+import team.natlex.NatLex.db.SectionRepo;
 import team.natlex.NatLex.exceptions.ExportStillInProgressException;
-import team.natlex.NatLex.exceptions.ImportErrorException;
 
 import java.io.*;
 import java.util.*;
 import java.util.concurrent.*;
 
 import static java.util.stream.Collectors.toList;
+import static team.natlex.NatLex.model.XlsJob.JobStatus.ERROR;
 import static team.natlex.NatLex.model.XlsJob.JobStatus.IN_PROGRESS;
 
 @Service
@@ -33,150 +27,49 @@ public class XlsService {
 
     private final SectionRepo sectionRepo;
     private final GeologicalClassRepo geologicalClassRepo;
+    private final XlsAdapter xlsAdapter;
+    private final ApiService apiService;
 
-    private ExecutorService executorService = Executors.newSingleThreadExecutor();
+    private final ExecutorService executorService = Executors.newSingleThreadExecutor();
 
     private Map<UUID, XlsJob> jobs = new ConcurrentHashMap<>();
 
     public void xlsExportProcess(XlsJob job) {
-        var workbook = new HSSFWorkbook();
-        var sheet = workbook.createSheet("Sections sheet");
-
-        var sectionList = sectionRepo.findAll().stream()
-                .sorted(Comparator.comparing(Section::getName))
-                .collect(toList());
-        var geologicalClassList = geologicalClassRepo.findAll();
-
-        var classNumbers = geologicalClassList.stream()
-                .map(c -> c.getName().charAt(c.getName().length() - 1))
-                .distinct()
-                .sorted()
-                .collect(toList());
-
-        drawHeader(classNumbers, sheet);
-        drawSections(sectionList, sheet, classNumbers);
-
-        var outFile = new ByteArrayOutputStream();
         try {
-            workbook.write(outFile);
-            workbook.close();
-            outFile.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        job.setContent(outFile.toByteArray());
-        job.setStatus(XlsJob.JobStatus.DONE);
-        logger.info("job {} finished export", job.getId());
-    }
-
-    private void drawHeader(List<Character> classNumbers, HSSFSheet sheet) {
-        Cell cell;
-        Row row;
-        row = sheet.createRow(0);
-
-        cell = row.createCell(0, CellType.STRING);
-        cell.setCellValue("Section name");
-
-        var s = 0;
-        for (Character className : classNumbers) {
-            cell = row.createCell(s + 1, CellType.STRING);
-            cell.setCellValue("Class " + className + " name");
-
-            cell = row.createCell(s + 2, CellType.STRING);
-            cell.setCellValue("Class " + className + " code");
-            s = s + 2;
+            var sectionFullDTOList = apiService.findAllSections();
+            byte[] content = xlsAdapter.xlsExportProcess(sectionFullDTOList);
+            job.setContent(content);
+            job.setStatus(XlsJob.JobStatus.DONE);
+            logger.info("job {} finished export", job.getId());
+        } catch (Exception e) {
+            logger.error("{} job failed", job.getId(), e);
         }
     }
 
-    private void drawSections(List<Section> sectionList, HSSFSheet sheet, List<Character> classNumbers) {
-        var rownum = 0;
-        Cell cell;
-        Row row;
-        for (Section section : sectionList) {
-            rownum++;
-            row = sheet.createRow(rownum);
-
-            cell = row.createCell(0, CellType.STRING);
-            cell.setCellValue(section.getName());
-
-            var codes = section.getCodes().stream()
-                    .sorted()
+    public void loadFile(XlsJob job) {
+        try {
+            var sectionDTOs = xlsAdapter.parseXls(job.getContent());
+            var sections = sectionDTOs.stream()
+                    .map(SectionFullDTO::getSection)
                     .collect(toList());
-            int p = 0;
-            int i = 0;
-            for (int j = 0; j < codes.size(); j++) {
-                var geologicalClass = geologicalClassRepo.findByCode(codes.get(j));
-                var name = geologicalClass.getName();
-
-                if (name.charAt(name.length() - 1) == classNumbers.get(i)) {
-                    cell = row.createCell(p + 1, CellType.STRING);
-                    cell.setCellValue(name);
-
-                    cell = row.createCell(p + 2, CellType.STRING);
-                    cell.setCellValue(codes.get(j));
-
-                } else {
-                    cell = row.createCell(p + 1, CellType.STRING);
-                    cell.setCellValue("");
-
-                    cell = row.createCell(p + 2, CellType.STRING);
-                    cell.setCellValue("");
-                    j--;
-                }
-                i++;
-                p += 2;
-            }
+            sectionRepo.saveAll(sections);
+            var geoClassList = sectionDTOs.stream()
+                    .flatMap(s -> s.getGeologicalClasses().stream())
+                    .distinct()
+                    .collect(toList());
+            geologicalClassRepo.saveAll(geoClassList);
+            job.setStatus(XlsJob.JobStatus.DONE);
+            logger.info("job {} finished import", job.getId());
+        } catch (Exception e) {
+            job.setStatus(ERROR);
+            logger.error("job {} failed to import", job.getId(), e);
         }
-    }
-
-    public void loadFile(XlsJob job) throws IOException {
-        var byteArrayInputStream = new ByteArrayInputStream(job.getContent());
-        var workbook = new HSSFWorkbook(byteArrayInputStream);
-        var sheet = workbook.getSheetAt(0);
-
-        Iterator<Row> rowIterator = sheet.iterator();
-        rowIterator.next();
-        while (rowIterator.hasNext()) {
-            Row row = rowIterator.next();
-            Iterator<Cell> cellIterator = row.cellIterator();
-            List<String> codes = new ArrayList<>();
-            List<GeologicalClass> geologicalClassList = new ArrayList<>();
-            var className = "";
-            var classCode = "";
-            var sectionName = cellIterator.next().getStringCellValue();
-            while (cellIterator.hasNext()) {
-                var value = cellIterator.next().getStringCellValue();
-                if (!value.isEmpty()) {
-                    className = value;
-                }
-                value = cellIterator.next().getStringCellValue();
-                if (!value.isEmpty() && !className.isEmpty()) {
-                    classCode = value;
-                    codes.add(classCode);
-                    geologicalClassList.add(new GeologicalClass(className, classCode));
-                }
-            }
-            var section = new Section(sectionName, codes);
-            sectionRepo.save(section);
-            for (GeologicalClass gc : geologicalClassList) {
-                geologicalClassRepo.save(gc);
-            }
-        }
-        job.setStatus(XlsJob.JobStatus.DONE);
-        logger.info("job {} finished import", job.getId());
     }
 
     public XlsJob loadXls(MultipartFile file) {
         var job = new XlsJob(bytes(file));
         jobs.put(job.getId(), job);
-        executorService.submit(() -> {
-            try {
-                loadFile(job);
-            } catch (IOException e) {
-                job.setStatus(XlsJob.JobStatus.ERROR);
-                logger.info(e.getMessage());
-            }
-        });
+        executorService.submit(() -> loadFile(job));
         return job;
     }
 

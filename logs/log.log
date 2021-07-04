@@ -818,3 +818,957 @@ https://vladmihalcea.com/hypersistence-optimizer/
 04-07-2021 12:50:35.617 [main] INFO  team.natlex.NatLex.NatLexApplication.logStarted - Started NatLexApplication in 8.0 seconds (JVM running for 8.601)
 04-07-2021 12:50:35.619 [main] INFO  o.s.b.a.ApplicationAvailabilityBean.logStateChange - Application availability state LivenessState changed to CORRECT
 04-07-2021 12:50:35.621 [main] INFO  o.s.b.a.ApplicationAvailabilityBean.logStateChange - Application availability state ReadinessState changed to ACCEPTING_TRAFFIC
+04-07-2021 12:53:01.066 [http-nio-8080-exec-1] INFO  o.a.coyote.http11.Http11Processor.log - Error parsing HTTP request header
+ Note: further occurrences of HTTP request parsing errors will be logged at DEBUG level.
+java.lang.IllegalArgumentException: Invalid character found in method name [0x160x030x010x020x000x010x000x010xfc0x030x030xa30xa30x010xc50x090x0b0xf50xfe0x1cD0xf50xa70xc9jq0xf5s0xc00x8an#`0xa30x080xd10x89A0xa20x7f{10xc0 ]. HTTP method names must be tokens
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:417)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:261)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1707)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:831)
+04-07-2021 14:04:18.301 [main] INFO  team.natlex.NatLex.NatLexApplication.logStarting - Starting NatLexApplication using Java 16 on fogmatic with PID 12652 (C:\Users\fogma\IdeaProjects\NatLex\target\classes started by fogma in C:\Users\fogma\IdeaProjects\NatLex)
+04-07-2021 14:04:18.306 [main] INFO  team.natlex.NatLex.NatLexApplication.logStartupProfileInfo - No active profile set, falling back to default profiles: default
+04-07-2021 14:04:18.481 [background-preinit] WARN  o.s.h.c.j.Jackson2ObjectMapperBuilder.warn - For Jackson Kotlin classes support please add "com.fasterxml.jackson.module:jackson-module-kotlin" to the classpath
+04-07-2021 14:04:19.936 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+04-07-2021 14:04:20.008 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn - Finished Spring Data repository scanning in 61 ms. Found 2 JPA repository interfaces.
+04-07-2021 14:04:20.612 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker.postProcessAfterInitialization - Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@1deceb67' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+04-07-2021 14:04:20.626 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker.postProcessAfterInitialization - Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+04-07-2021 14:04:21.187 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer.initialize - Tomcat initialized with port(s): 8080 (http)
+04-07-2021 14:04:21.208 [main] INFO  o.a.coyote.http11.Http11NioProtocol.log - Initializing ProtocolHandler ["http-nio-8080"]
+04-07-2021 14:04:21.209 [main] INFO  o.a.catalina.core.StandardService.log - Starting service [Tomcat]
+04-07-2021 14:04:21.209 [main] INFO  o.a.catalina.core.StandardEngine.log - Starting Servlet engine: [Apache Tomcat/9.0.46]
+04-07-2021 14:04:21.367 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/].log - Initializing Spring embedded WebApplicationContext
+04-07-2021 14:04:21.368 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext.prepareWebApplicationContext - Root WebApplicationContext: initialization completed in 2962 ms
+04-07-2021 14:04:21.583 [main] INFO  o.f.c.i.license.VersionPrinter.info - Flyway Community Edition 7.8.2 by Redgate
+04-07-2021 14:04:21.615 [main] INFO  com.zaxxer.hikari.HikariDataSource.getConnection - HikariPool-1 - Starting...
+04-07-2021 14:04:22.380 [main] INFO  com.zaxxer.hikari.HikariDataSource.getConnection - HikariPool-1 - Start completed.
+04-07-2021 14:04:22.424 [main] INFO  o.f.c.i.d.base.BaseDatabaseType.info - Database: jdbc:postgresql://127.0.0.1:5432/natlex (PostgreSQL 13.3)
+04-07-2021 14:04:22.467 [main] INFO  o.f.core.internal.command.DbValidate.info - Successfully validated 1 migration (execution time 00:00.021s)
+04-07-2021 14:04:22.475 [main] INFO  o.f.core.internal.command.DbMigrate.info - Current version of schema "public": 1
+04-07-2021 14:04:22.476 [main] INFO  o.f.core.internal.command.DbMigrate.info - Schema "public" is up to date. No migration necessary.
+04-07-2021 14:04:23.349 [main] INFO  Hibernate Types.printBanner - This framework is proudly powered by:
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+ _    _                           _     _
+| |  | |                         (_)   | |
+| |__| |_   _ _ __   ___ _ __ ___ _ ___| |_ ___ _ __   ___ ___
+|  __  | | | | '_ \ / _ \ '__/ __| / __| __/ _ \ '_ \ / __/ _ \
+| |  | | |_| | |_) |  __/ |  \__ \ \__ \ ||  __/ | | | (_|  __/
+|_|  |_|\__, | .__/ \___|_|  |___/_|___/\__\___|_| |_|\___\___|
+         __/ | |
+        |___/|_|
+
+At Hypersistence, we only build amazing tools, like Hibernate Types, Flexy Pool, or Hypersistence Optimizer.
+
+What if there were a tool that could automatically detect JPA and Hibernate performance issues?
+
+Hypersistence Optimizer is that tool! For more details, go to: 
+
+https://vladmihalcea.com/hypersistence-optimizer/
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+04-07-2021 14:04:23.814 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean.buildNativeEntityManagerFactory - Initialized JPA EntityManagerFactory for persistence unit 'default'
+04-07-2021 14:04:24.048 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration.openEntityManagerInViewInterceptor - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+04-07-2021 14:04:25.092 [main] INFO  o.s.s.web.DefaultSecurityFilterChain.<init> - Will secure Ant [pattern='/**'] with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@15a0f9, org.springframework.security.web.context.SecurityContextPersistenceFilter@703a2bc9, org.springframework.security.web.header.HeaderWriterFilter@10d97b64, org.springframework.security.web.authentication.logout.LogoutFilter@2acbe46d, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@40199d5e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@346e5cc, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@11939a9f, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4840ec68, org.springframework.security.web.session.SessionManagementFilter@47fc9ce, org.springframework.security.web.access.ExceptionTranslationFilter@511a307e, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5d9d8ecf]
+04-07-2021 14:04:25.235 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerAdapter.initControllerAdviceCache - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+04-07-2021 14:04:25.311 [main] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping.detectHandlerMethods - 
+	t.n.N.a.ApiController:
+	{GET [/api/sections/by-code]}: showAllSectionsByClassCode(String)
+	{GET [/api/classes/{code}]}: showAllClassesByCode(String)
+	{PUT [/api/section/update/{name}]}: updateSection(SectionFullDTO,String)
+	{DELETE [/api/section/delete/{name}]}: deleteSection(String)
+	{POST [/api/class/add]}: addNewClass(GeologicalClass)
+	{PUT [/api/class/update/{name}]}: updateClass(GeologicalClass,String)
+	{POST [/api/section/add]}: addNewSection(SectionFullDTO)
+	{DELETE [/api/class/delete/{name}]}: deleteClass(String)
+	{GET [/api/sections]}: showSectionList()
+	{GET [/api/export/{id}/file]}: downloadFile(UUID)
+	{GET [/api/export]}: downloadFile()
+	{GET [/api/export/{id}]}: getExportStatus(UUID)
+	{GET [/api/import/{id}]}: getImportStatus(UUID)
+	{POST [/api/import]}: uploadFile(MultipartFile)
+04-07-2021 14:04:25.330 [main] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping.detectHandlerMethods - 
+	o.s.b.a.w.s.e.BasicErrorController:
+	{ [/error]}: error(HttpServletRequest)
+	{ [/error], produces [text/html]}: errorHtml(HttpServletRequest,HttpServletResponse)
+04-07-2021 14:04:25.367 [main] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping.detectHandlerMethods - 
+	o.s.w.a.OpenApiWebMvcResource:
+	{GET [/v3/api-docs], produces [application/json]}: openapiJson(HttpServletRequest,String)
+	{GET [/v3/api-docs.yaml], produces [application/vnd.oai.openapi]}: openapiYaml(HttpServletRequest,String)
+04-07-2021 14:04:25.375 [main] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping.detectHandlerMethods - 
+	o.s.w.u.SwaggerWelcomeWebMvc:
+	{GET [/swagger-ui.html]}: redirectToUi(HttpServletRequest)
+	{GET [/v3/api-docs/swagger-config], produces [application/json]}: openapiJson(HttpServletRequest)
+04-07-2021 14:04:25.377 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping.handlerMethodsInitialized - 20 mappings in 'requestMappingHandlerMapping'
+04-07-2021 14:04:25.403 [main] DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping.detectHandlers - Detected 0 mappings in 'beanNameHandlerMapping'
+04-07-2021 14:04:25.415 [main] TRACE o.s.w.s.f.s.RouterFunctionMapping.logRouterFunctions - 0 RouterFunction(s) in 'routerFunctionMapping'
+04-07-2021 14:04:26.648 [main] TRACE o.s.w.s.h.SimpleUrlHandlerMapping.registerHandler - Mapped [/webjars/**] onto ResourceHttpRequestHandler [Classpath [META-INF/resources/webjars/]]
+04-07-2021 14:04:26.650 [main] TRACE o.s.w.s.h.SimpleUrlHandlerMapping.registerHandler - Mapped [/**] onto ResourceHttpRequestHandler [Classpath [META-INF/resources/], Classpath [resources/], Classpath [static/], Classpath [public/], ServletContext [/]]
+04-07-2021 14:04:26.650 [main] TRACE o.s.w.s.h.SimpleUrlHandlerMapping.registerHandler - Mapped [/**/swagger-ui/**] onto ResourceHttpRequestHandler [Classpath [META-INF/resources/webjars/]]
+04-07-2021 14:04:26.651 [main] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping.logMappings - Patterns [/webjars/**, /**, /**/swagger-ui/**] in 'resourceHandlerMapping'
+04-07-2021 14:04:26.696 [main] DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver.initExceptionHandlerAdviceCache - ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+04-07-2021 14:04:27.621 [main] INFO  o.a.coyote.http11.Http11NioProtocol.log - Starting ProtocolHandler ["http-nio-8080"]
+04-07-2021 14:04:27.694 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer.start - Tomcat started on port(s): 8080 (http) with context path ''
+04-07-2021 14:04:27.718 [main] INFO  team.natlex.NatLex.NatLexApplication.logStarted - Started NatLexApplication in 10.185 seconds (JVM running for 11.008)
+04-07-2021 14:04:27.728 [main] INFO  o.s.b.a.ApplicationAvailabilityBean.logStateChange - Application availability state LivenessState changed to CORRECT
+04-07-2021 14:04:27.734 [main] INFO  o.s.b.a.ApplicationAvailabilityBean.logStateChange - Application availability state ReadinessState changed to ACCEPTING_TRAFFIC
+04-07-2021 14:04:53.916 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/].log - Initializing Spring DispatcherServlet 'dispatcherServlet'
+04-07-2021 14:04:53.917 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet.initServletBean - Initializing Servlet 'dispatcherServlet'
+04-07-2021 14:04:53.917 [http-nio-8080-exec-1] TRACE o.s.web.servlet.DispatcherServlet.initMultipartResolver - Detected org.springframework.web.multipart.support.StandardServletMultipartResolver@28c00acd
+04-07-2021 14:04:53.917 [http-nio-8080-exec-1] TRACE o.s.web.servlet.DispatcherServlet.initLocaleResolver - Detected org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver@6d57b264
+04-07-2021 14:04:53.918 [http-nio-8080-exec-1] TRACE o.s.web.servlet.DispatcherServlet.initThemeResolver - Detected org.springframework.web.servlet.theme.FixedThemeResolver@2d94279f
+04-07-2021 14:04:53.919 [http-nio-8080-exec-1] TRACE o.s.web.servlet.DispatcherServlet.initRequestToViewNameTranslator - Detected DefaultRequestToViewNameTranslator
+04-07-2021 14:04:53.919 [http-nio-8080-exec-1] TRACE o.s.web.servlet.DispatcherServlet.initFlashMapManager - Detected SessionFlashMapManager
+04-07-2021 14:04:53.919 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet.initServletBean - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+04-07-2021 14:04:53.920 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet.initServletBean - Completed initialization in 3 ms
+04-07-2021 14:04:54.031 [http-nio-8080-exec-1] TRACE o.s.web.servlet.DispatcherServlet.traceDebug - "ERROR" dispatch for POST "/error", parameters={}, headers={masked} in DispatcherServlet 'dispatcherServlet'
+04-07-2021 14:04:54.041 [http-nio-8080-exec-1] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping.lookupHandlerMethod - 2 matching mappings: [{ [/error]}, { [/error], produces [text/html]}]
+04-07-2021 14:04:54.043 [http-nio-8080-exec-1] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping.getHandler - Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)
+04-07-2021 14:04:54.054 [http-nio-8080-exec-1] TRACE o.s.web.method.HandlerMethod.invokeForRequest - Arguments: [org.springframework.web.multipart.support.StandardMultipartHttpServletRequest@60881c7a]
+04-07-2021 14:04:54.076 [http-nio-8080-exec-1] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor.writeWithMessageConverters - Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+04-07-2021 14:04:54.078 [http-nio-8080-exec-1] TRACE o.s.w.s.m.m.a.HttpEntityMethodProcessor.traceDebug - Writing [{timestamp=Sun Jul 04 14:04:54 MSK 2021, status=401, error=Unauthorized, path=/api/import}]
+04-07-2021 14:04:54.132 [http-nio-8080-exec-1] TRACE o.s.web.servlet.DispatcherServlet.processDispatchResult - No view rendering, null ModelAndView returned.
+04-07-2021 14:04:54.134 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet.logResult - Exiting from "ERROR" dispatch, status 401, headers={masked}
+04-07-2021 14:05:03.001 [http-nio-8080-exec-2] TRACE o.s.web.servlet.DispatcherServlet.traceDebug - POST "/api/import", parameters={}, headers={masked} in DispatcherServlet 'dispatcherServlet'
+04-07-2021 14:05:03.001 [http-nio-8080-exec-2] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping.getHandler - Mapped to team.natlex.NatLex.api.ApiController#uploadFile(MultipartFile)
+04-07-2021 14:05:03.016 [http-nio-8080-exec-2] TRACE o.s.web.method.HandlerMethod.invokeForRequest - Arguments: [org.springframework.web.multipart.support.StandardMultipartHttpServletRequest$StandardMultipartFile@28283a4a]
+04-07-2021 14:05:03.036 [http-nio-8080-exec-2] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor.writeWithMessageConverters - Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+04-07-2021 14:05:03.037 [http-nio-8080-exec-2] TRACE o.s.w.s.m.m.a.HttpEntityMethodProcessor.traceDebug - Writing [226f1771-2502-4090-9541-533a97df326f]
+04-07-2021 14:05:03.041 [http-nio-8080-exec-2] TRACE o.s.web.servlet.DispatcherServlet.processDispatchResult - No view rendering, null ModelAndView returned.
+04-07-2021 14:05:03.044 [http-nio-8080-exec-2] DEBUG o.s.web.servlet.DispatcherServlet.logResult - Completed 200 OK, headers={masked}
+04-07-2021 14:05:03.440 [pool-1-thread-1] INFO  t.natlex.NatLex.service.XlsService.loadFile - job 226f1771-2502-4090-9541-533a97df326f finished import
+04-07-2021 14:05:37.676 [http-nio-8080-exec-3] TRACE o.s.web.servlet.DispatcherServlet.traceDebug - GET "/api/export", parameters={}, headers={masked} in DispatcherServlet 'dispatcherServlet'
+04-07-2021 14:05:37.676 [http-nio-8080-exec-3] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping.getHandler - Mapped to team.natlex.NatLex.api.ApiController#downloadFile()
+04-07-2021 14:05:37.677 [http-nio-8080-exec-3] TRACE o.s.web.method.HandlerMethod.invokeForRequest - Arguments: []
+04-07-2021 14:05:37.679 [http-nio-8080-exec-3] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor.writeWithMessageConverters - Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+04-07-2021 14:05:37.679 [http-nio-8080-exec-3] TRACE o.s.w.s.m.m.a.HttpEntityMethodProcessor.traceDebug - Writing ["file processing. id: 906c1e0e-a03a-4931-bf42-0bdfe4cb0a66"]
+04-07-2021 14:05:37.681 [http-nio-8080-exec-3] TRACE o.s.web.servlet.DispatcherServlet.processDispatchResult - No view rendering, null ModelAndView returned.
+04-07-2021 14:05:37.683 [http-nio-8080-exec-3] DEBUG o.s.web.servlet.DispatcherServlet.logResult - Completed 200 OK, headers={masked}
+04-07-2021 14:05:37.929 [pool-1-thread-1] INFO  t.natlex.NatLex.service.XlsService.xlsExportProcess - job 906c1e0e-a03a-4931-bf42-0bdfe4cb0a66 finished export
+04-07-2021 14:05:58.844 [http-nio-8080-exec-4] TRACE o.s.web.servlet.DispatcherServlet.traceDebug - GET "/api/export/906c1e0e-a03a-4931-bf42-0bdfe4cb0a66/file", parameters={}, headers={masked} in DispatcherServlet 'dispatcherServlet'
+04-07-2021 14:05:58.845 [http-nio-8080-exec-4] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping.getHandler - Mapped to team.natlex.NatLex.api.ApiController#downloadFile(UUID)
+04-07-2021 14:05:58.848 [http-nio-8080-exec-4] TRACE o.s.web.method.HandlerMethod.invokeForRequest - Arguments: [906c1e0e-a03a-4931-bf42-0bdfe4cb0a66]
+04-07-2021 14:05:58.850 [http-nio-8080-exec-4] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor.writeWithMessageConverters - Found 'Content-Type:application/octet-stream' in response
+04-07-2021 14:05:58.850 [http-nio-8080-exec-4] TRACE o.s.w.s.m.m.a.HttpEntityMethodProcessor.traceDebug - Writing [[B@291d1f67]
+04-07-2021 14:05:58.851 [http-nio-8080-exec-4] TRACE o.s.web.servlet.DispatcherServlet.processDispatchResult - No view rendering, null ModelAndView returned.
+04-07-2021 14:05:58.852 [http-nio-8080-exec-4] DEBUG o.s.web.servlet.DispatcherServlet.logResult - Completed 200 OK, headers={masked}
+04-07-2021 14:11:42.585 [main] INFO  team.natlex.NatLex.NatLexApplication.logStarting - Starting NatLexApplication using Java 16 on fogmatic with PID 10900 (C:\Users\fogma\IdeaProjects\NatLex\target\classes started by fogma in C:\Users\fogma\IdeaProjects\NatLex)
+04-07-2021 14:11:42.589 [main] INFO  team.natlex.NatLex.NatLexApplication.logStartupProfileInfo - No active profile set, falling back to default profiles: default
+04-07-2021 14:11:42.719 [background-preinit] WARN  o.s.h.c.j.Jackson2ObjectMapperBuilder.warn - For Jackson Kotlin classes support please add "com.fasterxml.jackson.module:jackson-module-kotlin" to the classpath
+04-07-2021 14:11:43.807 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+04-07-2021 14:11:43.886 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn - Finished Spring Data repository scanning in 65 ms. Found 2 JPA repository interfaces.
+04-07-2021 14:11:44.307 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker.postProcessAfterInitialization - Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@53ec2968' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+04-07-2021 14:11:44.317 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker.postProcessAfterInitialization - Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+04-07-2021 14:11:44.919 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer.initialize - Tomcat initialized with port(s): 8080 (http)
+04-07-2021 14:11:44.931 [main] INFO  o.a.coyote.http11.Http11NioProtocol.log - Initializing ProtocolHandler ["http-nio-8080"]
+04-07-2021 14:11:44.932 [main] INFO  o.a.catalina.core.StandardService.log - Starting service [Tomcat]
+04-07-2021 14:11:44.932 [main] INFO  o.a.catalina.core.StandardEngine.log - Starting Servlet engine: [Apache Tomcat/9.0.46]
+04-07-2021 14:11:45.168 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/].log - Initializing Spring embedded WebApplicationContext
+04-07-2021 14:11:45.170 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext.prepareWebApplicationContext - Root WebApplicationContext: initialization completed in 2513 ms
+04-07-2021 14:11:45.451 [main] INFO  o.f.c.i.license.VersionPrinter.info - Flyway Community Edition 7.8.2 by Redgate
+04-07-2021 14:11:45.458 [main] INFO  com.zaxxer.hikari.HikariDataSource.getConnection - HikariPool-1 - Starting...
+04-07-2021 14:11:45.728 [main] INFO  com.zaxxer.hikari.HikariDataSource.getConnection - HikariPool-1 - Start completed.
+04-07-2021 14:11:45.766 [main] INFO  o.f.c.i.d.base.BaseDatabaseType.info - Database: jdbc:postgresql://127.0.0.1:5432/natlex (PostgreSQL 13.3)
+04-07-2021 14:11:45.809 [main] INFO  o.f.core.internal.command.DbValidate.info - Successfully validated 1 migration (execution time 00:00.023s)
+04-07-2021 14:11:45.817 [main] INFO  o.f.core.internal.command.DbMigrate.info - Current version of schema "public": 1
+04-07-2021 14:11:45.818 [main] INFO  o.f.core.internal.command.DbMigrate.info - Schema "public" is up to date. No migration necessary.
+04-07-2021 14:11:46.816 [main] INFO  Hibernate Types.printBanner - This framework is proudly powered by:
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+ _    _                           _     _
+| |  | |                         (_)   | |
+| |__| |_   _ _ __   ___ _ __ ___ _ ___| |_ ___ _ __   ___ ___
+|  __  | | | | '_ \ / _ \ '__/ __| / __| __/ _ \ '_ \ / __/ _ \
+| |  | | |_| | |_) |  __/ |  \__ \ \__ \ ||  __/ | | | (_|  __/
+|_|  |_|\__, | .__/ \___|_|  |___/_|___/\__\___|_| |_|\___\___|
+         __/ | |
+        |___/|_|
+
+At Hypersistence, we only build amazing tools, like Hibernate Types, Flexy Pool, or Hypersistence Optimizer.
+
+What if there were a tool that could automatically detect JPA and Hibernate performance issues?
+
+Hypersistence Optimizer is that tool! For more details, go to: 
+
+https://vladmihalcea.com/hypersistence-optimizer/
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+04-07-2021 14:11:47.422 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean.buildNativeEntityManagerFactory - Initialized JPA EntityManagerFactory for persistence unit 'default'
+04-07-2021 14:11:47.905 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration.openEntityManagerInViewInterceptor - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+04-07-2021 14:11:48.817 [main] INFO  o.s.s.web.DefaultSecurityFilterChain.<init> - Will secure Ant [pattern='/**'] with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@779ef5cb, org.springframework.security.web.context.SecurityContextPersistenceFilter@523f3c29, org.springframework.security.web.header.HeaderWriterFilter@2f82e3cf, org.springframework.security.web.authentication.logout.LogoutFilter@34fcc5e3, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@72c5064f, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2fe38b73, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@23cb8fcb, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5d9d8ecf, org.springframework.security.web.session.SessionManagementFilter@3b17759c, org.springframework.security.web.access.ExceptionTranslationFilter@3dad8bde, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@69356aca]
+04-07-2021 14:11:48.954 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerAdapter.initControllerAdviceCache - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+04-07-2021 14:11:49.031 [main] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping.detectHandlerMethods - 
+	t.n.N.a.ApiController:
+	{DELETE [/api/section/delete/{name}]}: deleteSection(String)
+	{POST [/api/section/add]}: addNewSection(SectionFullDTO)
+	{POST [/api/class/add]}: addNewClass(GeologicalClass)
+	{PUT [/api/class/update/{name}]}: updateClass(GeologicalClass,String)
+	{PUT [/api/section/update/{name}]}: updateSection(SectionFullDTO,String)
+	{GET [/api/sections]}: showSectionList()
+	{GET [/api/export]}: downloadFile()
+	{GET [/api/export/{id}/file]}: downloadFile(UUID)
+	{DELETE [/api/class/delete/{name}]}: deleteClass(String)
+	{GET [/api/export/{id}]}: getExportStatus(UUID)
+	{POST [/api/import]}: uploadFile(MultipartFile)
+	{GET [/api/import/{id}]}: getImportStatus(UUID)
+	{GET [/api/sections/by-code]}: showAllSectionsByClassCode(String)
+	{GET [/api/classes/{code}]}: showAllClassesByCode(String)
+04-07-2021 14:11:49.038 [main] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping.detectHandlerMethods - 
+	o.s.b.a.w.s.e.BasicErrorController:
+	{ [/error]}: error(HttpServletRequest)
+	{ [/error], produces [text/html]}: errorHtml(HttpServletRequest,HttpServletResponse)
+04-07-2021 14:11:49.078 [main] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping.detectHandlerMethods - 
+	o.s.w.a.OpenApiWebMvcResource:
+	{GET [/v3/api-docs], produces [application/json]}: openapiJson(HttpServletRequest,String)
+	{GET [/v3/api-docs.yaml], produces [application/vnd.oai.openapi]}: openapiYaml(HttpServletRequest,String)
+04-07-2021 14:11:49.084 [main] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping.detectHandlerMethods - 
+	o.s.w.u.SwaggerWelcomeWebMvc:
+	{GET [/v3/api-docs/swagger-config], produces [application/json]}: openapiJson(HttpServletRequest)
+	{GET [/swagger-ui.html]}: redirectToUi(HttpServletRequest)
+04-07-2021 14:11:49.087 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping.handlerMethodsInitialized - 20 mappings in 'requestMappingHandlerMapping'
+04-07-2021 14:11:49.116 [main] DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping.detectHandlers - Detected 0 mappings in 'beanNameHandlerMapping'
+04-07-2021 14:11:49.123 [main] TRACE o.s.w.s.f.s.RouterFunctionMapping.logRouterFunctions - 0 RouterFunction(s) in 'routerFunctionMapping'
+04-07-2021 14:11:50.383 [main] TRACE o.s.w.s.h.SimpleUrlHandlerMapping.registerHandler - Mapped [/webjars/**] onto ResourceHttpRequestHandler [Classpath [META-INF/resources/webjars/]]
+04-07-2021 14:11:50.385 [main] TRACE o.s.w.s.h.SimpleUrlHandlerMapping.registerHandler - Mapped [/**] onto ResourceHttpRequestHandler [Classpath [META-INF/resources/], Classpath [resources/], Classpath [static/], Classpath [public/], ServletContext [/]]
+04-07-2021 14:11:50.386 [main] TRACE o.s.w.s.h.SimpleUrlHandlerMapping.registerHandler - Mapped [/**/swagger-ui/**] onto ResourceHttpRequestHandler [Classpath [META-INF/resources/webjars/]]
+04-07-2021 14:11:50.386 [main] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping.logMappings - Patterns [/webjars/**, /**, /**/swagger-ui/**] in 'resourceHandlerMapping'
+04-07-2021 14:11:50.403 [main] DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver.initExceptionHandlerAdviceCache - ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+04-07-2021 14:11:50.631 [main] INFO  o.a.coyote.http11.Http11NioProtocol.log - Starting ProtocolHandler ["http-nio-8080"]
+04-07-2021 14:11:50.802 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer.start - Tomcat started on port(s): 8080 (http) with context path ''
+04-07-2021 14:11:50.819 [main] INFO  team.natlex.NatLex.NatLexApplication.logStarted - Started NatLexApplication in 8.996 seconds (JVM running for 9.66)
+04-07-2021 14:11:50.822 [main] INFO  o.s.b.a.ApplicationAvailabilityBean.logStateChange - Application availability state LivenessState changed to CORRECT
+04-07-2021 14:11:50.824 [main] INFO  o.s.b.a.ApplicationAvailabilityBean.logStateChange - Application availability state ReadinessState changed to ACCEPTING_TRAFFIC
+04-07-2021 14:12:11.165 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/].log - Initializing Spring DispatcherServlet 'dispatcherServlet'
+04-07-2021 14:12:11.166 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet.initServletBean - Initializing Servlet 'dispatcherServlet'
+04-07-2021 14:12:11.166 [http-nio-8080-exec-1] TRACE o.s.web.servlet.DispatcherServlet.initMultipartResolver - Detected org.springframework.web.multipart.support.StandardServletMultipartResolver@32bae609
+04-07-2021 14:12:11.166 [http-nio-8080-exec-1] TRACE o.s.web.servlet.DispatcherServlet.initLocaleResolver - Detected org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver@66e434e8
+04-07-2021 14:12:11.166 [http-nio-8080-exec-1] TRACE o.s.web.servlet.DispatcherServlet.initThemeResolver - Detected org.springframework.web.servlet.theme.FixedThemeResolver@6d57b264
+04-07-2021 14:12:11.167 [http-nio-8080-exec-1] TRACE o.s.web.servlet.DispatcherServlet.initRequestToViewNameTranslator - Detected DefaultRequestToViewNameTranslator
+04-07-2021 14:12:11.167 [http-nio-8080-exec-1] TRACE o.s.web.servlet.DispatcherServlet.initFlashMapManager - Detected SessionFlashMapManager
+04-07-2021 14:12:11.167 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet.initServletBean - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+04-07-2021 14:12:11.168 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet.initServletBean - Completed initialization in 2 ms
+04-07-2021 14:12:11.270 [http-nio-8080-exec-1] TRACE o.s.web.servlet.DispatcherServlet.traceDebug - "ERROR" dispatch for GET "/error", parameters={}, headers={masked} in DispatcherServlet 'dispatcherServlet'
+04-07-2021 14:12:11.274 [http-nio-8080-exec-1] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping.lookupHandlerMethod - 2 matching mappings: [{ [/error]}, { [/error], produces [text/html]}]
+04-07-2021 14:12:11.275 [http-nio-8080-exec-1] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping.getHandler - Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)
+04-07-2021 14:12:11.287 [http-nio-8080-exec-1] TRACE o.s.web.method.HandlerMethod.invokeForRequest - Arguments: [SecurityContextHolderAwareRequestWrapper[ org.springframework.security.web.context.HttpSessionSecurityContextRepository$SaveToSessionRequestWrapper@13deb442]]
+04-07-2021 14:12:11.305 [http-nio-8080-exec-1] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor.writeWithMessageConverters - Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+04-07-2021 14:12:11.306 [http-nio-8080-exec-1] TRACE o.s.w.s.m.m.a.HttpEntityMethodProcessor.traceDebug - Writing [{timestamp=Sun Jul 04 14:12:11 MSK 2021, status=401, error=Unauthorized, path=/api/export}]
+04-07-2021 14:12:11.350 [http-nio-8080-exec-1] TRACE o.s.web.servlet.DispatcherServlet.processDispatchResult - No view rendering, null ModelAndView returned.
+04-07-2021 14:12:11.350 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet.logResult - Exiting from "ERROR" dispatch, status 401, headers={masked}
+04-07-2021 14:12:59.593 [main] INFO  team.natlex.NatLex.NatLexApplication.logStarting - Starting NatLexApplication using Java 16 on fogmatic with PID 13200 (C:\Users\fogma\IdeaProjects\NatLex\target\classes started by fogma in C:\Users\fogma\IdeaProjects\NatLex)
+04-07-2021 14:12:59.598 [main] INFO  team.natlex.NatLex.NatLexApplication.logStartupProfileInfo - No active profile set, falling back to default profiles: default
+04-07-2021 14:12:59.757 [background-preinit] WARN  o.s.h.c.j.Jackson2ObjectMapperBuilder.warn - For Jackson Kotlin classes support please add "com.fasterxml.jackson.module:jackson-module-kotlin" to the classpath
+04-07-2021 14:13:01.113 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+04-07-2021 14:13:01.187 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn - Finished Spring Data repository scanning in 64 ms. Found 2 JPA repository interfaces.
+04-07-2021 14:13:01.635 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker.postProcessAfterInitialization - Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@f951a7f' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+04-07-2021 14:13:01.641 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker.postProcessAfterInitialization - Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+04-07-2021 14:13:02.046 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer.initialize - Tomcat initialized with port(s): 8080 (http)
+04-07-2021 14:13:02.060 [main] INFO  o.a.coyote.http11.Http11NioProtocol.log - Initializing ProtocolHandler ["http-nio-8080"]
+04-07-2021 14:13:02.062 [main] INFO  o.a.catalina.core.StandardService.log - Starting service [Tomcat]
+04-07-2021 14:13:02.063 [main] INFO  o.a.catalina.core.StandardEngine.log - Starting Servlet engine: [Apache Tomcat/9.0.46]
+04-07-2021 14:13:02.263 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/].log - Initializing Spring embedded WebApplicationContext
+04-07-2021 14:13:02.263 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext.prepareWebApplicationContext - Root WebApplicationContext: initialization completed in 2565 ms
+04-07-2021 14:13:02.476 [main] INFO  o.f.c.i.license.VersionPrinter.info - Flyway Community Edition 7.8.2 by Redgate
+04-07-2021 14:13:02.483 [main] INFO  com.zaxxer.hikari.HikariDataSource.getConnection - HikariPool-1 - Starting...
+04-07-2021 14:13:02.721 [main] INFO  com.zaxxer.hikari.HikariDataSource.getConnection - HikariPool-1 - Start completed.
+04-07-2021 14:13:02.761 [main] INFO  o.f.c.i.d.base.BaseDatabaseType.info - Database: jdbc:postgresql://127.0.0.1:5432/natlex (PostgreSQL 13.3)
+04-07-2021 14:13:02.809 [main] INFO  o.f.core.internal.command.DbValidate.info - Successfully validated 1 migration (execution time 00:00.028s)
+04-07-2021 14:13:02.819 [main] INFO  o.f.core.internal.command.DbMigrate.info - Current version of schema "public": 1
+04-07-2021 14:13:02.820 [main] INFO  o.f.core.internal.command.DbMigrate.info - Schema "public" is up to date. No migration necessary.
+04-07-2021 14:13:03.804 [main] INFO  Hibernate Types.printBanner - This framework is proudly powered by:
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+ _    _                           _     _
+| |  | |                         (_)   | |
+| |__| |_   _ _ __   ___ _ __ ___ _ ___| |_ ___ _ __   ___ ___
+|  __  | | | | '_ \ / _ \ '__/ __| / __| __/ _ \ '_ \ / __/ _ \
+| |  | | |_| | |_) |  __/ |  \__ \ \__ \ ||  __/ | | | (_|  __/
+|_|  |_|\__, | .__/ \___|_|  |___/_|___/\__\___|_| |_|\___\___|
+         __/ | |
+        |___/|_|
+
+At Hypersistence, we only build amazing tools, like Hibernate Types, Flexy Pool, or Hypersistence Optimizer.
+
+What if there were a tool that could automatically detect JPA and Hibernate performance issues?
+
+Hypersistence Optimizer is that tool! For more details, go to: 
+
+https://vladmihalcea.com/hypersistence-optimizer/
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+04-07-2021 14:13:04.323 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean.buildNativeEntityManagerFactory - Initialized JPA EntityManagerFactory for persistence unit 'default'
+04-07-2021 14:13:04.456 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration.openEntityManagerInViewInterceptor - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+04-07-2021 14:13:05.676 [main] INFO  o.s.s.web.DefaultSecurityFilterChain.<init> - Will secure Ant [pattern='/**'] with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@43cc7951, org.springframework.security.web.context.SecurityContextPersistenceFilter@2fe38b73, org.springframework.security.web.header.HeaderWriterFilter@6b6606d1, org.springframework.security.web.authentication.logout.LogoutFilter@3c9cfcde, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@453439e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7aef8000, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7efba9b9, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@758311ed, org.springframework.security.web.session.SessionManagementFilter@523f3c29, org.springframework.security.web.access.ExceptionTranslationFilter@2f82e3cf, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@7ffc4195]
+04-07-2021 14:13:05.800 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerAdapter.initControllerAdviceCache - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+04-07-2021 14:13:05.887 [main] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping.detectHandlerMethods - 
+	t.n.N.a.ApiController:
+	{DELETE [/api/section/delete/{name}]}: deleteSection(String)
+	{PUT [/api/class/update/{name}]}: updateClass(GeologicalClass,String)
+	{PUT [/api/section/update/{name}]}: updateSection(SectionFullDTO,String)
+	{POST [/api/section/add]}: addNewSection(SectionFullDTO)
+	{POST [/api/class/add]}: addNewClass(GeologicalClass)
+	{GET [/api/export/{id}/file]}: downloadFile(UUID)
+	{GET [/api/export]}: downloadFile()
+	{GET [/api/sections]}: showSectionList()
+	{DELETE [/api/class/delete/{name}]}: deleteClass(String)
+	{GET [/api/import/{id}]}: getImportStatus(UUID)
+	{GET [/api/export/{id}]}: getExportStatus(UUID)
+	{POST [/api/import]}: uploadFile(MultipartFile)
+	{GET [/api/classes/{code}]}: showAllClassesByCode(String)
+	{GET [/api/sections/by-code]}: showAllSectionsByClassCode(String)
+04-07-2021 14:13:05.894 [main] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping.detectHandlerMethods - 
+	o.s.b.a.w.s.e.BasicErrorController:
+	{ [/error]}: error(HttpServletRequest)
+	{ [/error], produces [text/html]}: errorHtml(HttpServletRequest,HttpServletResponse)
+04-07-2021 14:13:05.929 [main] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping.detectHandlerMethods - 
+	o.s.w.a.OpenApiWebMvcResource:
+	{GET [/v3/api-docs], produces [application/json]}: openapiJson(HttpServletRequest,String)
+	{GET [/v3/api-docs.yaml], produces [application/vnd.oai.openapi]}: openapiYaml(HttpServletRequest,String)
+04-07-2021 14:13:05.936 [main] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping.detectHandlerMethods - 
+	o.s.w.u.SwaggerWelcomeWebMvc:
+	{GET [/swagger-ui.html]}: redirectToUi(HttpServletRequest)
+	{GET [/v3/api-docs/swagger-config], produces [application/json]}: openapiJson(HttpServletRequest)
+04-07-2021 14:13:05.938 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping.handlerMethodsInitialized - 20 mappings in 'requestMappingHandlerMapping'
+04-07-2021 14:13:05.960 [main] DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping.detectHandlers - Detected 0 mappings in 'beanNameHandlerMapping'
+04-07-2021 14:13:05.967 [main] TRACE o.s.w.s.f.s.RouterFunctionMapping.logRouterFunctions - 0 RouterFunction(s) in 'routerFunctionMapping'
+04-07-2021 14:13:06.958 [main] TRACE o.s.w.s.h.SimpleUrlHandlerMapping.registerHandler - Mapped [/webjars/**] onto ResourceHttpRequestHandler [Classpath [META-INF/resources/webjars/]]
+04-07-2021 14:13:06.959 [main] TRACE o.s.w.s.h.SimpleUrlHandlerMapping.registerHandler - Mapped [/**] onto ResourceHttpRequestHandler [Classpath [META-INF/resources/], Classpath [resources/], Classpath [static/], Classpath [public/], ServletContext [/]]
+04-07-2021 14:13:06.961 [main] TRACE o.s.w.s.h.SimpleUrlHandlerMapping.registerHandler - Mapped [/**/swagger-ui/**] onto ResourceHttpRequestHandler [Classpath [META-INF/resources/webjars/]]
+04-07-2021 14:13:06.962 [main] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping.logMappings - Patterns [/webjars/**, /**, /**/swagger-ui/**] in 'resourceHandlerMapping'
+04-07-2021 14:13:06.977 [main] DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver.initExceptionHandlerAdviceCache - ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+04-07-2021 14:13:07.298 [main] INFO  o.a.coyote.http11.Http11NioProtocol.log - Starting ProtocolHandler ["http-nio-8080"]
+04-07-2021 14:13:07.340 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer.start - Tomcat started on port(s): 8080 (http) with context path ''
+04-07-2021 14:13:07.356 [main] INFO  team.natlex.NatLex.NatLexApplication.logStarted - Started NatLexApplication in 8.772 seconds (JVM running for 9.514)
+04-07-2021 14:13:07.358 [main] INFO  o.s.b.a.ApplicationAvailabilityBean.logStateChange - Application availability state LivenessState changed to CORRECT
+04-07-2021 14:13:07.362 [main] INFO  o.s.b.a.ApplicationAvailabilityBean.logStateChange - Application availability state ReadinessState changed to ACCEPTING_TRAFFIC
+04-07-2021 14:13:07.453 [http-nio-8080-exec-1] INFO  o.a.coyote.http11.Http11Processor.log - Error parsing HTTP request header
+ Note: further occurrences of HTTP request parsing errors will be logged at DEBUG level.
+java.lang.IllegalArgumentException: Invalid character found in method name [0x160x030x010x020x000x010x000x010xfc0x030x0390x13X0x920x1a=$10xad0xab0xbez>0xe00xbd0xb60xa30x14Vf0xaf<0xec0x150xa1b0x990xdf0x8f0xd50x0fO ]. HTTP method names must be tokens
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:417)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:261)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1707)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:831)
+04-07-2021 14:13:27.374 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/].log - Initializing Spring DispatcherServlet 'dispatcherServlet'
+04-07-2021 14:13:27.375 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet.initServletBean - Initializing Servlet 'dispatcherServlet'
+04-07-2021 14:13:27.375 [http-nio-8080-exec-2] TRACE o.s.web.servlet.DispatcherServlet.initMultipartResolver - Detected org.springframework.web.multipart.support.StandardServletMultipartResolver@2267b0bb
+04-07-2021 14:13:27.375 [http-nio-8080-exec-2] TRACE o.s.web.servlet.DispatcherServlet.initLocaleResolver - Detected org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver@73dd3a46
+04-07-2021 14:13:27.375 [http-nio-8080-exec-2] TRACE o.s.web.servlet.DispatcherServlet.initThemeResolver - Detected org.springframework.web.servlet.theme.FixedThemeResolver@3a7d6976
+04-07-2021 14:13:27.377 [http-nio-8080-exec-2] TRACE o.s.web.servlet.DispatcherServlet.initRequestToViewNameTranslator - Detected DefaultRequestToViewNameTranslator
+04-07-2021 14:13:27.378 [http-nio-8080-exec-2] TRACE o.s.web.servlet.DispatcherServlet.initFlashMapManager - Detected SessionFlashMapManager
+04-07-2021 14:13:27.378 [http-nio-8080-exec-2] DEBUG o.s.web.servlet.DispatcherServlet.initServletBean - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+04-07-2021 14:13:27.379 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet.initServletBean - Completed initialization in 4 ms
+04-07-2021 14:13:27.635 [http-nio-8080-exec-2] TRACE o.s.web.servlet.DispatcherServlet.traceDebug - "ERROR" dispatch for GET "/error", parameters={}, headers={masked} in DispatcherServlet 'dispatcherServlet'
+04-07-2021 14:13:27.640 [http-nio-8080-exec-2] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping.lookupHandlerMethod - 2 matching mappings: [{ [/error]}, { [/error], produces [text/html]}]
+04-07-2021 14:13:27.642 [http-nio-8080-exec-2] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping.getHandler - Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)
+04-07-2021 14:13:27.659 [http-nio-8080-exec-2] TRACE o.s.web.method.HandlerMethod.invokeForRequest - Arguments: [SecurityContextHolderAwareRequestWrapper[ org.springframework.security.web.context.HttpSessionSecurityContextRepository$SaveToSessionRequestWrapper@743e8fe7]]
+04-07-2021 14:13:27.685 [http-nio-8080-exec-2] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor.writeWithMessageConverters - Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+04-07-2021 14:13:27.686 [http-nio-8080-exec-2] TRACE o.s.w.s.m.m.a.HttpEntityMethodProcessor.traceDebug - Writing [{timestamp=Sun Jul 04 14:13:27 MSK 2021, status=401, error=Unauthorized, path=/api/export}]
+04-07-2021 14:13:27.745 [http-nio-8080-exec-2] TRACE o.s.web.servlet.DispatcherServlet.processDispatchResult - No view rendering, null ModelAndView returned.
+04-07-2021 14:13:27.746 [http-nio-8080-exec-2] DEBUG o.s.web.servlet.DispatcherServlet.logResult - Exiting from "ERROR" dispatch, status 401, headers={masked}
+04-07-2021 14:13:36.329 [http-nio-8080-exec-3] TRACE o.s.web.servlet.DispatcherServlet.traceDebug - POST "/api/import", parameters={}, headers={masked} in DispatcherServlet 'dispatcherServlet'
+04-07-2021 14:13:36.333 [http-nio-8080-exec-3] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping.getHandler - Mapped to team.natlex.NatLex.api.ApiController#uploadFile(MultipartFile)
+04-07-2021 14:13:36.345 [http-nio-8080-exec-3] TRACE o.s.web.method.HandlerMethod.invokeForRequest - Arguments: [org.springframework.web.multipart.support.StandardMultipartHttpServletRequest$StandardMultipartFile@36082599]
+04-07-2021 14:13:36.358 [http-nio-8080-exec-3] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor.writeWithMessageConverters - Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+04-07-2021 14:13:36.359 [http-nio-8080-exec-3] TRACE o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor.traceDebug - Writing [2fec7044-b9d4-4530-82cf-df19dbc571b3]
+04-07-2021 14:13:36.360 [http-nio-8080-exec-3] TRACE o.s.web.servlet.DispatcherServlet.processDispatchResult - No view rendering, null ModelAndView returned.
+04-07-2021 14:13:36.362 [http-nio-8080-exec-3] DEBUG o.s.web.servlet.DispatcherServlet.logResult - Completed 200 OK, headers={masked}
+04-07-2021 14:13:36.674 [pool-1-thread-1] INFO  t.natlex.NatLex.service.XlsService.loadFile - job 2fec7044-b9d4-4530-82cf-df19dbc571b3 finished import
+04-07-2021 14:13:43.323 [http-nio-8080-exec-4] TRACE o.s.web.servlet.DispatcherServlet.traceDebug - GET "/api/export", parameters={}, headers={masked} in DispatcherServlet 'dispatcherServlet'
+04-07-2021 14:13:43.323 [http-nio-8080-exec-4] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping.getHandler - Mapped to team.natlex.NatLex.api.ApiController#downloadFile()
+04-07-2021 14:13:43.324 [http-nio-8080-exec-4] TRACE o.s.web.method.HandlerMethod.invokeForRequest - Arguments: []
+04-07-2021 14:13:43.325 [http-nio-8080-exec-4] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor.writeWithMessageConverters - Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+04-07-2021 14:13:43.328 [http-nio-8080-exec-4] TRACE o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor.traceDebug - Writing [a4eafc8a-a4c2-4a7c-8105-478935547f31]
+04-07-2021 14:13:43.329 [http-nio-8080-exec-4] TRACE o.s.web.servlet.DispatcherServlet.processDispatchResult - No view rendering, null ModelAndView returned.
+04-07-2021 14:13:43.329 [http-nio-8080-exec-4] DEBUG o.s.web.servlet.DispatcherServlet.logResult - Completed 200 OK, headers={masked}
+04-07-2021 14:13:43.625 [pool-1-thread-1] INFO  t.natlex.NatLex.service.XlsService.xlsExportProcess - job a4eafc8a-a4c2-4a7c-8105-478935547f31 finished export
+04-07-2021 14:13:53.751 [http-nio-8080-exec-5] TRACE o.s.web.servlet.DispatcherServlet.traceDebug - GET "/api/export/a4eafc8a-a4c2-4a7c-8105-478935547f31/file", parameters={}, headers={masked} in DispatcherServlet 'dispatcherServlet'
+04-07-2021 14:13:53.752 [http-nio-8080-exec-5] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping.getHandler - Mapped to team.natlex.NatLex.api.ApiController#downloadFile(UUID)
+04-07-2021 14:13:53.755 [http-nio-8080-exec-5] TRACE o.s.web.method.HandlerMethod.invokeForRequest - Arguments: [a4eafc8a-a4c2-4a7c-8105-478935547f31]
+04-07-2021 14:13:53.758 [http-nio-8080-exec-5] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor.writeWithMessageConverters - Found 'Content-Type:application/octet-stream' in response
+04-07-2021 14:13:53.758 [http-nio-8080-exec-5] TRACE o.s.w.s.m.m.a.HttpEntityMethodProcessor.traceDebug - Writing [[B@33e31aa7]
+04-07-2021 14:13:53.759 [http-nio-8080-exec-5] TRACE o.s.web.servlet.DispatcherServlet.processDispatchResult - No view rendering, null ModelAndView returned.
+04-07-2021 14:13:53.759 [http-nio-8080-exec-5] DEBUG o.s.web.servlet.DispatcherServlet.logResult - Completed 200 OK, headers={masked}
+04-07-2021 14:14:27.854 [http-nio-8080-exec-6] TRACE o.s.web.servlet.DispatcherServlet.traceDebug - GET "/api/export/a4eafc8a-a4c2-4a7c-8105-478935547f31/file", parameters={}, headers={masked} in DispatcherServlet 'dispatcherServlet'
+04-07-2021 14:14:27.855 [http-nio-8080-exec-6] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping.getHandler - Mapped to team.natlex.NatLex.api.ApiController#downloadFile(UUID)
+04-07-2021 14:14:27.856 [http-nio-8080-exec-6] TRACE o.s.web.method.HandlerMethod.invokeForRequest - Arguments: [a4eafc8a-a4c2-4a7c-8105-478935547f31]
+04-07-2021 14:14:27.857 [http-nio-8080-exec-6] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor.writeWithMessageConverters - Found 'Content-Type:application/octet-stream' in response
+04-07-2021 14:14:27.857 [http-nio-8080-exec-6] TRACE o.s.w.s.m.m.a.HttpEntityMethodProcessor.traceDebug - Writing [[B@33e31aa7]
+04-07-2021 14:14:27.858 [http-nio-8080-exec-6] TRACE o.s.web.servlet.DispatcherServlet.processDispatchResult - No view rendering, null ModelAndView returned.
+04-07-2021 14:14:27.858 [http-nio-8080-exec-6] DEBUG o.s.web.servlet.DispatcherServlet.logResult - Completed 200 OK, headers={masked}
+04-07-2021 14:14:29.069 [http-nio-8080-exec-7] TRACE o.s.web.servlet.DispatcherServlet.traceDebug - GET "/api/export/a4eafc8a-a4c2-4a7c-8105-478935547f31/file", parameters={}, headers={masked} in DispatcherServlet 'dispatcherServlet'
+04-07-2021 14:14:29.070 [http-nio-8080-exec-7] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping.getHandler - Mapped to team.natlex.NatLex.api.ApiController#downloadFile(UUID)
+04-07-2021 14:14:29.071 [http-nio-8080-exec-7] TRACE o.s.web.method.HandlerMethod.invokeForRequest - Arguments: [a4eafc8a-a4c2-4a7c-8105-478935547f31]
+04-07-2021 14:14:29.071 [http-nio-8080-exec-7] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor.writeWithMessageConverters - Found 'Content-Type:application/octet-stream' in response
+04-07-2021 14:14:29.071 [http-nio-8080-exec-7] TRACE o.s.w.s.m.m.a.HttpEntityMethodProcessor.traceDebug - Writing [[B@33e31aa7]
+04-07-2021 14:14:29.072 [http-nio-8080-exec-7] TRACE o.s.web.servlet.DispatcherServlet.processDispatchResult - No view rendering, null ModelAndView returned.
+04-07-2021 14:14:29.073 [http-nio-8080-exec-7] DEBUG o.s.web.servlet.DispatcherServlet.logResult - Completed 200 OK, headers={masked}
+04-07-2021 14:15:01.031 [http-nio-8080-exec-8] TRACE o.s.web.servlet.DispatcherServlet.traceDebug - GET "/api/export/a4eafc8a-a4c2-4a7c-8105-478935547f31/file", parameters={}, headers={masked} in DispatcherServlet 'dispatcherServlet'
+04-07-2021 14:15:01.031 [http-nio-8080-exec-8] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping.getHandler - Mapped to team.natlex.NatLex.api.ApiController#downloadFile(UUID)
+04-07-2021 14:15:01.032 [http-nio-8080-exec-8] TRACE o.s.web.method.HandlerMethod.invokeForRequest - Arguments: [a4eafc8a-a4c2-4a7c-8105-478935547f31]
+04-07-2021 14:15:01.033 [http-nio-8080-exec-8] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor.writeWithMessageConverters - Found 'Content-Type:application/octet-stream' in response
+04-07-2021 14:15:01.033 [http-nio-8080-exec-8] TRACE o.s.w.s.m.m.a.HttpEntityMethodProcessor.traceDebug - Writing [[B@33e31aa7]
+04-07-2021 14:15:01.034 [http-nio-8080-exec-8] TRACE o.s.web.servlet.DispatcherServlet.processDispatchResult - No view rendering, null ModelAndView returned.
+04-07-2021 14:15:01.034 [http-nio-8080-exec-8] DEBUG o.s.web.servlet.DispatcherServlet.logResult - Completed 200 OK, headers={masked}
+04-07-2021 14:15:09.968 [http-nio-8080-exec-9] TRACE o.s.web.servlet.DispatcherServlet.traceDebug - GET "/api/export/a4eafc8a-a4c2-4a7c-8105-478935547f31/file", parameters={}, headers={masked} in DispatcherServlet 'dispatcherServlet'
+04-07-2021 14:15:09.969 [http-nio-8080-exec-9] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping.getHandler - Mapped to team.natlex.NatLex.api.ApiController#downloadFile(UUID)
+04-07-2021 14:15:09.970 [http-nio-8080-exec-9] TRACE o.s.web.method.HandlerMethod.invokeForRequest - Arguments: [a4eafc8a-a4c2-4a7c-8105-478935547f31]
+04-07-2021 14:15:09.971 [http-nio-8080-exec-9] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor.writeWithMessageConverters - Found 'Content-Type:application/octet-stream' in response
+04-07-2021 14:15:09.972 [http-nio-8080-exec-9] TRACE o.s.w.s.m.m.a.HttpEntityMethodProcessor.traceDebug - Writing [[B@33e31aa7]
+04-07-2021 14:15:09.973 [http-nio-8080-exec-9] TRACE o.s.web.servlet.DispatcherServlet.processDispatchResult - No view rendering, null ModelAndView returned.
+04-07-2021 14:15:09.974 [http-nio-8080-exec-9] DEBUG o.s.web.servlet.DispatcherServlet.logResult - Completed 200 OK, headers={masked}
+04-07-2021 14:15:10.945 [http-nio-8080-exec-10] TRACE o.s.web.servlet.DispatcherServlet.traceDebug - GET "/api/export/a4eafc8a-a4c2-4a7c-8105-478935547f31/file", parameters={}, headers={masked} in DispatcherServlet 'dispatcherServlet'
+04-07-2021 14:15:10.946 [http-nio-8080-exec-10] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping.getHandler - Mapped to team.natlex.NatLex.api.ApiController#downloadFile(UUID)
+04-07-2021 14:15:10.946 [http-nio-8080-exec-10] TRACE o.s.web.method.HandlerMethod.invokeForRequest - Arguments: [a4eafc8a-a4c2-4a7c-8105-478935547f31]
+04-07-2021 14:15:10.947 [http-nio-8080-exec-10] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor.writeWithMessageConverters - Found 'Content-Type:application/octet-stream' in response
+04-07-2021 14:15:10.947 [http-nio-8080-exec-10] TRACE o.s.w.s.m.m.a.HttpEntityMethodProcessor.traceDebug - Writing [[B@33e31aa7]
+04-07-2021 14:15:10.948 [http-nio-8080-exec-10] TRACE o.s.web.servlet.DispatcherServlet.processDispatchResult - No view rendering, null ModelAndView returned.
+04-07-2021 14:15:10.948 [http-nio-8080-exec-10] DEBUG o.s.web.servlet.DispatcherServlet.logResult - Completed 200 OK, headers={masked}
+04-07-2021 14:15:13.748 [http-nio-8080-exec-1] TRACE o.s.web.servlet.DispatcherServlet.traceDebug - GET "/api/export/a4eafc8a-a4c2-4a7c-8105-478935547f31/file", parameters={}, headers={masked} in DispatcherServlet 'dispatcherServlet'
+04-07-2021 14:15:13.749 [http-nio-8080-exec-1] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping.getHandler - Mapped to team.natlex.NatLex.api.ApiController#downloadFile(UUID)
+04-07-2021 14:15:13.750 [http-nio-8080-exec-1] TRACE o.s.web.method.HandlerMethod.invokeForRequest - Arguments: [a4eafc8a-a4c2-4a7c-8105-478935547f31]
+04-07-2021 14:15:13.751 [http-nio-8080-exec-1] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor.writeWithMessageConverters - Found 'Content-Type:application/octet-stream' in response
+04-07-2021 14:15:13.751 [http-nio-8080-exec-1] TRACE o.s.w.s.m.m.a.HttpEntityMethodProcessor.traceDebug - Writing [[B@33e31aa7]
+04-07-2021 14:15:13.751 [http-nio-8080-exec-1] TRACE o.s.web.servlet.DispatcherServlet.processDispatchResult - No view rendering, null ModelAndView returned.
+04-07-2021 14:15:13.753 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet.logResult - Completed 200 OK, headers={masked}
+04-07-2021 14:15:31.484 [http-nio-8080-exec-2] TRACE o.s.web.servlet.DispatcherServlet.traceDebug - GET "/api/export/a4eafc8a-a4c2-4a7c-8105-478935547f31/file", parameters={}, headers={masked} in DispatcherServlet 'dispatcherServlet'
+04-07-2021 14:15:31.485 [http-nio-8080-exec-2] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping.getHandler - Mapped to team.natlex.NatLex.api.ApiController#downloadFile(UUID)
+04-07-2021 14:15:31.486 [http-nio-8080-exec-2] TRACE o.s.web.method.HandlerMethod.invokeForRequest - Arguments: [a4eafc8a-a4c2-4a7c-8105-478935547f31]
+04-07-2021 14:15:31.487 [http-nio-8080-exec-2] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor.writeWithMessageConverters - Found 'Content-Type:application/octet-stream' in response
+04-07-2021 14:15:31.487 [http-nio-8080-exec-2] TRACE o.s.w.s.m.m.a.HttpEntityMethodProcessor.traceDebug - Writing [[B@33e31aa7]
+04-07-2021 14:15:31.488 [http-nio-8080-exec-2] TRACE o.s.web.servlet.DispatcherServlet.processDispatchResult - No view rendering, null ModelAndView returned.
+04-07-2021 14:15:31.488 [http-nio-8080-exec-2] DEBUG o.s.web.servlet.DispatcherServlet.logResult - Completed 200 OK, headers={masked}
+04-07-2021 14:15:46.689 [http-nio-8080-exec-3] TRACE o.s.web.servlet.DispatcherServlet.traceDebug - GET "/api/export/a4eafc8a-a4c2-4a7c-8105-478935547f31/file", parameters={}, headers={masked} in DispatcherServlet 'dispatcherServlet'
+04-07-2021 14:15:46.690 [http-nio-8080-exec-3] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping.getHandler - Mapped to team.natlex.NatLex.api.ApiController#downloadFile(UUID)
+04-07-2021 14:15:46.691 [http-nio-8080-exec-3] TRACE o.s.web.method.HandlerMethod.invokeForRequest - Arguments: [a4eafc8a-a4c2-4a7c-8105-478935547f31]
+04-07-2021 14:15:46.692 [http-nio-8080-exec-3] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor.writeWithMessageConverters - Found 'Content-Type:application/octet-stream' in response
+04-07-2021 14:15:46.692 [http-nio-8080-exec-3] TRACE o.s.w.s.m.m.a.HttpEntityMethodProcessor.traceDebug - Writing [[B@33e31aa7]
+04-07-2021 14:15:46.693 [http-nio-8080-exec-3] TRACE o.s.web.servlet.DispatcherServlet.processDispatchResult - No view rendering, null ModelAndView returned.
+04-07-2021 14:15:46.694 [http-nio-8080-exec-3] DEBUG o.s.web.servlet.DispatcherServlet.logResult - Completed 200 OK, headers={masked}
+04-07-2021 14:15:48.239 [http-nio-8080-exec-4] TRACE o.s.web.servlet.DispatcherServlet.traceDebug - GET "/api/export/a4eafc8a-a4c2-4a7c-8105-478935547f31/file", parameters={}, headers={masked} in DispatcherServlet 'dispatcherServlet'
+04-07-2021 14:15:48.239 [http-nio-8080-exec-4] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping.getHandler - Mapped to team.natlex.NatLex.api.ApiController#downloadFile(UUID)
+04-07-2021 14:15:48.240 [http-nio-8080-exec-4] TRACE o.s.web.method.HandlerMethod.invokeForRequest - Arguments: [a4eafc8a-a4c2-4a7c-8105-478935547f31]
+04-07-2021 14:15:48.241 [http-nio-8080-exec-4] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor.writeWithMessageConverters - Found 'Content-Type:application/octet-stream' in response
+04-07-2021 14:15:48.241 [http-nio-8080-exec-4] TRACE o.s.w.s.m.m.a.HttpEntityMethodProcessor.traceDebug - Writing [[B@33e31aa7]
+04-07-2021 14:15:48.242 [http-nio-8080-exec-4] TRACE o.s.web.servlet.DispatcherServlet.processDispatchResult - No view rendering, null ModelAndView returned.
+04-07-2021 14:15:48.243 [http-nio-8080-exec-4] DEBUG o.s.web.servlet.DispatcherServlet.logResult - Completed 200 OK, headers={masked}
+04-07-2021 14:15:55.197 [http-nio-8080-exec-5] TRACE o.s.web.servlet.DispatcherServlet.traceDebug - GET "/api/export/a4eafc8a-a4c2-4a7c-8105-478935547f31/file", parameters={}, headers={masked} in DispatcherServlet 'dispatcherServlet'
+04-07-2021 14:15:55.198 [http-nio-8080-exec-5] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping.getHandler - Mapped to team.natlex.NatLex.api.ApiController#downloadFile(UUID)
+04-07-2021 14:15:55.198 [http-nio-8080-exec-5] TRACE o.s.web.method.HandlerMethod.invokeForRequest - Arguments: [a4eafc8a-a4c2-4a7c-8105-478935547f31]
+04-07-2021 14:15:55.199 [http-nio-8080-exec-5] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor.writeWithMessageConverters - Found 'Content-Type:application/octet-stream' in response
+04-07-2021 14:15:55.199 [http-nio-8080-exec-5] TRACE o.s.w.s.m.m.a.HttpEntityMethodProcessor.traceDebug - Writing [[B@33e31aa7]
+04-07-2021 14:15:55.200 [http-nio-8080-exec-5] TRACE o.s.web.servlet.DispatcherServlet.processDispatchResult - No view rendering, null ModelAndView returned.
+04-07-2021 14:15:55.200 [http-nio-8080-exec-5] DEBUG o.s.web.servlet.DispatcherServlet.logResult - Completed 200 OK, headers={masked}
+04-07-2021 14:16:00.862 [http-nio-8080-exec-6] TRACE o.s.web.servlet.DispatcherServlet.traceDebug - GET "/api/export", parameters={}, headers={masked} in DispatcherServlet 'dispatcherServlet'
+04-07-2021 14:16:00.862 [http-nio-8080-exec-6] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping.getHandler - Mapped to team.natlex.NatLex.api.ApiController#downloadFile()
+04-07-2021 14:16:00.863 [http-nio-8080-exec-6] TRACE o.s.web.method.HandlerMethod.invokeForRequest - Arguments: []
+04-07-2021 14:16:00.864 [http-nio-8080-exec-6] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor.writeWithMessageConverters - Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+04-07-2021 14:16:00.864 [http-nio-8080-exec-6] TRACE o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor.traceDebug - Writing [1323f546-1545-4ee3-a78e-a9fc97d7a1d1]
+04-07-2021 14:16:00.865 [http-nio-8080-exec-6] TRACE o.s.web.servlet.DispatcherServlet.processDispatchResult - No view rendering, null ModelAndView returned.
+04-07-2021 14:16:00.866 [http-nio-8080-exec-6] DEBUG o.s.web.servlet.DispatcherServlet.logResult - Completed 200 OK, headers={masked}
+04-07-2021 14:16:00.876 [pool-1-thread-1] INFO  t.natlex.NatLex.service.XlsService.xlsExportProcess - job 1323f546-1545-4ee3-a78e-a9fc97d7a1d1 finished export
+04-07-2021 14:16:11.922 [http-nio-8080-exec-7] TRACE o.s.web.servlet.DispatcherServlet.traceDebug - GET "/api/export/1323f546-1545-4ee3-a78e-a9fc97d7a1d1/file", parameters={}, headers={masked} in DispatcherServlet 'dispatcherServlet'
+04-07-2021 14:16:11.924 [http-nio-8080-exec-7] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping.getHandler - Mapped to team.natlex.NatLex.api.ApiController#downloadFile(UUID)
+04-07-2021 14:16:11.924 [http-nio-8080-exec-7] TRACE o.s.web.method.HandlerMethod.invokeForRequest - Arguments: [1323f546-1545-4ee3-a78e-a9fc97d7a1d1]
+04-07-2021 14:16:11.925 [http-nio-8080-exec-7] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor.writeWithMessageConverters - Found 'Content-Type:application/octet-stream' in response
+04-07-2021 14:16:11.925 [http-nio-8080-exec-7] TRACE o.s.w.s.m.m.a.HttpEntityMethodProcessor.traceDebug - Writing [[B@8a25d0c]
+04-07-2021 14:16:11.926 [http-nio-8080-exec-7] TRACE o.s.web.servlet.DispatcherServlet.processDispatchResult - No view rendering, null ModelAndView returned.
+04-07-2021 14:16:11.926 [http-nio-8080-exec-7] DEBUG o.s.web.servlet.DispatcherServlet.logResult - Completed 200 OK, headers={masked}
+04-07-2021 14:16:28.057 [http-nio-8080-exec-8] TRACE o.s.web.servlet.DispatcherServlet.traceDebug - "ERROR" dispatch for GET "/error", parameters={}, headers={masked} in DispatcherServlet 'dispatcherServlet'
+04-07-2021 14:16:28.058 [http-nio-8080-exec-8] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping.lookupHandlerMethod - 2 matching mappings: [{ [/error], produces [text/html]}, { [/error]}]
+04-07-2021 14:16:28.061 [http-nio-8080-exec-8] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping.getHandler - Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#errorHtml(HttpServletRequest, HttpServletResponse)
+04-07-2021 14:16:28.062 [http-nio-8080-exec-8] TRACE o.s.web.method.HandlerMethod.invokeForRequest - Arguments: [SecurityContextHolderAwareRequestWrapper[ org.springframework.security.web.context.HttpSessionSecurityContextRepository$SaveToSessionRequestWrapper@372554ac], org.springframework.security.web.context.HttpSessionSecurityContextRepository$SaveToSessionResponseWrapper@53c1c9a3]
+04-07-2021 14:16:28.096 [http-nio-8080-exec-8] DEBUG o.s.w.s.v.ContentNegotiatingViewResolver.getBestView - Selected 'text/html' given [text/html, text/html;q=0.8]
+04-07-2021 14:16:28.097 [http-nio-8080-exec-8] TRACE o.s.web.servlet.DispatcherServlet.render - Rendering view [org.springframework.boot.autoconfigure.web.servlet.error.ErrorMvcAutoConfiguration$StaticView@2184962c] 
+04-07-2021 14:16:28.101 [http-nio-8080-exec-8] DEBUG o.s.web.servlet.DispatcherServlet.logResult - Exiting from "ERROR" dispatch, status 401, headers={masked}
+04-07-2021 14:16:31.764 [http-nio-8080-exec-9] TRACE o.s.web.servlet.DispatcherServlet.traceDebug - GET "/api/export/1323f546-1545-4ee3-a78e-a9fc97d7a1d1/file", parameters={}, headers={masked} in DispatcherServlet 'dispatcherServlet'
+04-07-2021 14:16:31.765 [http-nio-8080-exec-9] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping.getHandler - Mapped to team.natlex.NatLex.api.ApiController#downloadFile(UUID)
+04-07-2021 14:16:31.765 [http-nio-8080-exec-9] TRACE o.s.web.method.HandlerMethod.invokeForRequest - Arguments: [1323f546-1545-4ee3-a78e-a9fc97d7a1d1]
+04-07-2021 14:16:31.766 [http-nio-8080-exec-9] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor.writeWithMessageConverters - Found 'Content-Type:application/octet-stream' in response
+04-07-2021 14:16:31.766 [http-nio-8080-exec-9] TRACE o.s.w.s.m.m.a.HttpEntityMethodProcessor.traceDebug - Writing [[B@8a25d0c]
+04-07-2021 14:16:31.767 [http-nio-8080-exec-9] TRACE o.s.web.servlet.DispatcherServlet.processDispatchResult - No view rendering, null ModelAndView returned.
+04-07-2021 14:16:31.767 [http-nio-8080-exec-9] DEBUG o.s.web.servlet.DispatcherServlet.logResult - Completed 200 OK, headers={masked}
+04-07-2021 14:16:40.489 [http-nio-8080-exec-10] TRACE o.s.web.servlet.DispatcherServlet.traceDebug - GET "/api/export/1323f546-1545-4ee3-a78e-a9fc97d7a1d1/file", parameters={}, headers={masked} in DispatcherServlet 'dispatcherServlet'
+04-07-2021 14:16:40.491 [http-nio-8080-exec-10] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping.getHandler - Mapped to team.natlex.NatLex.api.ApiController#downloadFile(UUID)
+04-07-2021 14:16:40.491 [http-nio-8080-exec-10] TRACE o.s.web.method.HandlerMethod.invokeForRequest - Arguments: [1323f546-1545-4ee3-a78e-a9fc97d7a1d1]
+04-07-2021 14:16:40.492 [http-nio-8080-exec-10] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor.writeWithMessageConverters - Found 'Content-Type:application/octet-stream' in response
+04-07-2021 14:16:40.493 [http-nio-8080-exec-10] TRACE o.s.w.s.m.m.a.HttpEntityMethodProcessor.traceDebug - Writing [[B@8a25d0c]
+04-07-2021 14:16:40.494 [http-nio-8080-exec-10] TRACE o.s.web.servlet.DispatcherServlet.processDispatchResult - No view rendering, null ModelAndView returned.
+04-07-2021 14:16:40.495 [http-nio-8080-exec-10] DEBUG o.s.web.servlet.DispatcherServlet.logResult - Completed 200 OK, headers={masked}
+04-07-2021 14:16:56.496 [http-nio-8080-exec-1] TRACE o.s.web.servlet.DispatcherServlet.traceDebug - GET "/api/export/1323f546-1545-4ee3-a78e-a9fc97d7a1d1/file", parameters={}, headers={masked} in DispatcherServlet 'dispatcherServlet'
+04-07-2021 14:16:56.497 [http-nio-8080-exec-1] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping.getHandler - Mapped to team.natlex.NatLex.api.ApiController#downloadFile(UUID)
+04-07-2021 14:16:56.498 [http-nio-8080-exec-1] TRACE o.s.web.method.HandlerMethod.invokeForRequest - Arguments: [1323f546-1545-4ee3-a78e-a9fc97d7a1d1]
+04-07-2021 14:16:56.498 [http-nio-8080-exec-1] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor.writeWithMessageConverters - Found 'Content-Type:application/octet-stream' in response
+04-07-2021 14:16:56.498 [http-nio-8080-exec-1] TRACE o.s.w.s.m.m.a.HttpEntityMethodProcessor.traceDebug - Writing [[B@8a25d0c]
+04-07-2021 14:16:56.499 [http-nio-8080-exec-1] TRACE o.s.web.servlet.DispatcherServlet.processDispatchResult - No view rendering, null ModelAndView returned.
+04-07-2021 14:16:56.499 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet.logResult - Completed 200 OK, headers={masked}
+04-07-2021 14:16:58.378 [http-nio-8080-exec-2] TRACE o.s.web.servlet.DispatcherServlet.traceDebug - GET "/api/export/1323f546-1545-4ee3-a78e-a9fc97d7a1d1/file", parameters={}, headers={masked} in DispatcherServlet 'dispatcherServlet'
+04-07-2021 14:16:58.379 [http-nio-8080-exec-2] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping.getHandler - Mapped to team.natlex.NatLex.api.ApiController#downloadFile(UUID)
+04-07-2021 14:16:58.379 [http-nio-8080-exec-2] TRACE o.s.web.method.HandlerMethod.invokeForRequest - Arguments: [1323f546-1545-4ee3-a78e-a9fc97d7a1d1]
+04-07-2021 14:16:58.380 [http-nio-8080-exec-2] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor.writeWithMessageConverters - Found 'Content-Type:application/octet-stream' in response
+04-07-2021 14:16:58.380 [http-nio-8080-exec-2] TRACE o.s.w.s.m.m.a.HttpEntityMethodProcessor.traceDebug - Writing [[B@8a25d0c]
+04-07-2021 14:16:58.381 [http-nio-8080-exec-2] TRACE o.s.web.servlet.DispatcherServlet.processDispatchResult - No view rendering, null ModelAndView returned.
+04-07-2021 14:16:58.381 [http-nio-8080-exec-2] DEBUG o.s.web.servlet.DispatcherServlet.logResult - Completed 200 OK, headers={masked}
+04-07-2021 14:17:12.682 [http-nio-8080-exec-3] TRACE o.s.web.servlet.DispatcherServlet.traceDebug - GET "/api/export/1323f546-1545-4ee3-a78e-a9fc97d7a1d1/file", parameters={}, headers={masked} in DispatcherServlet 'dispatcherServlet'
+04-07-2021 14:17:12.683 [http-nio-8080-exec-3] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping.getHandler - Mapped to team.natlex.NatLex.api.ApiController#downloadFile(UUID)
+04-07-2021 14:17:12.683 [http-nio-8080-exec-3] TRACE o.s.web.method.HandlerMethod.invokeForRequest - Arguments: [1323f546-1545-4ee3-a78e-a9fc97d7a1d1]
+04-07-2021 14:17:12.684 [http-nio-8080-exec-3] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor.writeWithMessageConverters - Found 'Content-Type:application/octet-stream' in response
+04-07-2021 14:17:12.684 [http-nio-8080-exec-3] TRACE o.s.w.s.m.m.a.HttpEntityMethodProcessor.traceDebug - Writing [[B@8a25d0c]
+04-07-2021 14:17:12.685 [http-nio-8080-exec-3] TRACE o.s.web.servlet.DispatcherServlet.processDispatchResult - No view rendering, null ModelAndView returned.
+04-07-2021 14:17:12.685 [http-nio-8080-exec-3] DEBUG o.s.web.servlet.DispatcherServlet.logResult - Completed 200 OK, headers={masked}
+04-07-2021 14:17:13.241 [http-nio-8080-exec-4] TRACE o.s.web.servlet.DispatcherServlet.traceDebug - GET "/api/export/1323f546-1545-4ee3-a78e-a9fc97d7a1d1/file", parameters={}, headers={masked} in DispatcherServlet 'dispatcherServlet'
+04-07-2021 14:17:13.242 [http-nio-8080-exec-4] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping.getHandler - Mapped to team.natlex.NatLex.api.ApiController#downloadFile(UUID)
+04-07-2021 14:17:13.242 [http-nio-8080-exec-4] TRACE o.s.web.method.HandlerMethod.invokeForRequest - Arguments: [1323f546-1545-4ee3-a78e-a9fc97d7a1d1]
+04-07-2021 14:17:13.243 [http-nio-8080-exec-4] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor.writeWithMessageConverters - Found 'Content-Type:application/octet-stream' in response
+04-07-2021 14:17:13.243 [http-nio-8080-exec-4] TRACE o.s.w.s.m.m.a.HttpEntityMethodProcessor.traceDebug - Writing [[B@8a25d0c]
+04-07-2021 14:17:13.244 [http-nio-8080-exec-4] TRACE o.s.web.servlet.DispatcherServlet.processDispatchResult - No view rendering, null ModelAndView returned.
+04-07-2021 14:17:13.246 [http-nio-8080-exec-4] DEBUG o.s.web.servlet.DispatcherServlet.logResult - Completed 200 OK, headers={masked}
+04-07-2021 14:17:13.381 [http-nio-8080-exec-5] TRACE o.s.web.servlet.DispatcherServlet.traceDebug - GET "/api/export/1323f546-1545-4ee3-a78e-a9fc97d7a1d1/file", parameters={}, headers={masked} in DispatcherServlet 'dispatcherServlet'
+04-07-2021 14:17:13.382 [http-nio-8080-exec-5] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping.getHandler - Mapped to team.natlex.NatLex.api.ApiController#downloadFile(UUID)
+04-07-2021 14:17:13.382 [http-nio-8080-exec-5] TRACE o.s.web.method.HandlerMethod.invokeForRequest - Arguments: [1323f546-1545-4ee3-a78e-a9fc97d7a1d1]
+04-07-2021 14:17:13.383 [http-nio-8080-exec-5] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor.writeWithMessageConverters - Found 'Content-Type:application/octet-stream' in response
+04-07-2021 14:17:13.383 [http-nio-8080-exec-5] TRACE o.s.w.s.m.m.a.HttpEntityMethodProcessor.traceDebug - Writing [[B@8a25d0c]
+04-07-2021 14:17:13.383 [http-nio-8080-exec-5] TRACE o.s.web.servlet.DispatcherServlet.processDispatchResult - No view rendering, null ModelAndView returned.
+04-07-2021 14:17:13.384 [http-nio-8080-exec-5] DEBUG o.s.web.servlet.DispatcherServlet.logResult - Completed 200 OK, headers={masked}
+04-07-2021 14:17:20.026 [http-nio-8080-exec-6] TRACE o.s.web.servlet.DispatcherServlet.traceDebug - GET "/api/export/1323f546-1545-4ee3-a78e-a9fc97d7a1d1/file", parameters={}, headers={masked} in DispatcherServlet 'dispatcherServlet'
+04-07-2021 14:17:20.027 [http-nio-8080-exec-6] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping.getHandler - Mapped to team.natlex.NatLex.api.ApiController#downloadFile(UUID)
+04-07-2021 14:17:20.028 [http-nio-8080-exec-6] TRACE o.s.web.method.HandlerMethod.invokeForRequest - Arguments: [1323f546-1545-4ee3-a78e-a9fc97d7a1d1]
+04-07-2021 14:17:20.029 [http-nio-8080-exec-6] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor.writeWithMessageConverters - Found 'Content-Type:application/octet-stream' in response
+04-07-2021 14:17:20.030 [http-nio-8080-exec-6] TRACE o.s.w.s.m.m.a.HttpEntityMethodProcessor.traceDebug - Writing [[B@8a25d0c]
+04-07-2021 14:17:20.031 [http-nio-8080-exec-6] TRACE o.s.web.servlet.DispatcherServlet.processDispatchResult - No view rendering, null ModelAndView returned.
+04-07-2021 14:17:20.033 [http-nio-8080-exec-6] DEBUG o.s.web.servlet.DispatcherServlet.logResult - Completed 200 OK, headers={masked}
+04-07-2021 14:17:21.209 [http-nio-8080-exec-7] TRACE o.s.web.servlet.DispatcherServlet.traceDebug - GET "/api/export/1323f546-1545-4ee3-a78e-a9fc97d7a1d1/file", parameters={}, headers={masked} in DispatcherServlet 'dispatcherServlet'
+04-07-2021 14:17:21.210 [http-nio-8080-exec-7] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping.getHandler - Mapped to team.natlex.NatLex.api.ApiController#downloadFile(UUID)
+04-07-2021 14:17:21.211 [http-nio-8080-exec-7] TRACE o.s.web.method.HandlerMethod.invokeForRequest - Arguments: [1323f546-1545-4ee3-a78e-a9fc97d7a1d1]
+04-07-2021 14:17:21.211 [http-nio-8080-exec-7] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor.writeWithMessageConverters - Found 'Content-Type:application/octet-stream' in response
+04-07-2021 14:17:21.212 [http-nio-8080-exec-7] TRACE o.s.w.s.m.m.a.HttpEntityMethodProcessor.traceDebug - Writing [[B@8a25d0c]
+04-07-2021 14:17:21.212 [http-nio-8080-exec-7] TRACE o.s.web.servlet.DispatcherServlet.processDispatchResult - No view rendering, null ModelAndView returned.
+04-07-2021 14:17:21.212 [http-nio-8080-exec-7] DEBUG o.s.web.servlet.DispatcherServlet.logResult - Completed 200 OK, headers={masked}
+04-07-2021 14:17:34.990 [http-nio-8080-exec-9] TRACE o.s.web.servlet.DispatcherServlet.traceDebug - GET "/api/export/1323f546-1545-4ee3-a78e-a9fc97d7a1d1/file", parameters={}, headers={masked} in DispatcherServlet 'dispatcherServlet'
+04-07-2021 14:17:34.992 [http-nio-8080-exec-9] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping.getHandler - Mapped to team.natlex.NatLex.api.ApiController#downloadFile(UUID)
+04-07-2021 14:17:34.993 [http-nio-8080-exec-9] TRACE o.s.web.method.HandlerMethod.invokeForRequest - Arguments: [1323f546-1545-4ee3-a78e-a9fc97d7a1d1]
+04-07-2021 14:17:34.994 [http-nio-8080-exec-9] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor.writeWithMessageConverters - Found 'Content-Type:application/octet-stream' in response
+04-07-2021 14:17:34.994 [http-nio-8080-exec-9] TRACE o.s.w.s.m.m.a.HttpEntityMethodProcessor.traceDebug - Writing [[B@8a25d0c]
+04-07-2021 14:17:34.995 [http-nio-8080-exec-9] TRACE o.s.web.servlet.DispatcherServlet.processDispatchResult - No view rendering, null ModelAndView returned.
+04-07-2021 14:17:34.996 [http-nio-8080-exec-9] DEBUG o.s.web.servlet.DispatcherServlet.logResult - Completed 200 OK, headers={masked}
+04-07-2021 14:17:59.431 [http-nio-8080-exec-10] TRACE o.s.web.servlet.DispatcherServlet.traceDebug - GET "/api/export/1323f546-1545-4ee3-a78e-a9fc97d7a1d1/file", parameters={}, headers={masked} in DispatcherServlet 'dispatcherServlet'
+04-07-2021 14:17:59.432 [http-nio-8080-exec-10] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping.getHandler - Mapped to team.natlex.NatLex.api.ApiController#downloadFile(UUID)
+04-07-2021 14:17:59.432 [http-nio-8080-exec-10] TRACE o.s.web.method.HandlerMethod.invokeForRequest - Arguments: [1323f546-1545-4ee3-a78e-a9fc97d7a1d1]
+04-07-2021 14:17:59.433 [http-nio-8080-exec-10] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor.writeWithMessageConverters - Found 'Content-Type:application/octet-stream' in response
+04-07-2021 14:17:59.433 [http-nio-8080-exec-10] TRACE o.s.w.s.m.m.a.HttpEntityMethodProcessor.traceDebug - Writing [[B@8a25d0c]
+04-07-2021 14:17:59.434 [http-nio-8080-exec-10] TRACE o.s.web.servlet.DispatcherServlet.processDispatchResult - No view rendering, null ModelAndView returned.
+04-07-2021 14:17:59.434 [http-nio-8080-exec-10] DEBUG o.s.web.servlet.DispatcherServlet.logResult - Completed 200 OK, headers={masked}
+04-07-2021 14:20:22.164 [main] INFO  team.natlex.NatLex.NatLexApplication.logStarting - Starting NatLexApplication using Java 16 on fogmatic with PID 15120 (C:\Users\fogma\IdeaProjects\NatLex\target\classes started by fogma in C:\Users\fogma\IdeaProjects\NatLex)
+04-07-2021 14:20:22.168 [main] INFO  team.natlex.NatLex.NatLexApplication.logStartupProfileInfo - No active profile set, falling back to default profiles: default
+04-07-2021 14:20:22.337 [background-preinit] WARN  o.s.h.c.j.Jackson2ObjectMapperBuilder.warn - For Jackson Kotlin classes support please add "com.fasterxml.jackson.module:jackson-module-kotlin" to the classpath
+04-07-2021 14:20:23.535 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+04-07-2021 14:20:23.621 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn - Finished Spring Data repository scanning in 74 ms. Found 2 JPA repository interfaces.
+04-07-2021 14:20:24.046 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker.postProcessAfterInitialization - Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@f951a7f' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+04-07-2021 14:20:24.053 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker.postProcessAfterInitialization - Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+04-07-2021 14:20:24.519 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer.initialize - Tomcat initialized with port(s): 8080 (http)
+04-07-2021 14:20:24.534 [main] INFO  o.a.coyote.http11.Http11NioProtocol.log - Initializing ProtocolHandler ["http-nio-8080"]
+04-07-2021 14:20:24.535 [main] INFO  o.a.catalina.core.StandardService.log - Starting service [Tomcat]
+04-07-2021 14:20:24.535 [main] INFO  o.a.catalina.core.StandardEngine.log - Starting Servlet engine: [Apache Tomcat/9.0.46]
+04-07-2021 14:20:24.727 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/].log - Initializing Spring embedded WebApplicationContext
+04-07-2021 14:20:24.728 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext.prepareWebApplicationContext - Root WebApplicationContext: initialization completed in 2494 ms
+04-07-2021 14:20:24.987 [main] INFO  o.f.c.i.license.VersionPrinter.info - Flyway Community Edition 7.8.2 by Redgate
+04-07-2021 14:20:24.994 [main] INFO  com.zaxxer.hikari.HikariDataSource.getConnection - HikariPool-1 - Starting...
+04-07-2021 14:20:25.314 [main] INFO  com.zaxxer.hikari.HikariDataSource.getConnection - HikariPool-1 - Start completed.
+04-07-2021 14:20:25.414 [main] INFO  o.f.c.i.d.base.BaseDatabaseType.info - Database: jdbc:postgresql://127.0.0.1:5432/natlex (PostgreSQL 13.3)
+04-07-2021 14:20:25.466 [main] INFO  o.f.core.internal.command.DbValidate.info - Successfully validated 1 migration (execution time 00:00.028s)
+04-07-2021 14:20:25.475 [main] INFO  o.f.core.internal.command.DbMigrate.info - Current version of schema "public": 1
+04-07-2021 14:20:25.476 [main] INFO  o.f.core.internal.command.DbMigrate.info - Schema "public" is up to date. No migration necessary.
+04-07-2021 14:20:26.503 [main] INFO  Hibernate Types.printBanner - This framework is proudly powered by:
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+ _    _                           _     _
+| |  | |                         (_)   | |
+| |__| |_   _ _ __   ___ _ __ ___ _ ___| |_ ___ _ __   ___ ___
+|  __  | | | | '_ \ / _ \ '__/ __| / __| __/ _ \ '_ \ / __/ _ \
+| |  | | |_| | |_) |  __/ |  \__ \ \__ \ ||  __/ | | | (_|  __/
+|_|  |_|\__, | .__/ \___|_|  |___/_|___/\__\___|_| |_|\___\___|
+         __/ | |
+        |___/|_|
+
+At Hypersistence, we only build amazing tools, like Hibernate Types, Flexy Pool, or Hypersistence Optimizer.
+
+What if there were a tool that could automatically detect JPA and Hibernate performance issues?
+
+Hypersistence Optimizer is that tool! For more details, go to: 
+
+https://vladmihalcea.com/hypersistence-optimizer/
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+04-07-2021 14:20:27.023 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean.buildNativeEntityManagerFactory - Initialized JPA EntityManagerFactory for persistence unit 'default'
+04-07-2021 14:20:27.196 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration.openEntityManagerInViewInterceptor - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+04-07-2021 14:20:28.297 [main] INFO  o.s.s.web.DefaultSecurityFilterChain.<init> - Will secure Ant [pattern='/**'] with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@c14bbab, org.springframework.security.web.context.SecurityContextPersistenceFilter@153d14e3, org.springframework.security.web.header.HeaderWriterFilter@7f2542f, org.springframework.security.web.authentication.logout.LogoutFilter@5e83298e, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@f252762, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@11cdf948, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7aef8000, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@72c5064f, org.springframework.security.web.session.SessionManagementFilter@7eea934d, org.springframework.security.web.access.ExceptionTranslationFilter@870a9f2, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@2d1f3639]
+04-07-2021 14:20:28.497 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerAdapter.initControllerAdviceCache - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+04-07-2021 14:20:28.652 [main] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping.detectHandlerMethods - 
+	t.n.N.a.ApiController:
+	{GET [/api/sections/by-code]}: showAllSectionsByClassCode(String)
+	{GET [/api/classes/{code}]}: showAllClassesByCode(String)
+	{GET [/api/export]}: downloadFile()
+	{GET [/api/export/{id}/file]}: downloadFile(UUID)
+	{DELETE [/api/class/delete/{name}]}: deleteClass(String)
+	{GET [/api/sections]}: showSectionList()
+	{PUT [/api/class/update/{name}]}: updateClass(GeologicalClass,String)
+	{DELETE [/api/section/delete/{name}]}: deleteSection(String)
+	{PUT [/api/section/update/{name}]}: updateSection(SectionFullDTO,String)
+	{POST [/api/class/add]}: addNewClass(GeologicalClass)
+	{POST [/api/section/add]}: addNewSection(SectionFullDTO)
+	{GET [/api/export/{id}]}: getExportStatus(UUID)
+	{GET [/api/import/{id}]}: getImportStatus(UUID)
+	{POST [/api/import]}: uploadFile(MultipartFile)
+04-07-2021 14:20:28.664 [main] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping.detectHandlerMethods - 
+	o.s.b.a.w.s.e.BasicErrorController:
+	{ [/error]}: error(HttpServletRequest)
+	{ [/error], produces [text/html]}: errorHtml(HttpServletRequest,HttpServletResponse)
+04-07-2021 14:20:28.704 [main] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping.detectHandlerMethods - 
+	o.s.w.a.OpenApiWebMvcResource:
+	{GET [/v3/api-docs], produces [application/json]}: openapiJson(HttpServletRequest,String)
+	{GET [/v3/api-docs.yaml], produces [application/vnd.oai.openapi]}: openapiYaml(HttpServletRequest,String)
+04-07-2021 14:20:28.710 [main] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping.detectHandlerMethods - 
+	o.s.w.u.SwaggerWelcomeWebMvc:
+	{GET [/v3/api-docs/swagger-config], produces [application/json]}: openapiJson(HttpServletRequest)
+	{GET [/swagger-ui.html]}: redirectToUi(HttpServletRequest)
+04-07-2021 14:20:28.713 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping.handlerMethodsInitialized - 20 mappings in 'requestMappingHandlerMapping'
+04-07-2021 14:20:28.740 [main] DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping.detectHandlers - Detected 0 mappings in 'beanNameHandlerMapping'
+04-07-2021 14:20:28.746 [main] TRACE o.s.w.s.f.s.RouterFunctionMapping.logRouterFunctions - 0 RouterFunction(s) in 'routerFunctionMapping'
+04-07-2021 14:20:29.717 [main] TRACE o.s.w.s.h.SimpleUrlHandlerMapping.registerHandler - Mapped [/webjars/**] onto ResourceHttpRequestHandler [Classpath [META-INF/resources/webjars/]]
+04-07-2021 14:20:29.718 [main] TRACE o.s.w.s.h.SimpleUrlHandlerMapping.registerHandler - Mapped [/**] onto ResourceHttpRequestHandler [Classpath [META-INF/resources/], Classpath [resources/], Classpath [static/], Classpath [public/], ServletContext [/]]
+04-07-2021 14:20:29.719 [main] TRACE o.s.w.s.h.SimpleUrlHandlerMapping.registerHandler - Mapped [/**/swagger-ui/**] onto ResourceHttpRequestHandler [Classpath [META-INF/resources/webjars/]]
+04-07-2021 14:20:29.720 [main] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping.logMappings - Patterns [/webjars/**, /**, /**/swagger-ui/**] in 'resourceHandlerMapping'
+04-07-2021 14:20:29.736 [main] DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver.initExceptionHandlerAdviceCache - ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+04-07-2021 14:20:30.179 [main] INFO  o.a.coyote.http11.Http11NioProtocol.log - Starting ProtocolHandler ["http-nio-8080"]
+04-07-2021 14:20:30.246 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer.start - Tomcat started on port(s): 8080 (http) with context path ''
+04-07-2021 14:20:30.259 [main] INFO  team.natlex.NatLex.NatLexApplication.logStarted - Started NatLexApplication in 8.939 seconds (JVM running for 9.809)
+04-07-2021 14:20:30.262 [main] INFO  o.s.b.a.ApplicationAvailabilityBean.logStateChange - Application availability state LivenessState changed to CORRECT
+04-07-2021 14:20:30.264 [main] INFO  o.s.b.a.ApplicationAvailabilityBean.logStateChange - Application availability state ReadinessState changed to ACCEPTING_TRAFFIC
+04-07-2021 14:20:43.378 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/].log - Initializing Spring DispatcherServlet 'dispatcherServlet'
+04-07-2021 14:20:43.379 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet.initServletBean - Initializing Servlet 'dispatcherServlet'
+04-07-2021 14:20:43.380 [http-nio-8080-exec-1] TRACE o.s.web.servlet.DispatcherServlet.initMultipartResolver - Detected org.springframework.web.multipart.support.StandardServletMultipartResolver@4c9bed65
+04-07-2021 14:20:43.380 [http-nio-8080-exec-1] TRACE o.s.web.servlet.DispatcherServlet.initLocaleResolver - Detected org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver@37c45154
+04-07-2021 14:20:43.380 [http-nio-8080-exec-1] TRACE o.s.web.servlet.DispatcherServlet.initThemeResolver - Detected org.springframework.web.servlet.theme.FixedThemeResolver@775a5a67
+04-07-2021 14:20:43.386 [http-nio-8080-exec-1] TRACE o.s.web.servlet.DispatcherServlet.initRequestToViewNameTranslator - Detected DefaultRequestToViewNameTranslator
+04-07-2021 14:20:43.486 [http-nio-8080-exec-1] TRACE o.s.web.servlet.DispatcherServlet.initFlashMapManager - Detected SessionFlashMapManager
+04-07-2021 14:20:43.487 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet.initServletBean - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+04-07-2021 14:20:43.487 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet.initServletBean - Completed initialization in 107 ms
+04-07-2021 14:20:43.755 [http-nio-8080-exec-1] TRACE o.s.web.servlet.DispatcherServlet.traceDebug - POST "/api/import", parameters={}, headers={masked} in DispatcherServlet 'dispatcherServlet'
+04-07-2021 14:20:43.760 [http-nio-8080-exec-1] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping.getHandler - Mapped to team.natlex.NatLex.api.ApiController#uploadFile(MultipartFile)
+04-07-2021 14:20:43.779 [http-nio-8080-exec-1] TRACE o.s.web.method.HandlerMethod.invokeForRequest - Arguments: [org.springframework.web.multipart.support.StandardMultipartHttpServletRequest$StandardMultipartFile@57eeca82]
+04-07-2021 14:20:43.826 [http-nio-8080-exec-1] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor.writeWithMessageConverters - Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+04-07-2021 14:20:43.827 [http-nio-8080-exec-1] TRACE o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor.traceDebug - Writing [e240528c-730c-4058-8cd5-bb2112f942eb]
+04-07-2021 14:20:43.840 [http-nio-8080-exec-1] TRACE o.s.web.servlet.DispatcherServlet.processDispatchResult - No view rendering, null ModelAndView returned.
+04-07-2021 14:20:43.841 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet.logResult - Completed 200 OK, headers={masked}
+04-07-2021 14:20:54.090 [pool-1-thread-1] INFO  t.natlex.NatLex.service.XlsService.loadFile - job e240528c-730c-4058-8cd5-bb2112f942eb finished import
+04-07-2021 14:21:33.722 [http-nio-8080-exec-2] TRACE o.s.web.servlet.DispatcherServlet.traceDebug - GET "/api/export/e240528c-730c-4058-8cd5-bb2112f942eb", parameters={}, headers={masked} in DispatcherServlet 'dispatcherServlet'
+04-07-2021 14:21:33.723 [http-nio-8080-exec-2] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping.getHandler - Mapped to team.natlex.NatLex.api.ApiController#getExportStatus(UUID)
+04-07-2021 14:21:33.727 [http-nio-8080-exec-2] TRACE o.s.web.method.HandlerMethod.invokeForRequest - Arguments: [e240528c-730c-4058-8cd5-bb2112f942eb]
+04-07-2021 14:21:33.730 [http-nio-8080-exec-2] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor.writeWithMessageConverters - Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+04-07-2021 14:21:33.730 [http-nio-8080-exec-2] TRACE o.s.w.s.m.m.a.HttpEntityMethodProcessor.traceDebug - Writing ["status: DONE"]
+04-07-2021 14:21:33.732 [http-nio-8080-exec-2] TRACE o.s.web.servlet.DispatcherServlet.processDispatchResult - No view rendering, null ModelAndView returned.
+04-07-2021 14:21:33.734 [http-nio-8080-exec-2] DEBUG o.s.web.servlet.DispatcherServlet.logResult - Completed 200 OK, headers={masked}
+04-07-2021 14:22:29.273 [http-nio-8080-exec-3] TRACE o.s.web.servlet.DispatcherServlet.traceDebug - GET "/api/import/e240528c-730c-4058-8cd5-bb2112f942eb", parameters={}, headers={masked} in DispatcherServlet 'dispatcherServlet'
+04-07-2021 14:22:29.274 [http-nio-8080-exec-3] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping.getHandler - Mapped to team.natlex.NatLex.api.ApiController#getImportStatus(UUID)
+04-07-2021 14:22:29.275 [http-nio-8080-exec-3] TRACE o.s.web.method.HandlerMethod.invokeForRequest - Arguments: [e240528c-730c-4058-8cd5-bb2112f942eb]
+04-07-2021 14:22:29.276 [http-nio-8080-exec-3] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor.writeWithMessageConverters - Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+04-07-2021 14:22:29.276 [http-nio-8080-exec-3] TRACE o.s.w.s.m.m.a.HttpEntityMethodProcessor.traceDebug - Writing ["status: DONE"]
+04-07-2021 14:22:29.277 [http-nio-8080-exec-3] TRACE o.s.web.servlet.DispatcherServlet.processDispatchResult - No view rendering, null ModelAndView returned.
+04-07-2021 14:22:29.277 [http-nio-8080-exec-3] DEBUG o.s.web.servlet.DispatcherServlet.logResult - Completed 200 OK, headers={masked}
+04-07-2021 14:22:51.845 [http-nio-8080-exec-4] TRACE o.s.web.servlet.DispatcherServlet.traceDebug - POST "/api/import", parameters={}, headers={masked} in DispatcherServlet 'dispatcherServlet'
+04-07-2021 14:22:51.846 [http-nio-8080-exec-4] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping.getHandler - Mapped to team.natlex.NatLex.api.ApiController#uploadFile(MultipartFile)
+04-07-2021 14:22:51.846 [http-nio-8080-exec-4] TRACE o.s.web.method.HandlerMethod.invokeForRequest - Arguments: [org.springframework.web.multipart.support.StandardMultipartHttpServletRequest$StandardMultipartFile@431b75cc]
+04-07-2021 14:22:51.848 [http-nio-8080-exec-4] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor.writeWithMessageConverters - Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+04-07-2021 14:22:51.849 [http-nio-8080-exec-4] TRACE o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor.traceDebug - Writing [1933fbf9-8460-442e-b866-28c911cf9075]
+04-07-2021 14:22:51.851 [http-nio-8080-exec-4] TRACE o.s.web.servlet.DispatcherServlet.processDispatchResult - No view rendering, null ModelAndView returned.
+04-07-2021 14:22:51.851 [http-nio-8080-exec-4] DEBUG o.s.web.servlet.DispatcherServlet.logResult - Completed 200 OK, headers={masked}
+04-07-2021 14:23:01.860 [pool-1-thread-1] INFO  t.natlex.NatLex.service.XlsService.loadFile - job 1933fbf9-8460-442e-b866-28c911cf9075 finished import
+04-07-2021 14:23:05.203 [http-nio-8080-exec-5] INFO  o.a.coyote.http11.Http11Processor.log - Error parsing HTTP request header
+ Note: further occurrences of HTTP request parsing errors will be logged at DEBUG level.
+java.lang.IllegalArgumentException: Invalid character found in method name [0x160x030x010x020x000x010x000x010xfc0x030x030xf8kl0xd40x91O0x8b0x060xd20xc3@0xc50xbf0xd50xf4h0xdb0x170x850xc4;T%0x0c0xf0AXe0xec?0xef0xc9 ]. HTTP method names must be tokens
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:417)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:261)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1707)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:831)
+04-07-2021 14:23:06.205 [http-nio-8080-exec-6] TRACE o.s.web.servlet.DispatcherServlet.traceDebug - GET "/api/import/1933fbf9-8460-442e-b866-28c911cf9075", parameters={}, headers={masked} in DispatcherServlet 'dispatcherServlet'
+04-07-2021 14:23:06.206 [http-nio-8080-exec-6] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping.getHandler - Mapped to team.natlex.NatLex.api.ApiController#getImportStatus(UUID)
+04-07-2021 14:23:06.207 [http-nio-8080-exec-6] TRACE o.s.web.method.HandlerMethod.invokeForRequest - Arguments: [1933fbf9-8460-442e-b866-28c911cf9075]
+04-07-2021 14:23:06.208 [http-nio-8080-exec-6] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor.writeWithMessageConverters - Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+04-07-2021 14:23:06.208 [http-nio-8080-exec-6] TRACE o.s.w.s.m.m.a.HttpEntityMethodProcessor.traceDebug - Writing ["status: DONE"]
+04-07-2021 14:23:06.209 [http-nio-8080-exec-6] TRACE o.s.web.servlet.DispatcherServlet.processDispatchResult - No view rendering, null ModelAndView returned.
+04-07-2021 14:23:06.209 [http-nio-8080-exec-6] DEBUG o.s.web.servlet.DispatcherServlet.logResult - Completed 200 OK, headers={masked}
+04-07-2021 14:24:47.776 [main] INFO  team.natlex.NatLex.NatLexApplication.logStarting - Starting NatLexApplication using Java 16 on fogmatic with PID 5732 (C:\Users\fogma\IdeaProjects\NatLex\target\classes started by fogma in C:\Users\fogma\IdeaProjects\NatLex)
+04-07-2021 14:24:47.779 [main] INFO  team.natlex.NatLex.NatLexApplication.logStartupProfileInfo - No active profile set, falling back to default profiles: default
+04-07-2021 14:24:47.978 [background-preinit] WARN  o.s.h.c.j.Jackson2ObjectMapperBuilder.warn - For Jackson Kotlin classes support please add "com.fasterxml.jackson.module:jackson-module-kotlin" to the classpath
+04-07-2021 14:24:49.049 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+04-07-2021 14:24:49.116 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn - Finished Spring Data repository scanning in 57 ms. Found 2 JPA repository interfaces.
+04-07-2021 14:24:49.543 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker.postProcessAfterInitialization - Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@7e19755a' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+04-07-2021 14:24:49.557 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker.postProcessAfterInitialization - Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+04-07-2021 14:24:49.951 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer.initialize - Tomcat initialized with port(s): 8080 (http)
+04-07-2021 14:24:49.966 [main] INFO  o.a.coyote.http11.Http11NioProtocol.log - Initializing ProtocolHandler ["http-nio-8080"]
+04-07-2021 14:24:49.967 [main] INFO  o.a.catalina.core.StandardService.log - Starting service [Tomcat]
+04-07-2021 14:24:49.967 [main] INFO  o.a.catalina.core.StandardEngine.log - Starting Servlet engine: [Apache Tomcat/9.0.46]
+04-07-2021 14:24:50.231 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/].log - Initializing Spring embedded WebApplicationContext
+04-07-2021 14:24:50.232 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext.prepareWebApplicationContext - Root WebApplicationContext: initialization completed in 2355 ms
+04-07-2021 14:24:50.520 [main] INFO  o.f.c.i.license.VersionPrinter.info - Flyway Community Edition 7.8.2 by Redgate
+04-07-2021 14:24:50.526 [main] INFO  com.zaxxer.hikari.HikariDataSource.getConnection - HikariPool-1 - Starting...
+04-07-2021 14:24:50.801 [main] INFO  com.zaxxer.hikari.HikariDataSource.getConnection - HikariPool-1 - Start completed.
+04-07-2021 14:24:50.874 [main] INFO  o.f.c.i.d.base.BaseDatabaseType.info - Database: jdbc:postgresql://127.0.0.1:5432/natlex (PostgreSQL 13.3)
+04-07-2021 14:24:50.926 [main] INFO  o.f.core.internal.command.DbValidate.info - Successfully validated 1 migration (execution time 00:00.027s)
+04-07-2021 14:24:50.937 [main] INFO  o.f.core.internal.command.DbMigrate.info - Current version of schema "public": 1
+04-07-2021 14:24:50.937 [main] INFO  o.f.core.internal.command.DbMigrate.info - Schema "public" is up to date. No migration necessary.
+04-07-2021 14:24:51.880 [main] INFO  Hibernate Types.printBanner - This framework is proudly powered by:
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+ _    _                           _     _
+| |  | |                         (_)   | |
+| |__| |_   _ _ __   ___ _ __ ___ _ ___| |_ ___ _ __   ___ ___
+|  __  | | | | '_ \ / _ \ '__/ __| / __| __/ _ \ '_ \ / __/ _ \
+| |  | | |_| | |_) |  __/ |  \__ \ \__ \ ||  __/ | | | (_|  __/
+|_|  |_|\__, | .__/ \___|_|  |___/_|___/\__\___|_| |_|\___\___|
+         __/ | |
+        |___/|_|
+
+At Hypersistence, we only build amazing tools, like Hibernate Types, Flexy Pool, or Hypersistence Optimizer.
+
+What if there were a tool that could automatically detect JPA and Hibernate performance issues?
+
+Hypersistence Optimizer is that tool! For more details, go to: 
+
+https://vladmihalcea.com/hypersistence-optimizer/
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+04-07-2021 14:24:52.434 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean.buildNativeEntityManagerFactory - Initialized JPA EntityManagerFactory for persistence unit 'default'
+04-07-2021 14:24:52.585 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration.openEntityManagerInViewInterceptor - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+04-07-2021 14:24:53.791 [main] INFO  o.s.s.web.DefaultSecurityFilterChain.<init> - Will secure Ant [pattern='/**'] with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@15a0f9, org.springframework.security.web.context.SecurityContextPersistenceFilter@346e5cc, org.springframework.security.web.header.HeaderWriterFilter@23cb8fcb, org.springframework.security.web.authentication.logout.LogoutFilter@48126a17, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@40199d5e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@d17d554, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5e83298e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4840ec68, org.springframework.security.web.session.SessionManagementFilter@703a2bc9, org.springframework.security.web.access.ExceptionTranslationFilter@153d14e3, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5d9d8ecf]
+04-07-2021 14:24:53.933 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerAdapter.initControllerAdviceCache - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+04-07-2021 14:24:54.043 [main] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping.detectHandlerMethods - 
+	t.n.N.a.ApiController:
+	{GET [/api/sections/by-code]}: showAllSectionsByClassCode(String)
+	{GET [/api/classes/{code}]}: showAllClassesByCode(String)
+	{PUT [/api/section/update/{name}]}: updateSection(SectionFullDTO,String)
+	{DELETE [/api/section/delete/{name}]}: deleteSection(String)
+	{GET [/api/export/{id}/file]}: downloadFile(UUID)
+	{GET [/api/export]}: downloadFile()
+	{GET [/api/sections]}: showSectionList()
+	{DELETE [/api/class/delete/{name}]}: deleteClass(String)
+	{POST [/api/class/add]}: addNewClass(GeologicalClass)
+	{PUT [/api/class/update/{name}]}: updateClass(GeologicalClass,String)
+	{POST [/api/section/add]}: addNewSection(SectionFullDTO)
+	{GET [/api/import/{id}]}: getImportStatus(UUID)
+	{GET [/api/export/{id}]}: getExportStatus(UUID)
+	{POST [/api/import]}: uploadFile(MultipartFile)
+04-07-2021 14:24:54.067 [main] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping.detectHandlerMethods - 
+	o.s.b.a.w.s.e.BasicErrorController:
+	{ [/error]}: error(HttpServletRequest)
+	{ [/error], produces [text/html]}: errorHtml(HttpServletRequest,HttpServletResponse)
+04-07-2021 14:24:54.127 [main] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping.detectHandlerMethods - 
+	o.s.w.a.OpenApiWebMvcResource:
+	{GET [/v3/api-docs], produces [application/json]}: openapiJson(HttpServletRequest,String)
+	{GET [/v3/api-docs.yaml], produces [application/vnd.oai.openapi]}: openapiYaml(HttpServletRequest,String)
+04-07-2021 14:24:54.133 [main] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping.detectHandlerMethods - 
+	o.s.w.u.SwaggerWelcomeWebMvc:
+	{GET [/v3/api-docs/swagger-config], produces [application/json]}: openapiJson(HttpServletRequest)
+	{GET [/swagger-ui.html]}: redirectToUi(HttpServletRequest)
+04-07-2021 14:24:54.136 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping.handlerMethodsInitialized - 20 mappings in 'requestMappingHandlerMapping'
+04-07-2021 14:24:54.208 [main] DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping.detectHandlers - Detected 0 mappings in 'beanNameHandlerMapping'
+04-07-2021 14:24:54.215 [main] TRACE o.s.w.s.f.s.RouterFunctionMapping.logRouterFunctions - 0 RouterFunction(s) in 'routerFunctionMapping'
+04-07-2021 14:24:55.188 [main] TRACE o.s.w.s.h.SimpleUrlHandlerMapping.registerHandler - Mapped [/webjars/**] onto ResourceHttpRequestHandler [Classpath [META-INF/resources/webjars/]]
+04-07-2021 14:24:55.189 [main] TRACE o.s.w.s.h.SimpleUrlHandlerMapping.registerHandler - Mapped [/**] onto ResourceHttpRequestHandler [Classpath [META-INF/resources/], Classpath [resources/], Classpath [static/], Classpath [public/], ServletContext [/]]
+04-07-2021 14:24:55.190 [main] TRACE o.s.w.s.h.SimpleUrlHandlerMapping.registerHandler - Mapped [/**/swagger-ui/**] onto ResourceHttpRequestHandler [Classpath [META-INF/resources/webjars/]]
+04-07-2021 14:24:55.190 [main] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping.logMappings - Patterns [/webjars/**, /**, /**/swagger-ui/**] in 'resourceHandlerMapping'
+04-07-2021 14:24:55.205 [main] DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver.initExceptionHandlerAdviceCache - ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+04-07-2021 14:24:55.397 [main] INFO  o.a.coyote.http11.Http11NioProtocol.log - Starting ProtocolHandler ["http-nio-8080"]
+04-07-2021 14:24:55.438 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer.start - Tomcat started on port(s): 8080 (http) with context path ''
+04-07-2021 14:24:55.451 [main] INFO  team.natlex.NatLex.NatLexApplication.logStarted - Started NatLexApplication in 8.411 seconds (JVM running for 9.032)
+04-07-2021 14:24:55.453 [main] INFO  o.s.b.a.ApplicationAvailabilityBean.logStateChange - Application availability state LivenessState changed to CORRECT
+04-07-2021 14:24:55.455 [main] INFO  o.s.b.a.ApplicationAvailabilityBean.logStateChange - Application availability state ReadinessState changed to ACCEPTING_TRAFFIC
+04-07-2021 14:25:00.159 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/].log - Initializing Spring DispatcherServlet 'dispatcherServlet'
+04-07-2021 14:25:00.159 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet.initServletBean - Initializing Servlet 'dispatcherServlet'
+04-07-2021 14:25:00.160 [http-nio-8080-exec-1] TRACE o.s.web.servlet.DispatcherServlet.initMultipartResolver - Detected org.springframework.web.multipart.support.StandardServletMultipartResolver@2b06c388
+04-07-2021 14:25:00.160 [http-nio-8080-exec-1] TRACE o.s.web.servlet.DispatcherServlet.initLocaleResolver - Detected org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver@6d57b264
+04-07-2021 14:25:00.160 [http-nio-8080-exec-1] TRACE o.s.web.servlet.DispatcherServlet.initThemeResolver - Detected org.springframework.web.servlet.theme.FixedThemeResolver@2d94279f
+04-07-2021 14:25:00.160 [http-nio-8080-exec-1] TRACE o.s.web.servlet.DispatcherServlet.initRequestToViewNameTranslator - Detected DefaultRequestToViewNameTranslator
+04-07-2021 14:25:00.161 [http-nio-8080-exec-1] TRACE o.s.web.servlet.DispatcherServlet.initFlashMapManager - Detected SessionFlashMapManager
+04-07-2021 14:25:00.161 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet.initServletBean - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+04-07-2021 14:25:00.161 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet.initServletBean - Completed initialization in 2 ms
+04-07-2021 14:25:00.453 [http-nio-8080-exec-1] TRACE o.s.web.servlet.DispatcherServlet.traceDebug - POST "/api/import", parameters={}, headers={masked} in DispatcherServlet 'dispatcherServlet'
+04-07-2021 14:25:00.458 [http-nio-8080-exec-1] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping.getHandler - Mapped to team.natlex.NatLex.api.ApiController#uploadFile(MultipartFile)
+04-07-2021 14:25:00.488 [http-nio-8080-exec-1] TRACE o.s.web.method.HandlerMethod.invokeForRequest - Arguments: [org.springframework.web.multipart.support.StandardMultipartHttpServletRequest$StandardMultipartFile@7b63d4db]
+04-07-2021 14:25:00.539 [http-nio-8080-exec-1] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor.writeWithMessageConverters - Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+04-07-2021 14:25:00.539 [http-nio-8080-exec-1] TRACE o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor.traceDebug - Writing [85b3c799-7ce3-4443-96ad-2fbec1ab1142]
+04-07-2021 14:25:00.558 [http-nio-8080-exec-1] TRACE o.s.web.servlet.DispatcherServlet.processDispatchResult - No view rendering, null ModelAndView returned.
+04-07-2021 14:25:00.560 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet.logResult - Completed 200 OK, headers={masked}
+04-07-2021 14:25:24.161 [http-nio-8080-exec-2] TRACE o.s.web.servlet.DispatcherServlet.traceDebug - GET "/api/import/85b3c799-7ce3-4443-96ad-2fbec1ab1142", parameters={}, headers={masked} in DispatcherServlet 'dispatcherServlet'
+04-07-2021 14:25:24.163 [http-nio-8080-exec-2] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping.getHandler - Mapped to team.natlex.NatLex.api.ApiController#getImportStatus(UUID)
+04-07-2021 14:25:24.167 [http-nio-8080-exec-2] TRACE o.s.web.method.HandlerMethod.invokeForRequest - Arguments: [85b3c799-7ce3-4443-96ad-2fbec1ab1142]
+04-07-2021 14:25:24.171 [http-nio-8080-exec-2] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor.writeWithMessageConverters - Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+04-07-2021 14:25:24.171 [http-nio-8080-exec-2] TRACE o.s.w.s.m.m.a.HttpEntityMethodProcessor.traceDebug - Writing ["status: IN_PROGRESS"]
+04-07-2021 14:25:24.172 [http-nio-8080-exec-2] TRACE o.s.web.servlet.DispatcherServlet.processDispatchResult - No view rendering, null ModelAndView returned.
+04-07-2021 14:25:24.173 [http-nio-8080-exec-2] DEBUG o.s.web.servlet.DispatcherServlet.logResult - Completed 200 OK, headers={masked}
+04-07-2021 14:25:35.025 [http-nio-8080-exec-3] TRACE o.s.web.servlet.DispatcherServlet.traceDebug - GET "/api/export", parameters={}, headers={masked} in DispatcherServlet 'dispatcherServlet'
+04-07-2021 14:25:35.026 [http-nio-8080-exec-3] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping.getHandler - Mapped to team.natlex.NatLex.api.ApiController#downloadFile()
+04-07-2021 14:25:35.027 [http-nio-8080-exec-3] TRACE o.s.web.method.HandlerMethod.invokeForRequest - Arguments: []
+04-07-2021 14:25:35.028 [http-nio-8080-exec-3] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor.writeWithMessageConverters - Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+04-07-2021 14:25:35.029 [http-nio-8080-exec-3] TRACE o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor.traceDebug - Writing [d1f91a36-67e4-418b-9833-ef5bbe90ea99]
+04-07-2021 14:25:35.030 [http-nio-8080-exec-3] TRACE o.s.web.servlet.DispatcherServlet.processDispatchResult - No view rendering, null ModelAndView returned.
+04-07-2021 14:25:35.030 [http-nio-8080-exec-3] DEBUG o.s.web.servlet.DispatcherServlet.logResult - Completed 200 OK, headers={masked}
+04-07-2021 14:25:41.505 [http-nio-8080-exec-4] TRACE o.s.web.servlet.DispatcherServlet.traceDebug - GET "/api/export/d1f91a36-67e4-418b-9833-ef5bbe90ea99", parameters={}, headers={masked} in DispatcherServlet 'dispatcherServlet'
+04-07-2021 14:25:41.506 [http-nio-8080-exec-4] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping.getHandler - Mapped to team.natlex.NatLex.api.ApiController#getExportStatus(UUID)
+04-07-2021 14:25:41.507 [http-nio-8080-exec-4] TRACE o.s.web.method.HandlerMethod.invokeForRequest - Arguments: [d1f91a36-67e4-418b-9833-ef5bbe90ea99]
+04-07-2021 14:25:41.508 [http-nio-8080-exec-4] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor.writeWithMessageConverters - Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+04-07-2021 14:25:41.508 [http-nio-8080-exec-4] TRACE o.s.w.s.m.m.a.HttpEntityMethodProcessor.traceDebug - Writing ["status: IN_PROGRESS"]
+04-07-2021 14:25:41.509 [http-nio-8080-exec-4] TRACE o.s.web.servlet.DispatcherServlet.processDispatchResult - No view rendering, null ModelAndView returned.
+04-07-2021 14:25:41.510 [http-nio-8080-exec-4] DEBUG o.s.web.servlet.DispatcherServlet.logResult - Completed 200 OK, headers={masked}
+04-07-2021 14:25:50.536 [http-nio-8080-exec-5] TRACE o.s.web.servlet.DispatcherServlet.traceDebug - GET "/api/export/d1f91a36-67e4-418b-9833-ef5bbe90ea99/file", parameters={}, headers={masked} in DispatcherServlet 'dispatcherServlet'
+04-07-2021 14:25:50.537 [http-nio-8080-exec-5] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping.getHandler - Mapped to team.natlex.NatLex.api.ApiController#downloadFile(UUID)
+04-07-2021 14:25:50.538 [http-nio-8080-exec-5] TRACE o.s.web.method.HandlerMethod.invokeForRequest - Arguments: [d1f91a36-67e4-418b-9833-ef5bbe90ea99]
+04-07-2021 14:25:50.540 [http-nio-8080-exec-5] DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver.doResolveHandlerMethodException - Using @ExceptionHandler team.natlex.NatLex.exceptions.handler.RestResponseEntityExceptionHandler#handleException(Exception)
+04-07-2021 14:25:50.540 [http-nio-8080-exec-5] TRACE o.s.web.method.HandlerMethod.invokeForRequest - Arguments: [team.natlex.NatLex.exceptions.ExportStillInProgressException]
+04-07-2021 14:25:50.540 [http-nio-8080-exec-5] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor.writeWithMessageConverters - Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+04-07-2021 14:25:50.540 [http-nio-8080-exec-5] TRACE o.s.w.s.m.m.a.HttpEntityMethodProcessor.traceDebug - Writing ["Export still in progress"]
+04-07-2021 14:25:50.541 [http-nio-8080-exec-5] DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver.resolveException - Resolved [team.natlex.NatLex.exceptions.ExportStillInProgressException]
+04-07-2021 14:25:50.542 [http-nio-8080-exec-5] TRACE o.s.web.servlet.DispatcherServlet.processDispatchResult - No view rendering, null ModelAndView returned.
+04-07-2021 14:25:50.542 [http-nio-8080-exec-5] DEBUG o.s.web.servlet.DispatcherServlet.logResult - Completed 400 BAD_REQUEST, headers={masked}
+04-07-2021 14:26:02.659 [http-nio-8080-exec-6] TRACE o.s.web.servlet.DispatcherServlet.traceDebug - GET "/api/export/d1f91a36-67e4-418b-9833-ef5bbe90ea99", parameters={}, headers={masked} in DispatcherServlet 'dispatcherServlet'
+04-07-2021 14:26:02.660 [http-nio-8080-exec-6] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping.getHandler - Mapped to team.natlex.NatLex.api.ApiController#getExportStatus(UUID)
+04-07-2021 14:26:02.661 [http-nio-8080-exec-6] TRACE o.s.web.method.HandlerMethod.invokeForRequest - Arguments: [d1f91a36-67e4-418b-9833-ef5bbe90ea99]
+04-07-2021 14:26:02.663 [http-nio-8080-exec-6] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor.writeWithMessageConverters - Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+04-07-2021 14:26:02.663 [http-nio-8080-exec-6] TRACE o.s.w.s.m.m.a.HttpEntityMethodProcessor.traceDebug - Writing ["status: IN_PROGRESS"]
+04-07-2021 14:26:02.665 [http-nio-8080-exec-6] TRACE o.s.web.servlet.DispatcherServlet.processDispatchResult - No view rendering, null ModelAndView returned.
+04-07-2021 14:26:02.665 [http-nio-8080-exec-6] DEBUG o.s.web.servlet.DispatcherServlet.logResult - Completed 200 OK, headers={masked}
+04-07-2021 14:26:05.225 [http-nio-8080-exec-7] TRACE o.s.web.servlet.DispatcherServlet.traceDebug - GET "/api/import/85b3c799-7ce3-4443-96ad-2fbec1ab1142", parameters={}, headers={masked} in DispatcherServlet 'dispatcherServlet'
+04-07-2021 14:26:05.225 [http-nio-8080-exec-7] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping.getHandler - Mapped to team.natlex.NatLex.api.ApiController#getImportStatus(UUID)
+04-07-2021 14:26:05.226 [http-nio-8080-exec-7] TRACE o.s.web.method.HandlerMethod.invokeForRequest - Arguments: [85b3c799-7ce3-4443-96ad-2fbec1ab1142]
+04-07-2021 14:26:05.227 [http-nio-8080-exec-7] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor.writeWithMessageConverters - Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+04-07-2021 14:26:05.227 [http-nio-8080-exec-7] TRACE o.s.w.s.m.m.a.HttpEntityMethodProcessor.traceDebug - Writing ["status: IN_PROGRESS"]
+04-07-2021 14:26:05.229 [http-nio-8080-exec-7] TRACE o.s.web.servlet.DispatcherServlet.processDispatchResult - No view rendering, null ModelAndView returned.
+04-07-2021 14:26:05.230 [http-nio-8080-exec-7] DEBUG o.s.web.servlet.DispatcherServlet.logResult - Completed 200 OK, headers={masked}
+04-07-2021 14:26:40.780 [pool-1-thread-1] INFO  t.natlex.NatLex.service.XlsService.loadFile - job 85b3c799-7ce3-4443-96ad-2fbec1ab1142 finished import
+04-07-2021 14:26:59.301 [http-nio-8080-exec-8] TRACE o.s.web.servlet.DispatcherServlet.traceDebug - GET "/api/import/85b3c799-7ce3-4443-96ad-2fbec1ab1142", parameters={}, headers={masked} in DispatcherServlet 'dispatcherServlet'
+04-07-2021 14:26:59.302 [http-nio-8080-exec-8] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping.getHandler - Mapped to team.natlex.NatLex.api.ApiController#getImportStatus(UUID)
+04-07-2021 14:26:59.303 [http-nio-8080-exec-8] TRACE o.s.web.method.HandlerMethod.invokeForRequest - Arguments: [85b3c799-7ce3-4443-96ad-2fbec1ab1142]
+04-07-2021 14:26:59.304 [http-nio-8080-exec-8] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor.writeWithMessageConverters - Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+04-07-2021 14:26:59.304 [http-nio-8080-exec-8] TRACE o.s.w.s.m.m.a.HttpEntityMethodProcessor.traceDebug - Writing ["status: DONE"]
+04-07-2021 14:26:59.305 [http-nio-8080-exec-8] TRACE o.s.web.servlet.DispatcherServlet.processDispatchResult - No view rendering, null ModelAndView returned.
+04-07-2021 14:26:59.307 [http-nio-8080-exec-8] DEBUG o.s.web.servlet.DispatcherServlet.logResult - Completed 200 OK, headers={masked}
+04-07-2021 14:27:02.604 [http-nio-8080-exec-9] TRACE o.s.web.servlet.DispatcherServlet.traceDebug - GET "/api/export/d1f91a36-67e4-418b-9833-ef5bbe90ea99/file", parameters={}, headers={masked} in DispatcherServlet 'dispatcherServlet'
+04-07-2021 14:27:02.605 [http-nio-8080-exec-9] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping.getHandler - Mapped to team.natlex.NatLex.api.ApiController#downloadFile(UUID)
+04-07-2021 14:27:02.606 [http-nio-8080-exec-9] TRACE o.s.web.method.HandlerMethod.invokeForRequest - Arguments: [d1f91a36-67e4-418b-9833-ef5bbe90ea99]
+04-07-2021 14:27:02.607 [http-nio-8080-exec-9] DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver.doResolveHandlerMethodException - Using @ExceptionHandler team.natlex.NatLex.exceptions.handler.RestResponseEntityExceptionHandler#handleException(Exception)
+04-07-2021 14:27:02.607 [http-nio-8080-exec-9] TRACE o.s.web.method.HandlerMethod.invokeForRequest - Arguments: [team.natlex.NatLex.exceptions.ExportStillInProgressException]
+04-07-2021 14:27:02.608 [http-nio-8080-exec-9] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor.writeWithMessageConverters - Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+04-07-2021 14:27:02.608 [http-nio-8080-exec-9] TRACE o.s.w.s.m.m.a.HttpEntityMethodProcessor.traceDebug - Writing ["Export still in progress"]
+04-07-2021 14:27:02.610 [http-nio-8080-exec-9] DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver.resolveException - Resolved [team.natlex.NatLex.exceptions.ExportStillInProgressException]
+04-07-2021 14:27:02.611 [http-nio-8080-exec-9] TRACE o.s.web.servlet.DispatcherServlet.processDispatchResult - No view rendering, null ModelAndView returned.
+04-07-2021 14:27:02.613 [http-nio-8080-exec-9] DEBUG o.s.web.servlet.DispatcherServlet.logResult - Completed 400 BAD_REQUEST, headers={masked}
+04-07-2021 14:27:16.513 [http-nio-8080-exec-10] TRACE o.s.web.servlet.DispatcherServlet.traceDebug - GET "/api/export/d1f91a36-67e4-418b-9833-ef5bbe90ea99/file", parameters={}, headers={masked} in DispatcherServlet 'dispatcherServlet'
+04-07-2021 14:27:16.514 [http-nio-8080-exec-10] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping.getHandler - Mapped to team.natlex.NatLex.api.ApiController#downloadFile(UUID)
+04-07-2021 14:27:16.514 [http-nio-8080-exec-10] TRACE o.s.web.method.HandlerMethod.invokeForRequest - Arguments: [d1f91a36-67e4-418b-9833-ef5bbe90ea99]
+04-07-2021 14:27:16.515 [http-nio-8080-exec-10] DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver.doResolveHandlerMethodException - Using @ExceptionHandler team.natlex.NatLex.exceptions.handler.RestResponseEntityExceptionHandler#handleException(Exception)
+04-07-2021 14:27:16.515 [http-nio-8080-exec-10] TRACE o.s.web.method.HandlerMethod.invokeForRequest - Arguments: [team.natlex.NatLex.exceptions.ExportStillInProgressException]
+04-07-2021 14:27:16.516 [http-nio-8080-exec-10] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor.writeWithMessageConverters - Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+04-07-2021 14:27:16.516 [http-nio-8080-exec-10] TRACE o.s.w.s.m.m.a.HttpEntityMethodProcessor.traceDebug - Writing ["Export still in progress"]
+04-07-2021 14:27:16.517 [http-nio-8080-exec-10] DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver.resolveException - Resolved [team.natlex.NatLex.exceptions.ExportStillInProgressException]
+04-07-2021 14:27:16.517 [http-nio-8080-exec-10] TRACE o.s.web.servlet.DispatcherServlet.processDispatchResult - No view rendering, null ModelAndView returned.
+04-07-2021 14:27:16.517 [http-nio-8080-exec-10] DEBUG o.s.web.servlet.DispatcherServlet.logResult - Completed 400 BAD_REQUEST, headers={masked}
+04-07-2021 14:27:22.638 [http-nio-8080-exec-1] TRACE o.s.web.servlet.DispatcherServlet.traceDebug - GET "/api/export/d1f91a36-67e4-418b-9833-ef5bbe90ea99", parameters={}, headers={masked} in DispatcherServlet 'dispatcherServlet'
+04-07-2021 14:27:22.639 [http-nio-8080-exec-1] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping.getHandler - Mapped to team.natlex.NatLex.api.ApiController#getExportStatus(UUID)
+04-07-2021 14:27:22.640 [http-nio-8080-exec-1] TRACE o.s.web.method.HandlerMethod.invokeForRequest - Arguments: [d1f91a36-67e4-418b-9833-ef5bbe90ea99]
+04-07-2021 14:27:22.641 [http-nio-8080-exec-1] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor.writeWithMessageConverters - Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+04-07-2021 14:27:22.641 [http-nio-8080-exec-1] TRACE o.s.w.s.m.m.a.HttpEntityMethodProcessor.traceDebug - Writing ["status: IN_PROGRESS"]
+04-07-2021 14:27:22.642 [http-nio-8080-exec-1] TRACE o.s.web.servlet.DispatcherServlet.processDispatchResult - No view rendering, null ModelAndView returned.
+04-07-2021 14:27:22.643 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet.logResult - Completed 200 OK, headers={masked}
+04-07-2021 14:27:57.280 [http-nio-8080-exec-2] TRACE o.s.web.servlet.DispatcherServlet.traceDebug - GET "/api/export/d1f91a36-67e4-418b-9833-ef5bbe90ea99", parameters={}, headers={masked} in DispatcherServlet 'dispatcherServlet'
+04-07-2021 14:27:57.281 [http-nio-8080-exec-2] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping.getHandler - Mapped to team.natlex.NatLex.api.ApiController#getExportStatus(UUID)
+04-07-2021 14:27:57.282 [http-nio-8080-exec-2] TRACE o.s.web.method.HandlerMethod.invokeForRequest - Arguments: [d1f91a36-67e4-418b-9833-ef5bbe90ea99]
+04-07-2021 14:27:57.283 [http-nio-8080-exec-2] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor.writeWithMessageConverters - Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+04-07-2021 14:27:57.283 [http-nio-8080-exec-2] TRACE o.s.w.s.m.m.a.HttpEntityMethodProcessor.traceDebug - Writing ["status: IN_PROGRESS"]
+04-07-2021 14:27:57.284 [http-nio-8080-exec-2] TRACE o.s.web.servlet.DispatcherServlet.processDispatchResult - No view rendering, null ModelAndView returned.
+04-07-2021 14:27:57.285 [http-nio-8080-exec-2] DEBUG o.s.web.servlet.DispatcherServlet.logResult - Completed 200 OK, headers={masked}
+04-07-2021 14:28:05.598 [http-nio-8080-exec-3] TRACE o.s.web.servlet.DispatcherServlet.traceDebug - GET "/api/export/d1f91a36-67e4-418b-9833-ef5bbe90ea99", parameters={}, headers={masked} in DispatcherServlet 'dispatcherServlet'
+04-07-2021 14:28:05.599 [http-nio-8080-exec-3] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping.getHandler - Mapped to team.natlex.NatLex.api.ApiController#getExportStatus(UUID)
+04-07-2021 14:28:05.600 [http-nio-8080-exec-3] TRACE o.s.web.method.HandlerMethod.invokeForRequest - Arguments: [d1f91a36-67e4-418b-9833-ef5bbe90ea99]
+04-07-2021 14:28:05.601 [http-nio-8080-exec-3] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor.writeWithMessageConverters - Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+04-07-2021 14:28:05.601 [http-nio-8080-exec-3] TRACE o.s.w.s.m.m.a.HttpEntityMethodProcessor.traceDebug - Writing ["status: IN_PROGRESS"]
+04-07-2021 14:28:05.601 [http-nio-8080-exec-3] TRACE o.s.web.servlet.DispatcherServlet.processDispatchResult - No view rendering, null ModelAndView returned.
+04-07-2021 14:28:05.602 [http-nio-8080-exec-3] DEBUG o.s.web.servlet.DispatcherServlet.logResult - Completed 200 OK, headers={masked}
+04-07-2021 14:28:11.002 [http-nio-8080-exec-4] TRACE o.s.web.servlet.DispatcherServlet.traceDebug - GET "/api/export/d1f91a36-67e4-418b-9833-ef5bbe90ea99", parameters={}, headers={masked} in DispatcherServlet 'dispatcherServlet'
+04-07-2021 14:28:11.003 [http-nio-8080-exec-4] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping.getHandler - Mapped to team.natlex.NatLex.api.ApiController#getExportStatus(UUID)
+04-07-2021 14:28:11.004 [http-nio-8080-exec-4] TRACE o.s.web.method.HandlerMethod.invokeForRequest - Arguments: [d1f91a36-67e4-418b-9833-ef5bbe90ea99]
+04-07-2021 14:28:11.004 [http-nio-8080-exec-4] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor.writeWithMessageConverters - Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+04-07-2021 14:28:11.004 [http-nio-8080-exec-4] TRACE o.s.w.s.m.m.a.HttpEntityMethodProcessor.traceDebug - Writing ["status: IN_PROGRESS"]
+04-07-2021 14:28:11.005 [http-nio-8080-exec-4] TRACE o.s.web.servlet.DispatcherServlet.processDispatchResult - No view rendering, null ModelAndView returned.
+04-07-2021 14:28:11.006 [http-nio-8080-exec-4] DEBUG o.s.web.servlet.DispatcherServlet.logResult - Completed 200 OK, headers={masked}
+04-07-2021 14:28:14.138 [http-nio-8080-exec-5] TRACE o.s.web.servlet.DispatcherServlet.traceDebug - GET "/api/export/d1f91a36-67e4-418b-9833-ef5bbe90ea99", parameters={}, headers={masked} in DispatcherServlet 'dispatcherServlet'
+04-07-2021 14:28:14.139 [http-nio-8080-exec-5] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping.getHandler - Mapped to team.natlex.NatLex.api.ApiController#getExportStatus(UUID)
+04-07-2021 14:28:14.140 [http-nio-8080-exec-5] TRACE o.s.web.method.HandlerMethod.invokeForRequest - Arguments: [d1f91a36-67e4-418b-9833-ef5bbe90ea99]
+04-07-2021 14:28:14.140 [http-nio-8080-exec-5] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor.writeWithMessageConverters - Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+04-07-2021 14:28:14.140 [http-nio-8080-exec-5] TRACE o.s.w.s.m.m.a.HttpEntityMethodProcessor.traceDebug - Writing ["status: IN_PROGRESS"]
+04-07-2021 14:28:14.141 [http-nio-8080-exec-5] TRACE o.s.web.servlet.DispatcherServlet.processDispatchResult - No view rendering, null ModelAndView returned.
+04-07-2021 14:28:14.142 [http-nio-8080-exec-5] DEBUG o.s.web.servlet.DispatcherServlet.logResult - Completed 200 OK, headers={masked}
+04-07-2021 14:28:19.440 [http-nio-8080-exec-6] TRACE o.s.web.servlet.DispatcherServlet.traceDebug - GET "/api/export/d1f91a36-67e4-418b-9833-ef5bbe90ea99", parameters={}, headers={masked} in DispatcherServlet 'dispatcherServlet'
+04-07-2021 14:28:19.440 [http-nio-8080-exec-6] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping.getHandler - Mapped to team.natlex.NatLex.api.ApiController#getExportStatus(UUID)
+04-07-2021 14:28:19.441 [http-nio-8080-exec-6] TRACE o.s.web.method.HandlerMethod.invokeForRequest - Arguments: [d1f91a36-67e4-418b-9833-ef5bbe90ea99]
+04-07-2021 14:28:19.443 [http-nio-8080-exec-6] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor.writeWithMessageConverters - Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+04-07-2021 14:28:19.443 [http-nio-8080-exec-6] TRACE o.s.w.s.m.m.a.HttpEntityMethodProcessor.traceDebug - Writing ["status: IN_PROGRESS"]
+04-07-2021 14:28:19.445 [http-nio-8080-exec-6] TRACE o.s.web.servlet.DispatcherServlet.processDispatchResult - No view rendering, null ModelAndView returned.
+04-07-2021 14:28:19.445 [http-nio-8080-exec-6] DEBUG o.s.web.servlet.DispatcherServlet.logResult - Completed 200 OK, headers={masked}
+04-07-2021 14:28:20.951 [pool-1-thread-1] INFO  t.natlex.NatLex.service.XlsService.xlsExportProcess - job d1f91a36-67e4-418b-9833-ef5bbe90ea99 finished export
+04-07-2021 14:28:26.562 [http-nio-8080-exec-7] TRACE o.s.web.servlet.DispatcherServlet.traceDebug - GET "/api/export/d1f91a36-67e4-418b-9833-ef5bbe90ea99/file", parameters={}, headers={masked} in DispatcherServlet 'dispatcherServlet'
+04-07-2021 14:28:26.563 [http-nio-8080-exec-7] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping.getHandler - Mapped to team.natlex.NatLex.api.ApiController#downloadFile(UUID)
+04-07-2021 14:28:26.564 [http-nio-8080-exec-7] TRACE o.s.web.method.HandlerMethod.invokeForRequest - Arguments: [d1f91a36-67e4-418b-9833-ef5bbe90ea99]
+04-07-2021 14:28:26.566 [http-nio-8080-exec-7] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor.writeWithMessageConverters - Found 'Content-Type:application/octet-stream' in response
+04-07-2021 14:28:26.566 [http-nio-8080-exec-7] TRACE o.s.w.s.m.m.a.HttpEntityMethodProcessor.traceDebug - Writing [[B@1888196a]
+04-07-2021 14:28:26.567 [http-nio-8080-exec-7] TRACE o.s.web.servlet.DispatcherServlet.processDispatchResult - No view rendering, null ModelAndView returned.
+04-07-2021 14:28:26.568 [http-nio-8080-exec-7] DEBUG o.s.web.servlet.DispatcherServlet.logResult - Completed 200 OK, headers={masked}
+04-07-2021 14:28:29.514 [http-nio-8080-exec-8] TRACE o.s.web.servlet.DispatcherServlet.traceDebug - GET "/api/export/d1f91a36-67e4-418b-9833-ef5bbe90ea99", parameters={}, headers={masked} in DispatcherServlet 'dispatcherServlet'
+04-07-2021 14:28:29.515 [http-nio-8080-exec-8] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping.getHandler - Mapped to team.natlex.NatLex.api.ApiController#getExportStatus(UUID)
+04-07-2021 14:28:29.515 [http-nio-8080-exec-8] TRACE o.s.web.method.HandlerMethod.invokeForRequest - Arguments: [d1f91a36-67e4-418b-9833-ef5bbe90ea99]
+04-07-2021 14:28:29.516 [http-nio-8080-exec-8] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor.writeWithMessageConverters - Using 'text/plain', given [*/*] and supported [text/plain, */*, text/plain, */*, application/json, application/*+json, application/json, application/*+json]
+04-07-2021 14:28:29.516 [http-nio-8080-exec-8] TRACE o.s.w.s.m.m.a.HttpEntityMethodProcessor.traceDebug - Writing ["status: DONE"]
+04-07-2021 14:28:29.517 [http-nio-8080-exec-8] TRACE o.s.web.servlet.DispatcherServlet.processDispatchResult - No view rendering, null ModelAndView returned.
+04-07-2021 14:28:29.517 [http-nio-8080-exec-8] DEBUG o.s.web.servlet.DispatcherServlet.logResult - Completed 200 OK, headers={masked}
+04-07-2021 14:28:31.690 [http-nio-8080-exec-9] TRACE o.s.web.servlet.DispatcherServlet.traceDebug - GET "/api/export/d1f91a36-67e4-418b-9833-ef5bbe90ea99/file", parameters={}, headers={masked} in DispatcherServlet 'dispatcherServlet'
+04-07-2021 14:28:31.691 [http-nio-8080-exec-9] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping.getHandler - Mapped to team.natlex.NatLex.api.ApiController#downloadFile(UUID)
+04-07-2021 14:28:31.692 [http-nio-8080-exec-9] TRACE o.s.web.method.HandlerMethod.invokeForRequest - Arguments: [d1f91a36-67e4-418b-9833-ef5bbe90ea99]
+04-07-2021 14:28:31.693 [http-nio-8080-exec-9] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor.writeWithMessageConverters - Found 'Content-Type:application/octet-stream' in response
+04-07-2021 14:28:31.693 [http-nio-8080-exec-9] TRACE o.s.w.s.m.m.a.HttpEntityMethodProcessor.traceDebug - Writing [[B@1888196a]
+04-07-2021 14:28:31.694 [http-nio-8080-exec-9] TRACE o.s.web.servlet.DispatcherServlet.processDispatchResult - No view rendering, null ModelAndView returned.
+04-07-2021 14:28:31.695 [http-nio-8080-exec-9] DEBUG o.s.web.servlet.DispatcherServlet.logResult - Completed 200 OK, headers={masked}
+04-07-2021 14:28:33.765 [http-nio-8080-exec-10] TRACE o.s.web.servlet.DispatcherServlet.traceDebug - GET "/api/export/d1f91a36-67e4-418b-9833-ef5bbe90ea99/file", parameters={}, headers={masked} in DispatcherServlet 'dispatcherServlet'
+04-07-2021 14:28:33.766 [http-nio-8080-exec-10] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping.getHandler - Mapped to team.natlex.NatLex.api.ApiController#downloadFile(UUID)
+04-07-2021 14:28:33.766 [http-nio-8080-exec-10] TRACE o.s.web.method.HandlerMethod.invokeForRequest - Arguments: [d1f91a36-67e4-418b-9833-ef5bbe90ea99]
+04-07-2021 14:28:33.767 [http-nio-8080-exec-10] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor.writeWithMessageConverters - Found 'Content-Type:application/octet-stream' in response
+04-07-2021 14:28:33.767 [http-nio-8080-exec-10] TRACE o.s.w.s.m.m.a.HttpEntityMethodProcessor.traceDebug - Writing [[B@1888196a]
+04-07-2021 14:28:33.767 [http-nio-8080-exec-10] TRACE o.s.web.servlet.DispatcherServlet.processDispatchResult - No view rendering, null ModelAndView returned.
+04-07-2021 14:28:33.768 [http-nio-8080-exec-10] DEBUG o.s.web.servlet.DispatcherServlet.logResult - Completed 200 OK, headers={masked}
+04-07-2021 14:33:05.313 [http-nio-8080-exec-2] INFO  o.a.coyote.http11.Http11Processor.log - Error parsing HTTP request header
+ Note: further occurrences of HTTP request parsing errors will be logged at DEBUG level.
+java.lang.IllegalArgumentException: Invalid character found in method name [0x160x030x010x020x000x010x000x010xfc0x030x030x170x0f0xeaI0x01~0xd80x140x840xc00xa4^0x1f0xf4}0xd7:C0xbfq*0xb50x020xd80xc00xf9y0xd6]'a0xc0 ]. HTTP method names must be tokens
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:417)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:261)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1707)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:831)

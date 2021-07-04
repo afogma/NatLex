@@ -5,11 +5,13 @@ import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.junit.jupiter.api.Test;
 import org.springframework.mock.web.MockMultipartFile;
-import team.natlex.NatLex.entity.GeologicalClass;
-import team.natlex.NatLex.entity.Section;
+import team.natlex.NatLex.db.GeologicalClass;
+import team.natlex.NatLex.db.Section;
 import team.natlex.NatLex.model.XlsJob;
-import team.natlex.NatLex.repository.GeologicalClassRepo;
-import team.natlex.NatLex.repository.SectionRepo;
+import team.natlex.NatLex.db.GeologicalClassRepo;
+import team.natlex.NatLex.db.SectionRepo;
+import team.natlex.NatLex.service.ApiService;
+import team.natlex.NatLex.service.XlsAdapter;
 import team.natlex.NatLex.service.XlsService;
 
 import java.io.*;
@@ -28,7 +30,9 @@ class XlsServiceTest {
 
     SectionRepo sectionRepo = mock(SectionRepo.class);
     GeologicalClassRepo geologicalClassRepo = mock(GeologicalClassRepo.class);
-    XlsService xlsService = new XlsService(sectionRepo, geologicalClassRepo);
+    XlsAdapter xlsAdapter = mock(XlsAdapter.class);
+    ApiService apiService = mock(ApiService.class);
+    XlsService xlsService = new XlsService(sectionRepo, geologicalClassRepo, xlsAdapter, apiService);
 
     @Test
     void xlsExportProcess() {

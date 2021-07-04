@@ -10,11 +10,10 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import team.natlex.NatLex.service.ApiService;
 import team.natlex.NatLex.service.XlsService;
-import team.natlex.NatLex.entity.GeologicalClass;
+import team.natlex.NatLex.db.GeologicalClass;
 import team.natlex.NatLex.model.SectionFullDTO;
 import team.natlex.NatLex.model.XlsJob;
 
-import java.io.IOException;
 import java.util.List;
 import java.util.UUID;
 
@@ -83,15 +82,15 @@ public class ApiController {
     }
 
     @PostMapping("/import")
-    public ResponseEntity<UUID> uploadFile(@RequestParam("file") MultipartFile file) {
+    public UUID uploadFile(@RequestParam("file") MultipartFile file) {
         XlsJob job = xlsService.loadXls(file);
-        return ResponseEntity.ok(job.getId());
+        return job.getId();
     }
 
     @GetMapping("/export")
-    public ResponseEntity<String> downloadFile() {
+    public UUID downloadFile() {
         XlsJob job = xlsService.exportXls();
-        return ResponseEntity.ok("file processing. id: " + job.getId());
+        return job.getId();
     }
 
     @GetMapping("/export/{id}/file")
@@ -100,7 +99,7 @@ public class ApiController {
         HttpHeaders responseHeaders = new HttpHeaders();
         responseHeaders.setContentType(MediaType.APPLICATION_OCTET_STREAM);
         responseHeaders.setContentLength(content.length);
-        responseHeaders.set("Content-disposition", "attachment; filename=job_" + id + ".xls");
+        responseHeaders.set(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"job_" + id + ".xls\"");
         return new ResponseEntity<>(content, responseHeaders, HttpStatus.OK);
     }
 
