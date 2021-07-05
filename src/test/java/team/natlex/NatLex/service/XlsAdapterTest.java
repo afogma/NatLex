@@ -18,10 +18,9 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-@RequiredArgsConstructor
 class XlsAdapterTest {
 
-    XlsAdapter xlsAdapter;
+    XlsAdapter xlsAdapter = new XlsAdapter();
 
     private List<SectionFullDTO> getSectionFullList() {
         var geoClassess1 = List.of(new GeologicalClass("Geo Class 11", "GC11"),
