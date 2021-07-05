@@ -1,22 +1,15 @@
 package team.natlex.NatLex.service;
 
-import lombok.RequiredArgsConstructor;
 import org.junit.jupiter.api.Test;
-import org.springframework.mock.web.MockMultipartFile;
 import team.natlex.NatLex.db.GeologicalClass;
-import team.natlex.NatLex.db.Section;
 import team.natlex.NatLex.model.SectionFullDTO;
-import team.natlex.NatLex.model.XlsJob;
 
-import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
 
 class XlsAdapterTest {
 
@@ -41,12 +34,8 @@ class XlsAdapterTest {
         return sectionFullDTOList;
     }
 
-
     @Test
     void parseXls() throws Exception {
-//        var multipartFile = new MockMultipartFile("file", "sections.xls".getBytes());
-//        var job = new XlsJob(multipartFile.getBytes());
-        when(xlsAdapter.parseXls(Files.readAllBytes(Paths.get("sections.xls")))).thenReturn(getSectionFullList());
         var fullDTOList = xlsAdapter.parseXls(Files.readAllBytes(Paths.get("sections.xls")));
         assertEquals(getSectionFullList(), fullDTOList);
     }
@@ -55,7 +44,7 @@ class XlsAdapterTest {
     void xlsExportProcess() throws Exception {
 
         byte[] fileContent = Files.readAllBytes(Paths.get("sections.xls"));
-        when(xlsAdapter.xlsExportProcess(getSectionFullList())).thenReturn(fileContent);
+//        when(xlsAdapter.xlsExportProcess(getSectionFullList())).thenReturn(fileContent);
         byte[] content = xlsAdapter.xlsExportProcess(getSectionFullList());
         assertEquals(content, fileContent);
     }
