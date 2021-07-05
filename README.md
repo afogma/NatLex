@@ -14,4 +14,5 @@ Default username: "admin" , password "admin".
 
 Project built with jdk11. It includes lombok, flyway, spring security and openapi libraries.
 To inspect all crud methods follow url: http://server-ip:8080/swagger-ui/index.html?configUrl=/v3/api-docs/swagger-config#/
+
 Curl command for testing: curl -u admin:admin http://server-ip:8080/api/
