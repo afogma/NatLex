@@ -25,7 +25,7 @@ public class XlsAdapter {
         var byteArrayInputStream = new ByteArrayInputStream(content);
         var workbook = new HSSFWorkbook(byteArrayInputStream);
         var sheet = workbook.getSheetAt(0);
-        List<SectionFullDTO> sectionFullDTOS = new ArrayList<>();
+        List<SectionFullDTO> sectionFullDTOs = new ArrayList<>();
 
         Iterator<Row> rowIterator = sheet.iterator();
         rowIterator.next();
@@ -48,10 +48,10 @@ public class XlsAdapter {
                     geologicalClassList.add(new GeologicalClass(className, classCode));
                 }
             }
-            sectionFullDTOS.add(new SectionFullDTO(sectionName, geologicalClassList));
+            sectionFullDTOs.add(new SectionFullDTO(sectionName, geologicalClassList));
 
         }
-        return sectionFullDTOS;
+        return sectionFullDTOs;
     }
 
     public byte[] xlsExportProcess(List<SectionFullDTO> sectionFullDTOList) throws Exception {

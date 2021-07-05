@@ -1,4 +1,4 @@
-package team.natlex.NatLex.api;
+package team.natlex.NatLex.service;
 
 import org.junit.jupiter.api.Test;
 import team.natlex.NatLex.db.GeologicalClass;
@@ -6,11 +6,9 @@ import team.natlex.NatLex.db.Section;
 import team.natlex.NatLex.model.SectionFullDTO;
 import team.natlex.NatLex.db.GeologicalClassRepo;
 import team.natlex.NatLex.db.SectionRepo;
-import team.natlex.NatLex.service.ApiService;
 
 import java.util.List;
 
-import static java.util.Arrays.asList;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
@@ -21,7 +19,7 @@ class ApiServiceTest {
     ApiService apiService = new ApiService(sectionRepo, geologicalClassRepo);
 
     public Section getSection() {
-        var section = new Section("Section 1", asList("GC11", "GC12", "GC15", "GC17"));
+        var section = new Section("Section 1", List.of("GC11", "GC12", "GC15", "GC17"));
         return section;
     }
 
@@ -30,7 +28,7 @@ class ApiServiceTest {
     }
 
     public SectionFullDTO getFullSection() {
-        List<GeologicalClass> geologicalClassList = asList(
+        List<GeologicalClass> geologicalClassList = List.of(
                 new GeologicalClass("Geo Class 11", "GC11"),
                 new GeologicalClass("Geo Class 12", "GC12"),
                 new GeologicalClass("Geo Class 15", "GC15"),
@@ -41,7 +39,7 @@ class ApiServiceTest {
 
     @Test
     void findAllSections() {
-        var sections = asList(getSection());
+        var sections = List.of(getSection());
         when(sectionRepo.findAll()).thenReturn(sections);
         var sectionList = sectionRepo.findAll();
         assertEquals(sections, sectionList);
@@ -50,7 +48,7 @@ class ApiServiceTest {
 
     @Test
     void findAllClasses() {
-        var classes = asList(getGeoClass());
+        var classes = List.of(getGeoClass());
         when(geologicalClassRepo.findAll()).thenReturn(classes);
         var geologicalClassList = geologicalClassRepo.findAll();
         assertEquals(classes, geologicalClassList);
@@ -68,7 +66,7 @@ class ApiServiceTest {
 
     @Test
     void findSectionsByCode() {
-        var sections = asList(getSection().getName());
+        var sections = List.of(getSection().getName());
         when(sectionRepo.findSectionsByCode("GC11")).thenReturn(sections);
         var sectionList = apiService.findSectionsByCode("GC11");
         assertEquals(sectionList, sections);
@@ -85,8 +83,8 @@ class ApiServiceTest {
     @Test
     void updateSection() {
         var section = getSection();
-        var sectionFullDTO = new SectionFullDTO("Section 1", asList(new GeologicalClass("Geo Class 14", "GC14")));
-        var newSection = new Section("Section 1", asList("GC11", "GC12", "GC14", "GC15", "GC17"));
+        var sectionFullDTO = new SectionFullDTO("Section 1", List.of(new GeologicalClass("Geo Class 14", "GC14")));
+        var newSection = new Section("Section 1", List.of("GC11", "GC12", "GC14", "GC15", "GC17"));
 
         when(sectionRepo.findById("Section 1")).thenReturn(java.util.Optional.ofNullable(section));
         when(sectionRepo.save(newSection)).thenReturn(newSection);
