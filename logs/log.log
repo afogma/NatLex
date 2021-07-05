@@ -4154,3 +4154,46 @@ https://vladmihalcea.com/hypersistence-optimizer/
 
 05-07-2021 11:11:21.316 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean.buildNativeEntityManagerFactory - Initialized JPA EntityManagerFactory for persistence unit 'default'
 05-07-2021 11:11:21.609 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration.openEntityManagerInViewInterceptor - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+05-07-2021 11:11:23.011 [main] INFO  o.s.s.web.DefaultSecurityFilterChain.<init> - Will secure Ant [pattern='/api/**'] with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4a3333be, org.springframework.security.web.context.SecurityContextPersistenceFilter@3e18e693, org.springframework.security.web.header.HeaderWriterFilter@6aa792, org.springframework.security.web.authentication.logout.LogoutFilter@32fd5bc, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@69c0bae6, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@57fc6759, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@107ebdad, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@13b4ee4e, org.springframework.security.web.session.SessionManagementFilter@4c24c40a, org.springframework.security.web.access.ExceptionTranslationFilter@71e409f, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@55315a00]
+05-07-2021 11:11:23.252 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerAdapter.initControllerAdviceCache - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+05-07-2021 11:11:23.490 [main] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping.detectHandlerMethods - 
+	t.n.N.a.ApiController:
+	{PUT [/api/section/update/{name}]}: updateSection(SectionFullDTO,String)
+	{DELETE [/api/section/delete/{name}]}: deleteSection(String)
+	{POST [/api/section/add]}: addNewSection(SectionFullDTO)
+	{POST [/api/class/add]}: addNewClass(GeologicalClass)
+	{PUT [/api/class/update/{name}]}: updateClass(GeologicalClass,String)
+	{DELETE [/api/class/delete/{name}]}: deleteClass(String)
+	{GET [/api/export]}: downloadFile()
+	{GET [/api/export/{id}/file]}: downloadFile(UUID)
+	{GET [/api/sections]}: showSectionList()
+	{GET [/api/sections/by-code]}: showAllSectionsByClassCode(String)
+	{GET [/api/classes/{code}]}: showAllClassesByCode(String)
+	{POST [/api/import]}: uploadFile(MultipartFile)
+	{GET [/api/export/{id}]}: getExportStatus(UUID)
+	{GET [/api/import/{id}]}: getImportStatus(UUID)
+05-07-2021 11:11:23.507 [main] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping.detectHandlerMethods - 
+	o.s.b.a.w.s.e.BasicErrorController:
+	{ [/error]}: error(HttpServletRequest)
+	{ [/error], produces [text/html]}: errorHtml(HttpServletRequest,HttpServletResponse)
+05-07-2021 11:11:23.602 [main] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping.detectHandlerMethods - 
+	o.s.w.a.OpenApiWebMvcResource:
+	{GET [/v3/api-docs], produces [application/json]}: openapiJson(HttpServletRequest,String)
+	{GET [/v3/api-docs.yaml], produces [application/vnd.oai.openapi]}: openapiYaml(HttpServletRequest,String)
+05-07-2021 11:11:23.629 [main] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping.detectHandlerMethods - 
+	o.s.w.u.SwaggerWelcomeWebMvc:
+	{GET [/v3/api-docs/swagger-config], produces [application/json]}: openapiJson(HttpServletRequest)
+	{GET [/swagger-ui.html]}: redirectToUi(HttpServletRequest)
+05-07-2021 11:11:23.636 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping.handlerMethodsInitialized - 20 mappings in 'requestMappingHandlerMapping'
+05-07-2021 11:11:23.664 [main] DEBUG o.s.w.s.h.BeanNameUrlHandlerMapping.detectHandlers - Detected 0 mappings in 'beanNameHandlerMapping'
+05-07-2021 11:11:23.670 [main] TRACE o.s.w.s.f.s.RouterFunctionMapping.logRouterFunctions - 0 RouterFunction(s) in 'routerFunctionMapping'
+05-07-2021 11:11:24.727 [main] TRACE o.s.w.s.h.SimpleUrlHandlerMapping.registerHandler - Mapped [/webjars/**] onto ResourceHttpRequestHandler [Classpath [META-INF/resources/webjars/]]
+05-07-2021 11:11:24.727 [main] TRACE o.s.w.s.h.SimpleUrlHandlerMapping.registerHandler - Mapped [/**] onto ResourceHttpRequestHandler [Classpath [META-INF/resources/], Classpath [resources/], Classpath [static/], Classpath [public/], ServletContext [/]]
+05-07-2021 11:11:24.727 [main] TRACE o.s.w.s.h.SimpleUrlHandlerMapping.registerHandler - Mapped [/**/swagger-ui/**] onto ResourceHttpRequestHandler [Classpath [META-INF/resources/webjars/]]
+05-07-2021 11:11:24.728 [main] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping.logMappings - Patterns [/webjars/**, /**, /**/swagger-ui/**] in 'resourceHandlerMapping'
+05-07-2021 11:11:24.743 [main] DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver.initExceptionHandlerAdviceCache - ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+05-07-2021 11:11:25.398 [main] INFO  o.a.coyote.http11.Http11NioProtocol.log - Starting ProtocolHandler ["http-nio-8080"]
+05-07-2021 11:11:25.444 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer.start - Tomcat started on port(s): 8080 (http) with context path ''
+05-07-2021 11:11:25.459 [main] INFO  team.natlex.NatLex.NatLexApplication.logStarted - Started NatLexApplication in 16.439 seconds (JVM running for 19.107)
+05-07-2021 11:11:25.461 [main] INFO  o.s.b.a.ApplicationAvailabilityBean.logStateChange - Application availability state LivenessState changed to CORRECT
+05-07-2021 11:11:25.463 [main] INFO  o.s.b.a.ApplicationAvailabilityBean.logStateChange - Application availability state ReadinessState changed to ACCEPTING_TRAFFIC
