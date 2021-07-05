@@ -4106,3 +4106,51 @@ https://vladmihalcea.com/hypersistence-optimizer/
 05-07-2021 10:51:40.442 [http-nio-8080-exec-7] TRACE o.s.w.s.m.m.a.HttpEntityMethodProcessor.traceDebug - Writing [[B@52efbf9e]
 05-07-2021 10:51:40.443 [http-nio-8080-exec-7] TRACE o.s.web.servlet.DispatcherServlet.processDispatchResult - No view rendering, null ModelAndView returned.
 05-07-2021 10:51:40.443 [http-nio-8080-exec-7] DEBUG o.s.web.servlet.DispatcherServlet.logResult - Completed 200 OK, headers={masked}
+05-07-2021 11:09:26.868 [http-nio-8080-exec-9] TRACE o.s.web.servlet.DispatcherServlet.traceDebug - GET "/api/sections/by-code?code=GC31", parameters={masked}, headers={masked} in DispatcherServlet 'dispatcherServlet'
+05-07-2021 11:09:26.882 [http-nio-8080-exec-9] TRACE o.s.w.s.m.m.a.RequestMappingHandlerMapping.getHandler - Mapped to team.natlex.NatLex.api.ApiController#showAllSectionsByClassCode(String)
+05-07-2021 11:09:27.000 [http-nio-8080-exec-9] TRACE o.s.web.method.HandlerMethod.invokeForRequest - Arguments: [GC31]
+05-07-2021 11:09:27.295 [http-nio-8080-exec-9] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor.writeWithMessageConverters - Using 'application/json;q=0.8', given [text/html, application/xhtml+xml, image/webp, application/xml;q=0.9, */*;q=0.8] and supported [application/json, application/*+json, application/json, application/*+json]
+05-07-2021 11:09:27.296 [http-nio-8080-exec-9] TRACE o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor.traceDebug - Writing [[Section 3]]
+05-07-2021 11:09:27.352 [http-nio-8080-exec-9] TRACE o.s.web.servlet.DispatcherServlet.processDispatchResult - No view rendering, null ModelAndView returned.
+05-07-2021 11:09:27.353 [http-nio-8080-exec-9] DEBUG o.s.web.servlet.DispatcherServlet.logResult - Completed 200 OK, headers={masked}
+05-07-2021 11:11:11.336 [main] INFO  team.natlex.NatLex.NatLexApplication.logStarting - Starting NatLexApplication using Java 16.0.1 on it-admin with PID 17260 (/home/fogma/IdeaProjects/NatLex/target/classes started by fogma in /home/fogma/IdeaProjects/NatLex)
+05-07-2021 11:11:11.363 [main] INFO  team.natlex.NatLex.NatLexApplication.logStartupProfileInfo - No active profile set, falling back to default profiles: default
+05-07-2021 11:11:12.220 [background-preinit] WARN  o.s.h.c.j.Jackson2ObjectMapperBuilder.warn - For Jackson Kotlin classes support please add "com.fasterxml.jackson.module:jackson-module-kotlin" to the classpath
+05-07-2021 11:11:14.571 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+05-07-2021 11:11:14.708 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate.registerRepositoriesIn - Finished Spring Data repository scanning in 124 ms. Found 2 JPA repository interfaces.
+05-07-2021 11:11:16.050 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer.initialize - Tomcat initialized with port(s): 8080 (http)
+05-07-2021 11:11:16.083 [main] INFO  o.a.coyote.http11.Http11NioProtocol.log - Initializing ProtocolHandler ["http-nio-8080"]
+05-07-2021 11:11:16.085 [main] INFO  o.a.catalina.core.StandardService.log - Starting service [Tomcat]
+05-07-2021 11:11:16.085 [main] INFO  o.a.catalina.core.StandardEngine.log - Starting Servlet engine: [Apache Tomcat/9.0.46]
+05-07-2021 11:11:16.258 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/].log - Initializing Spring embedded WebApplicationContext
+05-07-2021 11:11:16.259 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext.prepareWebApplicationContext - Root WebApplicationContext: initialization completed in 4614 ms
+05-07-2021 11:11:16.534 [main] INFO  o.f.c.i.license.VersionPrinter.info - Flyway Community Edition 7.8.2 by Redgate
+05-07-2021 11:11:16.541 [main] INFO  com.zaxxer.hikari.HikariDataSource.getConnection - HikariPool-1 - Starting...
+05-07-2021 11:11:16.776 [main] INFO  com.zaxxer.hikari.HikariDataSource.getConnection - HikariPool-1 - Start completed.
+05-07-2021 11:11:16.830 [main] INFO  o.f.c.i.d.base.BaseDatabaseType.info - Database: jdbc:postgresql://127.0.0.1:5432/natlex (PostgreSQL 13.2)
+05-07-2021 11:11:16.881 [main] INFO  o.f.core.internal.command.DbValidate.info - Successfully validated 1 migration (execution time 00:00.029s)
+05-07-2021 11:11:16.892 [main] INFO  o.f.core.internal.command.DbMigrate.info - Current version of schema "public": 1
+05-07-2021 11:11:16.893 [main] INFO  o.f.core.internal.command.DbMigrate.info - Schema "public" is up to date. No migration necessary.
+05-07-2021 11:11:19.778 [main] INFO  Hibernate Types.printBanner - This framework is proudly powered by:
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+ _    _                           _     _
+| |  | |                         (_)   | |
+| |__| |_   _ _ __   ___ _ __ ___ _ ___| |_ ___ _ __   ___ ___
+|  __  | | | | '_ \ / _ \ '__/ __| / __| __/ _ \ '_ \ / __/ _ \
+| |  | | |_| | |_) |  __/ |  \__ \ \__ \ ||  __/ | | | (_|  __/
+|_|  |_|\__, | .__/ \___|_|  |___/_|___/\__\___|_| |_|\___\___|
+         __/ | |
+        |___/|_|
+
+At Hypersistence, we only build amazing tools, like Hibernate Types, Flexy Pool, or Hypersistence Optimizer.
+
+What if there were a tool that could automatically detect JPA and Hibernate performance issues?
+
+Hypersistence Optimizer is that tool! For more details, go to: 
+
+https://vladmihalcea.com/hypersistence-optimizer/
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+05-07-2021 11:11:21.316 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean.buildNativeEntityManagerFactory - Initialized JPA EntityManagerFactory for persistence unit 'default'
+05-07-2021 11:11:21.609 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration.openEntityManagerInViewInterceptor - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
