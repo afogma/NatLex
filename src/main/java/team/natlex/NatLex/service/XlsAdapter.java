@@ -12,7 +12,6 @@ import team.natlex.NatLex.model.SectionFullDTO;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
-import java.io.IOException;
 import java.util.*;
 import java.util.function.Function;
 
@@ -57,7 +56,7 @@ public class XlsAdapter {
 
     public byte[] xlsExportProcess(List<SectionFullDTO> sectionFullDTOList) throws Exception {
         var sectionList = sectionFullDTOList.stream()
-                .map(SectionFullDTO::getSection)
+                .map(SectionFullDTO::sectionData)
                 .collect(toList());
 
         var geologicalClasses = sectionFullDTOList.stream()
@@ -68,7 +67,7 @@ public class XlsAdapter {
 
         var classNumbers = sectionFullDTOList.stream()
                 .flatMap(s -> s.getGeologicalClasses().stream())
-                .map(GeologicalClass::getClassNumber)
+                .map(GeologicalClass::classNumber)
                 .distinct()
                 .sorted()
                 .collect(toList());
@@ -124,7 +123,7 @@ public class XlsAdapter {
             for (int j = 0; j < codes.size(); j++) {
                 var geologicalClass = geoClasses.get(codes.get(j));
                 var name = geologicalClass.getName();
-                var classNumber = geologicalClass.getClassNumber();
+                var classNumber = geologicalClass.classNumber();
 
                 if (classNumber.equals(classNumbers.get(i))) {
                     cell = row.createCell(p + 1, CellType.STRING);

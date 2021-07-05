@@ -31,7 +31,7 @@ public class ApiService {
         List<SectionFullDTO> sectionDto = new ArrayList<>();
         var sections = sectionRepo.findAll();
         for (Section s : sections) {
-            var classes = new ArrayList<>(geologicalClassRepo.findByCodes(s.getCodes()));
+            var classes = geologicalClassRepo.findByCodes(s.getCodes());
             SectionFullDTO sectionFullDTO = new SectionFullDTO(s.getName(), classes);
             sectionDto.add(sectionFullDTO);
         }

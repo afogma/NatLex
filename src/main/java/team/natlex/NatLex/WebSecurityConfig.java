@@ -12,7 +12,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Configuration
 @EnableWebSecurity
-@EnableGlobalMethodSecurity(prePostEnabled = true)
+//@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Bean
@@ -23,11 +23,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     public void configure(HttpSecurity http) throws Exception {
         http
-                .antMatcher("/**")
+                .antMatcher("/api/**")
                 .authorizeRequests()
-                .antMatchers("/api/sections/*").anonymous()
-                .antMatchers("/api/sections/by-code?*").anonymous()
-                .antMatchers("/api/classes/*").anonymous()
+                .antMatchers("/api/sections/*").permitAll()
+                .antMatchers("/api/sections/by-code?*").permitAll()
+                .antMatchers("/api/classes/*").permitAll()
                 .antMatchers("/api/class/**").authenticated()
                 .antMatchers("/api/section/**").authenticated()
                 .antMatchers("/api/import/**").authenticated()

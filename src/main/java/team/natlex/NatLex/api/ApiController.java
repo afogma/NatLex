@@ -21,27 +21,23 @@ import java.util.UUID;
 @RequestMapping("/api")
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RequiredArgsConstructor
-@PreAuthorize("hasAuthority('USER')")
 public class ApiController {
 
     private final ApiService apiService;
     private final XlsService xlsService;
 
     @GetMapping("/sections")
-    @PreAuthorize("permitAll")
     public List<SectionFullDTO> showSectionList() {
         List<SectionFullDTO> section = apiService.findAllSections();
         return section;
     }
 
     @GetMapping("/sections/by-code")
-    @PreAuthorize("permitAll")
     public List<String> showAllSectionsByClassCode(@RequestParam String code) {
         return apiService.findSectionsByCode(code);
     }
 
     @GetMapping("/classes/{code}")
-    @PreAuthorize("permitAll")
     public GeologicalClass showAllClassesByCode(@PathVariable String code) {
         return apiService.findClassByCode(code);
     }
@@ -52,33 +48,28 @@ public class ApiController {
     }
 
     @DeleteMapping("/section/delete/{name}")
-    public ResponseEntity<String> deleteSection(@PathVariable String name) {
+    public void deleteSection(@PathVariable String name) {
         apiService.deleteSection(name);
-        return ResponseEntity.ok(name + " deleted");
     }
 
     @PostMapping("/section/add")
-    public ResponseEntity<String> addNewSection(@RequestBody SectionFullDTO sectionFullDTO) {
+    public void addNewSection(@RequestBody SectionFullDTO sectionFullDTO) {
         apiService.addNewSection(sectionFullDTO);
-        return ResponseEntity.ok("section(s) added");
     }
 
     @PostMapping("/class/add")
-    public ResponseEntity<String> addNewClass(@RequestBody GeologicalClass geoClass) {
+    public void addNewClass(@RequestBody GeologicalClass geoClass) {
         apiService.addNewClass(geoClass);
-        return ResponseEntity.ok("class added");
     }
 
     @PutMapping("/class/update/{name}")
-    public ResponseEntity<String> updateClass(@RequestBody GeologicalClass geoClass, @PathVariable String name) {
+    public void updateClass(@RequestBody GeologicalClass geoClass, @PathVariable String name) {
         apiService.updateClass(geoClass, name);
-        return ResponseEntity.ok("class updated");
     }
 
     @DeleteMapping("/class/delete/{name}")
-    public ResponseEntity<String> deleteClass(@PathVariable String name) {
+    public void deleteClass(@PathVariable String name) {
         apiService.deleteClass(name);
-        return ResponseEntity.ok(name + " removed");
     }
 
     @PostMapping("/import")

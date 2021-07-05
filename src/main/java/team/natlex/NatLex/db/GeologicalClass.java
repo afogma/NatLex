@@ -19,7 +19,7 @@ public class GeologicalClass {
     @Transient
     private final static int CLASS_NUMBER_PREFIX = 11;
 
-    public String getClassNumber() {
+    public String classNumber() {
         return name.substring(CLASS_NUMBER_PREFIX);
     }
 

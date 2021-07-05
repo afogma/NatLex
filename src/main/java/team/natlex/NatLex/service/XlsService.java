@@ -50,7 +50,7 @@ public class XlsService {
         try {
             var sectionDTOs = xlsAdapter.parseXls(job.getContent());
             var sections = sectionDTOs.stream()
-                    .map(SectionFullDTO::getSection)
+                    .map(SectionFullDTO::sectionData)
                     .collect(toList());
             sectionRepo.saveAll(sections);
             var geoClassList = sectionDTOs.stream()

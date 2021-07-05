@@ -14,7 +14,7 @@ import static team.natlex.NatLex.model.XlsJob.JobStatus.IN_PROGRESS;
 @AllArgsConstructor
 public class XlsJob {
 
-    private UUID id = randomUUID();
+    private final UUID id = randomUUID();
     private byte[] content;
     private JobStatus status = IN_PROGRESS;
 

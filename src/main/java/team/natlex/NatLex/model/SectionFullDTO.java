@@ -13,7 +13,7 @@ public class SectionFullDTO {
     private final String name;
     private final List<GeologicalClass> geologicalClasses;
 
-    public Section getSection() {
+    public Section sectionData() {
         var codes = geologicalClasses.stream()
                 .map(GeologicalClass::getCode)
                 .collect(toList());
