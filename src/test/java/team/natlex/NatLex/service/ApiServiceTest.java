@@ -8,7 +8,9 @@ import team.natlex.NatLex.db.GeologicalClassRepo;
 import team.natlex.NatLex.db.SectionRepo;
 
 import java.util.List;
+import java.util.Optional;
 
+import static java.util.Optional.ofNullable;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
@@ -18,23 +20,7 @@ class ApiServiceTest {
     GeologicalClassRepo geologicalClassRepo = mock(GeologicalClassRepo.class);
     ApiService apiService = new ApiService(sectionRepo, geologicalClassRepo);
 
-    public Section getSection() {
-        var section = new Section("Section 1", List.of("GC11", "GC12", "GC15", "GC17"));
-        return section;
-    }
 
-    public GeologicalClass getGeoClass() {
-        return new GeologicalClass("Geo Class 11", "GC11");
-    }
-
-    public SectionFullDTO getFullSection() {
-        List<GeologicalClass> geologicalClassList = List.of(
-                new GeologicalClass("Geo Class 11", "GC11"),
-                new GeologicalClass("Geo Class 12", "GC12"),
-                new GeologicalClass("Geo Class 15", "GC15"),
-                new GeologicalClass("Geo Class 17", "GC17"));
-        return new SectionFullDTO("Section 1", geologicalClassList);
-    }
 
 
     @Test
@@ -86,7 +72,7 @@ class ApiServiceTest {
         var sectionFullDTO = new SectionFullDTO("Section 1", List.of(new GeologicalClass("Geo Class 14", "GC14")));
         var newSection = new Section("Section 1", List.of("GC11", "GC12", "GC14", "GC15", "GC17"));
 
-        when(sectionRepo.findById("Section 1")).thenReturn(java.util.Optional.ofNullable(section));
+        when(sectionRepo.findById("Section 1")).thenReturn(Optional.of(section));
         when(sectionRepo.save(newSection)).thenReturn(newSection);
         apiService.updateSection(sectionFullDTO, "Section 1");
         var sect = sectionRepo.findById("Section 1").orElse(null);
@@ -96,9 +82,9 @@ class ApiServiceTest {
     @Test
     void deleteSection() {
         var section = getSection();
-        when(sectionRepo.findById("Section 1")).thenReturn(java.util.Optional.ofNullable(section));
+        when(sectionRepo.findById("Section 1")).thenReturn(Optional.of(section));
         apiService.deleteSection("Section 1");
-        assert section != null;
+        assertNotNull(section);
         verify(sectionRepo).deleteById(section.getName());
     }
 
@@ -114,7 +100,7 @@ class ApiServiceTest {
     @Test
     void deleteClass() {
         var geologicalClass = getGeoClass();
-        when(geologicalClassRepo.findById("Geo Class 11")).thenReturn(java.util.Optional.ofNullable(geologicalClass));
+        when(geologicalClassRepo.findById("Geo Class 11")).thenReturn(Optional.of(geologicalClass));
         apiService.deleteClass("Geo Class 11");
         assert geologicalClass != null;
         verify(geologicalClassRepo).deleteById(geologicalClass.getName());
@@ -123,10 +109,28 @@ class ApiServiceTest {
     @Test
     void updateClass() {
         var geoClass = getGeoClass();
-        when(geologicalClassRepo.findById("Geo Class 11")).thenReturn(java.util.Optional.ofNullable(geoClass));
+        when(geologicalClassRepo.findById("Geo Class 11")).thenReturn(Optional.of(geoClass));
         var newGeoClass = new GeologicalClass("Geo Class 11" , "GC22");
         when(geologicalClassRepo.save(newGeoClass)).thenReturn(newGeoClass);
         var testClass = apiService.updateClass(newGeoClass, "Geo Class 11");
         assertEquals(testClass, newGeoClass);
+    }
+
+    private Section getSection() {
+        var section = new Section("Section 1", List.of("GC11", "GC12", "GC15", "GC17"));
+        return section;
+    }
+
+    private GeologicalClass getGeoClass() {
+        return new GeologicalClass("Geo Class 11", "GC11");
+    }
+
+    private SectionFullDTO getFullSection() {
+        List<GeologicalClass> geologicalClassList = List.of(
+                new GeologicalClass("Geo Class 11", "GC11"),
+                new GeologicalClass("Geo Class 12", "GC12"),
+                new GeologicalClass("Geo Class 15", "GC15"),
+                new GeologicalClass("Geo Class 17", "GC17"));
+        return new SectionFullDTO("Section 1", geologicalClassList);
     }
 }
