@@ -115,7 +115,7 @@ Response : `200 OK`
 
 Body example :
 ```
-Multipart form: "file". Attachment.File=sections.xls
+Multipart form: "file", Attachment.File=sections.xls
 ```
 Response : `"5d92220f-0ecd-4dce-aa8e-e0a2379fef7d"`
 
