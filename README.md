@@ -119,6 +119,10 @@ Multipart form: "file", Attachment.File=sections.xls
 ```
 Response : `"5d92220f-0ecd-4dce-aa8e-e0a2379fef7d"`
 
+`GET /api/import/5d92220f-0ecd-4dce-aa8e-e0a2379fef7d`
+
+Response : `"DONE"`
+
 `GET /api/export`
 
 Response : `"d1f91a36-67e4-418b-9833-ef5bbe90ea99"`
@@ -131,6 +135,3 @@ Response : `IN PROGRESS`
 
 Response : Downloadable file: `job_d1f91a36-67e4-418b-9833-ef5bbe90ea99.xls`
 
-`GET /api/import/5d92220f-0ecd-4dce-aa8e-e0a2379fef7d`
-
-Response : `"DONE"`
