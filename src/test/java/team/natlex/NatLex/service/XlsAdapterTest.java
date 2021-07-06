@@ -94,10 +94,8 @@ class XlsAdapterTest {
         var DTOSections = xlsAdapter.parseXls(Files.readAllBytes(Paths.get("sections.xls")));
         byte[] fileContent = xlsAdapter.xlsExportProcess(DTOSections);
         var fileWorkbook = new HSSFWorkbook();
-        var fileSheet = fileWorkbook.createSheet("Sections sheet");
         var baos = new ByteArrayOutputStream(fileContent.length);
         fileWorkbook.write(baos);
-
 
         assertEquals(workbook, fileWorkbook);
     }
