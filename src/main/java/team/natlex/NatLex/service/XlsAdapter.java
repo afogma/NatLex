@@ -21,7 +21,7 @@ import static java.util.stream.Collectors.toMap;
 @Service
 public class XlsAdapter {
 
-    public List<SectionFullDTO> parseXls(byte[] content) throws Exception {
+    List<SectionFullDTO> parseXls(byte[] content) throws Exception {
         var byteArrayInputStream = new ByteArrayInputStream(content);
         var workbook = new HSSFWorkbook(byteArrayInputStream);
         var sheet = workbook.getSheetAt(0);
@@ -54,7 +54,7 @@ public class XlsAdapter {
         return sectionFullDTOs;
     }
 
-    public byte[] xlsExportProcess(List<SectionFullDTO> sectionFullDTOList) throws Exception {
+    byte[] xlsExportProcess(List<SectionFullDTO> sectionFullDTOList) throws Exception {
         var sectionList = sectionFullDTOList.stream()
                 .map(SectionFullDTO::sectionData)
                 .collect(toList());

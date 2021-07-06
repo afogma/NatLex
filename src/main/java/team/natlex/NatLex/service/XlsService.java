@@ -34,7 +34,7 @@ public class XlsService {
 
     private Map<UUID, XlsJob> jobs = new ConcurrentHashMap<>();
 
-    public void xlsExportProcess(XlsJob job) {
+    void xlsExportProcess(XlsJob job) {
         try {
             var sectionFullDTOList = apiService.findAllSections();
             byte[] content = xlsAdapter.xlsExportProcess(sectionFullDTOList);
@@ -46,7 +46,7 @@ public class XlsService {
         }
     }
 
-    public void loadFile(XlsJob job) {
+    void loadFile(XlsJob job) {
         try {
             var sectionDTOs = xlsAdapter.parseXls(job.getContent());
             var sections = sectionDTOs.stream()
