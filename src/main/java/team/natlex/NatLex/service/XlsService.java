@@ -23,7 +23,7 @@ import static team.natlex.NatLex.model.XlsJob.JobStatus.IN_PROGRESS;
 @RequiredArgsConstructor
 public class XlsService {
 
-    Logger logger = LoggerFactory.getLogger(XlsService.class);
+    private static final Logger logger = LoggerFactory.getLogger(XlsService.class);
 
     private final SectionRepo sectionRepo;
     private final GeologicalClassRepo geologicalClassRepo;
@@ -33,6 +33,29 @@ public class XlsService {
     private final ExecutorService executorService = Executors.newSingleThreadExecutor();
 
     private final Map<UUID, XlsJob> jobs = new ConcurrentHashMap<>();
+
+    public XlsJob loadXls(MultipartFile file) {
+        var job = new XlsJob(bytes(file));
+        jobs.put(job.getId(), job);
+        executorService.submit(() -> loadFile(job));
+        return job;
+    }
+
+    public XlsJob exportXls() {
+        var job = new XlsJob(null);
+        jobs.put(job.getId(), job);
+        executorService.submit(() -> xlsExportProcess(job));
+        return job;
+    }
+
+    public byte[] downloadFile(UUID id) {
+        if (jobs.get(id).getStatus() == IN_PROGRESS) throw new ExportStillInProgressException();
+        return jobs.get(id).getContent();
+    }
+
+    public XlsJob.JobStatus getJobStatus(UUID id) {
+        return jobs.get(id).getStatus();
+    }
 
     void xlsExportProcess(XlsJob job) {
         try {
@@ -67,34 +90,11 @@ public class XlsService {
         }
     }
 
-    public XlsJob loadXls(MultipartFile file) {
-        var job = new XlsJob(bytes(file));
-        jobs.put(job.getId(), job);
-        executorService.submit(() -> loadFile(job));
-        return job;
-    }
-
     private byte[] bytes(MultipartFile file) {
         try {
             return file.getBytes();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-    }
-
-    public XlsJob exportXls() {
-        var job = new XlsJob(null);
-        jobs.put(job.getId(), job);
-        executorService.submit(() -> xlsExportProcess(job));
-        return job;
-    }
-
-    public byte[] downloadFile(UUID id) {
-        if (jobs.get(id).getStatus() == IN_PROGRESS) throw new ExportStillInProgressException();
-        return jobs.get(id).getContent();
-    }
-
-    public XlsJob.JobStatus getJobStatus(UUID id) {
-        return jobs.get(id).getStatus();
     }
 }

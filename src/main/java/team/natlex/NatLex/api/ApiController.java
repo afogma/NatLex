@@ -41,19 +41,19 @@ public class ApiController {
         return apiService.findClassByCode(code);
     }
 
-    @PutMapping("/section/update/{name}")
+    @PostMapping("/section/add")
+    public void addNewSection(@RequestBody SectionFullDTO sectionFullDTO) {
+        apiService.addNewSection(sectionFullDTO);
+    }
+
+    @PutMapping("/section/{name}")
     public void updateSection(@RequestBody SectionFullDTO sectionFullDTO, @PathVariable String name) {
         apiService.updateSection(sectionFullDTO, name);
     }
 
-    @DeleteMapping("/section/delete/{name}")
+    @DeleteMapping("/section/{name}")
     public void deleteSection(@PathVariable String name) {
         apiService.deleteSection(name);
-    }
-
-    @PostMapping("/section/add")
-    public void addNewSection(@RequestBody SectionFullDTO sectionFullDTO) {
-        apiService.addNewSection(sectionFullDTO);
     }
 
     @PostMapping("/class/add")
@@ -61,12 +61,12 @@ public class ApiController {
         apiService.addNewClass(geoClass);
     }
 
-    @PutMapping("/class/update/{name}")
+    @PutMapping("/class/{name}")
     public void updateClass(@RequestBody GeologicalClass geoClass, @PathVariable String name) {
         apiService.updateClass(geoClass, name);
     }
 
-    @DeleteMapping("/class/delete/{name}")
+    @DeleteMapping("/class/{name}")
     public void deleteClass(@PathVariable String name) {
         apiService.deleteClass(name);
     }
@@ -94,14 +94,14 @@ public class ApiController {
     }
 
     @GetMapping("/export/{id}")
-    public ResponseEntity<String> getExportStatus(@PathVariable UUID id) {
+    public ResponseEntity<XlsJob.JobStatus> getExportStatus(@PathVariable UUID id) {
         XlsJob.JobStatus status = xlsService.getJobStatus(id);
-        return ResponseEntity.ok("status: " + status);
+        return ResponseEntity.ok(status);
     }
 
     @GetMapping("/import/{id}")
-    public ResponseEntity<String> getImportStatus(@PathVariable UUID id) {
+    public ResponseEntity<XlsJob.JobStatus> getImportStatus(@PathVariable UUID id) {
         XlsJob.JobStatus status = xlsService.getJobStatus(id);
-        return ResponseEntity.ok("status: " + status);
+        return ResponseEntity.ok(status);
     }
 }

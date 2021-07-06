@@ -22,7 +22,7 @@ import static java.util.stream.Collectors.toList;
 @RequiredArgsConstructor
 public class ApiService {
 
-    Logger logger = LoggerFactory.getLogger(ApiService.class);
+    private static final Logger logger = LoggerFactory.getLogger(ApiService.class);
 
     private final SectionRepo sectionRepo;
     private final GeologicalClassRepo geologicalClassRepo;
@@ -40,8 +40,12 @@ public class ApiService {
                 .collect(toList());
     }
 
-    public List<GeologicalClass> findAllClasses() {
-        return geologicalClassRepo.findAll();
+    public List<String> findSectionsByCode(String code) {
+        return sectionRepo.findSectionsByCode(code);
+    }
+
+    public GeologicalClass findClassByCode(String code) {
+        return geologicalClassRepo.findByCode(code);
     }
 
     public Section addNewSection(SectionFullDTO sectionFullDTO) {
@@ -52,7 +56,7 @@ public class ApiService {
                 .collect(toList());
         var name = sectionFullDTO.getName();
         var section = sectionRepo.findById(name).orElse(new Section());
-        if (sectionRepo.existsById(name)) {
+        if (sectionRepo.findById(name).isPresent()) {
             var codesSet = new LinkedHashSet<>(section.getCodes());
             codesSet.addAll(classCodes);
             section.setCodes(new ArrayList<>(codesSet));
@@ -60,34 +64,21 @@ public class ApiService {
             section.setName(name);
             section.setCodes(classCodes);
         }
-        for (GeologicalClass gc : listOfClasses) {
-            geologicalClassRepo.save(gc);
-        }
+        geologicalClassRepo.saveAll(listOfClasses);
         sectionRepo.save(section);
         logger.info("{} added", section.getName());
         return section;
     }
 
-    public List<String> findSectionsByCode(String code) {
-        return sectionRepo.findSectionsByCode(code);
-    }
-
-    public GeologicalClass findClassByCode(String code) {
-        return geologicalClassRepo.findByCode(code);
-    }
-
     public Section updateSection(SectionFullDTO sectionFullDTO, String name) {
         if (sectionRepo.findById(name).isEmpty()) throw new SectionNotFoundException();
-        if (sectionFullDTO == null) throw new RuntimeException();
         var codes = sectionFullDTO.getGeologicalClasses().stream()
                 .map(GeologicalClass::getCode)
                 .collect(toList());
         var newSection = new Section(sectionFullDTO.getName(), codes);
         var savedSection = sectionRepo.save(newSection);
         var listOfClasses = sectionFullDTO.getGeologicalClasses();
-        for (GeologicalClass gc : listOfClasses) {
-            var sec = geologicalClassRepo.save(gc);
-        }
+        geologicalClassRepo.saveAll(listOfClasses);
         logger.info("{} updated", newSection.getName());
         return savedSection;
     }
@@ -105,16 +96,16 @@ public class ApiService {
         return clazz;
     }
 
-    public void deleteClass(String name) {
-        if (geologicalClassRepo.findById(name).isEmpty()) throw new GeoClassNotFoundException();
-        geologicalClassRepo.deleteById(name);
-        logger.info("{} removed", name);
-    }
-
     public GeologicalClass updateClass(GeologicalClass geoClass, String name) {
         if (geologicalClassRepo.findById(name).isEmpty()) throw new GeoClassNotFoundException();
         var clazz = geologicalClassRepo.save(geoClass);
         logger.info("{} updated", geoClass.getName());
         return clazz;
+    }
+
+    public void deleteClass(String name) {
+        if (geologicalClassRepo.findById(name).isEmpty()) throw new GeoClassNotFoundException();
+        geologicalClassRepo.deleteById(name);
+        logger.info("{} removed", name);
     }
 }

@@ -35,34 +35,6 @@ class XlsServiceTest {
     XlsService xlsService = new XlsService(sectionRepo, geologicalClassRepo, xlsAdapter, apiService);
 
     @Test
-    void xlsExportProcess() throws Exception {
-        var multipartFile = new MockMultipartFile("file", "sections.xls".getBytes());
-        var job = new XlsJob(multipartFile.getBytes());
-        assertEquals(IN_PROGRESS, job.getStatus());
-        xlsService.xlsExportProcess(job);
-        assertEquals(DONE, job.getStatus());
-    }
-
-    @Test
-    void loadFile() throws Exception {
-        var multipartFile = new MockMultipartFile("file", "sections.xls".getBytes());
-        var job = new XlsJob(multipartFile.getBytes());
-
-        var sections = List.of(new Section("Section 1", List.of("GC11")));
-        var geoClasses = List.of(new GeologicalClass("Geo Class 11", "GC11"));
-        var sectionFullDTO = new SectionFullDTO("Section 1", List.of(new GeologicalClass("Geo Class 11", "GC11")));
-        List<SectionFullDTO> sectionFullDTOList = new ArrayList<>();
-        sectionFullDTOList.add(sectionFullDTO);
-
-        when(xlsAdapter.parseXls(job.getContent())).thenReturn(sectionFullDTOList);
-        xlsService.loadFile(job);
-        assertEquals(DONE, job.getStatus());
-
-        verify(sectionRepo).saveAll(sections);
-        verify(geologicalClassRepo).saveAll(geoClasses);
-    }
-
-    @Test
     void loadXls() throws IOException {
         var multipartFile = new MockMultipartFile("file", Files.readAllBytes(Paths.get("sections.xls")));
         var job = xlsService.loadXls(multipartFile);
@@ -93,5 +65,32 @@ class XlsServiceTest {
         xlsService.xlsExportProcess(job);
         XlsJob.JobStatus newStatus = xlsService.getJobStatus(id);
         assertEquals(newStatus, DONE);
+    }
+
+    @Test
+    void xlsExportProcess() throws Exception {
+        var multipartFile = new MockMultipartFile("file", "sections.xls".getBytes());
+        var job = new XlsJob(multipartFile.getBytes());
+        assertEquals(IN_PROGRESS, job.getStatus());
+        xlsService.xlsExportProcess(job);
+        assertEquals(DONE, job.getStatus());
+    }
+
+    @Test
+    void loadFile() throws Exception {
+        var multipartFile = new MockMultipartFile("file", "sections.xls".getBytes());
+        var job = new XlsJob(multipartFile.getBytes());
+
+        var sections = List.of(new Section("Section 1", List.of("GC11")));
+        var geoClasses = List.of(new GeologicalClass("Geo Class 11", "GC11"));
+        var sectionFullDTO = new SectionFullDTO("Section 1", List.of(new GeologicalClass("Geo Class 11", "GC11")));
+        List<SectionFullDTO> sectionFullDTOList = List.of(sectionFullDTO);
+
+        when(xlsAdapter.parseXls(job.getContent())).thenReturn(sectionFullDTOList);
+        xlsService.loadFile(job);
+        assertEquals(DONE, job.getStatus());
+
+        verify(sectionRepo).saveAll(sections);
+        verify(geologicalClassRepo).saveAll(geoClasses);
     }
 }

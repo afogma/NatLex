@@ -20,9 +20,6 @@ class ApiServiceTest {
     GeologicalClassRepo geologicalClassRepo = mock(GeologicalClassRepo.class);
     ApiService apiService = new ApiService(sectionRepo, geologicalClassRepo);
 
-
-
-
     @Test
     void findAllSections() {
         var sections = List.of(getSection());
