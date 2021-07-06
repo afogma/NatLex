@@ -27,6 +27,20 @@ class XlsAdapterTest {
 
     XlsAdapter xlsAdapter = new XlsAdapter();
 
+    @Test
+    void parseXls() throws Exception {
+        var fullDTOList = xlsAdapter.parseXls(Files.readAllBytes(Paths.get("sections.xls")));
+        assertEquals(getSectionFullList(), fullDTOList);
+    }
+
+    /* TODO: Since testing this method is quiet complicated and gives different results
+         (with equal DTO's, byte arrays and workbooks are still differs), testing was done using real files export.
+     */
+    @Test
+    void xlsExportProcess() throws Exception {
+
+    }
+
     private List<SectionFullDTO> getSectionFullList() {
         var geoClassess1 = List.of(new GeologicalClass("Geo Class 11", "GC11"),
                 new GeologicalClass("Geo Class 12", "GC12"),
@@ -45,20 +59,4 @@ class XlsAdapterTest {
         sectionFullDTOList.add(sectionFullDTOs3);
         return sectionFullDTOList;
     }
-
-    @Test
-    void parseXls() throws Exception {
-        var fullDTOList = xlsAdapter.parseXls(Files.readAllBytes(Paths.get("sections.xls")));
-        assertEquals(getSectionFullList(), fullDTOList);
-    }
-
-    /* TODO: Since testing this method is quiet complicated and gives different results
-         (with equal DTO's, byte arrays and workbooks are still differs), testing was done using real files export.
-     */
-    @Test
-    void xlsExportProcess() throws Exception {
-
-    }
-
-
 }
