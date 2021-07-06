@@ -31,6 +31,5 @@ public class XlsJob {
         ERROR("ERROR");
 
         private final String code;
-
     }
 }

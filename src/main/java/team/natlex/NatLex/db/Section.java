@@ -22,8 +22,7 @@ public class Section {
     private String name;
 
     @Type(type = "list-array")
-    @Column(name = "codes",
-            columnDefinition = "text[]")
+    @Column(name = "codes", columnDefinition = "text[]")
     private List<String> codes;
 
 }

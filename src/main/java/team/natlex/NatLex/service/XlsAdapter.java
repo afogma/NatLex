@@ -49,7 +49,6 @@ public class XlsAdapter {
                 }
             }
             sectionFullDTOs.add(new SectionFullDTO(sectionName, geologicalClassList));
-
         }
         return sectionFullDTOs;
     }
@@ -83,7 +82,6 @@ public class XlsAdapter {
         outFile.close();
         return outFile.toByteArray();
     }
-
 
     private void drawHeader(List<String> classNumbers, HSSFSheet sheet) {
         Cell cell;

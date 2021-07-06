@@ -32,7 +32,7 @@ public class XlsService {
 
     private final ExecutorService executorService = Executors.newSingleThreadExecutor();
 
-    private Map<UUID, XlsJob> jobs = new ConcurrentHashMap<>();
+    private final Map<UUID, XlsJob> jobs = new ConcurrentHashMap<>();
 
     void xlsExportProcess(XlsJob job) {
         try {
@@ -42,6 +42,7 @@ public class XlsService {
             job.setStatus(XlsJob.JobStatus.DONE);
             logger.info("job {} finished export", job.getId());
         } catch (Exception e) {
+            job.setStatus(ERROR);
             logger.error("{} job failed", job.getId(), e);
         }
     }
