@@ -51,8 +51,8 @@ class XlsAdapterTest {
         assertEquals(getSectionFullList(), fullDTOList);
     }
 
-    /* TODO: Since testing byte arrays from xls files is quiet complicated and gives different results
-    (with identical DTO's), testing was done using real files export.
+    /* TODO: Since testing this method is quiet complicated and gives different results
+    (with equal DTO's), testing was done using real files export.
      */
 
     @Test
