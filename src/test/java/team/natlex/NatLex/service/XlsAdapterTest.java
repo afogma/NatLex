@@ -1,26 +1,13 @@
 package team.natlex.NatLex.service;
 
-import org.apache.poi.hssf.usermodel.HSSFSheet;
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.CellType;
-import org.apache.poi.ss.usermodel.Row;
 import org.junit.jupiter.api.Test;
 import team.natlex.NatLex.db.GeologicalClass;
-import team.natlex.NatLex.db.Section;
 import team.natlex.NatLex.model.SectionFullDTO;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
-import java.util.function.Function;
 
-import static java.util.stream.Collectors.toList;
-import static java.util.stream.Collectors.toMap;
 import static org.junit.jupiter.api.Assertions.*;
 
 class XlsAdapterTest {

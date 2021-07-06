@@ -1,8 +1,5 @@
 package team.natlex.NatLex.service;
 
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.Row;
 import org.junit.jupiter.api.Test;
 import org.springframework.mock.web.MockMultipartFile;
 import team.natlex.NatLex.db.GeologicalClass;
@@ -11,14 +8,10 @@ import team.natlex.NatLex.model.SectionFullDTO;
 import team.natlex.NatLex.model.XlsJob;
 import team.natlex.NatLex.db.GeologicalClassRepo;
 import team.natlex.NatLex.db.SectionRepo;
-import team.natlex.NatLex.service.ApiService;
-import team.natlex.NatLex.service.XlsAdapter;
-import team.natlex.NatLex.service.XlsService;
 
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
