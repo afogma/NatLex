@@ -28,15 +28,9 @@ public class ApiService {
     private final GeologicalClassRepo geologicalClassRepo;
 
     public List<SectionFullDTO> findAllSections() {
-        var sectionDto = new ArrayList<SectionFullDTO>();
-        var sections = sectionRepo.findAll();
-        for (Section s : sections) {
-            var classes = geologicalClassRepo.findByCodes(s.getCodes());
-            SectionFullDTO sectionFullDTO = new SectionFullDTO(s.getName(), classes);
-            sectionDto.add(sectionFullDTO);
-        }
-        return sectionDto.stream().
-                sorted(Comparator.comparing(SectionFullDTO::getName))
+        return sectionRepo.findAll().stream()
+                .map(s -> new SectionFullDTO(s.getName(), geologicalClassRepo.findByCodes(s.getCodes())))
+                .sorted(Comparator.comparing(SectionFullDTO::getName))
                 .collect(toList());
     }
 
