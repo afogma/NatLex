@@ -19,7 +19,7 @@ follow url: http://server-ip:8080/swagger-ui/index.html?configUrl=/v3/api-docs/s
 
 Curl command for testing: curl -u admin:admin http://server-ip:8080/api/
 
-`GET /api/sections`
+### `GET /api/sections`
 
 response example :
 ```json
@@ -54,7 +54,8 @@ response example :
 ```
 Response : `200 OK`
 
-`GET /api/sections/by-code?code=GC62`
+
+### `GET /api/sections/by-code?code=GC62`
 
 Response example :
 ```
@@ -65,7 +66,8 @@ Response example :
 
 Response : `200 OK`
 
-`POST /api/section/add`
+
+### `POST /api/section/add`
 
 Body example :
 ```
@@ -86,7 +88,8 @@ Body example :
 
 Response : `200 OK`
 
-`PUT /api/section/Section 8`
+
+### `PUT /api/section/Section 8`
 
 Body example :
 ```
@@ -107,11 +110,13 @@ Body example :
 
 Response : `200 OK`
 
-`DELETE /api/section/Section 8`
+
+### `DELETE /api/section/Section 8`
 
 Response : `200 OK`
 
-`POST /api/import`
+
+### `POST /api/import`
 
 Body example :
 ```
@@ -119,19 +124,23 @@ Multipart form: "file", Attachment.File=sections.xls
 ```
 Response : `"5d92220f-0ecd-4dce-aa8e-e0a2379fef7d"`
 
-`GET /api/import/5d92220f-0ecd-4dce-aa8e-e0a2379fef7d`
+
+### `GET /api/import/5d92220f-0ecd-4dce-aa8e-e0a2379fef7d`
 
 Response : `"DONE"`
 
-`GET /api/export`
+
+### `GET /api/export`
 
 Response : `"d1f91a36-67e4-418b-9833-ef5bbe90ea99"`
 
-`GET /api/export/d1f91a36-67e4-418b-9833-ef5bbe90ea99`
+
+### `GET /api/export/d1f91a36-67e4-418b-9833-ef5bbe90ea99`
 
 Response : `IN PROGRESS`
 
-`GET /api/export/d1f91a36-67e4-418b-9833-ef5bbe90ea99/file`
+
+### `GET /api/export/d1f91a36-67e4-418b-9833-ef5bbe90ea99/file`
 
 Response : Downloadable file: `job_d1f91a36-67e4-418b-9833-ef5bbe90ea99.xls`
 
