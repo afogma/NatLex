@@ -99,7 +99,7 @@ class ApiServiceTest {
         var geologicalClass = getGeoClass();
         when(geologicalClassRepo.findById("Geo Class 11")).thenReturn(Optional.of(geologicalClass));
         apiService.deleteClass("Geo Class 11");
-        assert geologicalClass != null;
+        assertNotNull(geologicalClass);
         verify(geologicalClassRepo).deleteById(geologicalClass.getName());
     }
 

@@ -6,13 +6,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import team.natlex.NatLex.db.GeologicalClass;
 import team.natlex.NatLex.db.Section;
+import team.natlex.NatLex.exceptions.*;
 import team.natlex.NatLex.model.SectionFullDTO;
 import team.natlex.NatLex.db.GeologicalClassRepo;
 import team.natlex.NatLex.db.SectionRepo;
-import team.natlex.NatLex.exceptions.ClassAlreadyExistsException;
-import team.natlex.NatLex.exceptions.GeoClassNotFoundException;
-import team.natlex.NatLex.exceptions.SectionNotFoundException;
-import team.natlex.NatLex.exceptions.WrongInputException;
 
 import java.util.*;
 
@@ -44,20 +41,13 @@ public class ApiService {
 
     public Section addNewSection(SectionFullDTO sectionFullDTO) {
         if (sectionFullDTO == null) throw new WrongInputException();
+        if (sectionRepo.existsById(sectionFullDTO.getName())) throw new SectionAlreadyExistsException();
         var listOfClasses = sectionFullDTO.getGeologicalClasses();
         var classCodes = listOfClasses.stream()
                 .map(GeologicalClass::getCode)
                 .collect(toList());
         var name = sectionFullDTO.getName();
-        var section = sectionRepo.findById(name).orElse(new Section());
-        if (sectionRepo.findById(name).isPresent()) {
-            var codesSet = new LinkedHashSet<>(section.getCodes());
-            codesSet.addAll(classCodes);
-            section.setCodes(new ArrayList<>(codesSet));
-        } else {
-            section.setName(name);
-            section.setCodes(classCodes);
-        }
+        var section = new Section(name, classCodes);
         geologicalClassRepo.saveAll(listOfClasses);
         sectionRepo.save(section);
         logger.info("{} added", section.getName());
@@ -65,7 +55,7 @@ public class ApiService {
     }
 
     public Section updateSection(SectionFullDTO sectionFullDTO, String name) {
-        if (sectionRepo.findById(name).isEmpty()) throw new SectionNotFoundException();
+        if (!sectionRepo.existsById(name)) throw new SectionNotFoundException();
         var codes = sectionFullDTO.getGeologicalClasses().stream()
                 .map(GeologicalClass::getCode)
                 .collect(toList());
@@ -78,27 +68,27 @@ public class ApiService {
     }
 
     public void deleteSection(String name) {
-        if (sectionRepo.findById(name).isEmpty()) throw new SectionNotFoundException();
+        if (!sectionRepo.existsById(name)) throw new SectionNotFoundException();
         sectionRepo.deleteById(name);
         logger.info("{} removed", name);
     }
 
     public GeologicalClass addNewClass(GeologicalClass geoClass) {
-        if (geologicalClassRepo.findById(geoClass.getName()).isPresent()) throw new ClassAlreadyExistsException();
+        if (geologicalClassRepo.existsById(geoClass.getName())) throw new ClassAlreadyExistsException();
         var clazz = geologicalClassRepo.save(geoClass);
         logger.info("{} added", geoClass.getName());
         return clazz;
     }
 
     public GeologicalClass updateClass(GeologicalClass geoClass, String name) {
-        if (geologicalClassRepo.findById(name).isEmpty()) throw new GeoClassNotFoundException();
+        if (!geologicalClassRepo.existsById(name)) throw new GeoClassNotFoundException();
         var clazz = geologicalClassRepo.save(geoClass);
         logger.info("{} updated", geoClass.getName());
         return clazz;
     }
 
     public void deleteClass(String name) {
-        if (geologicalClassRepo.findById(name).isEmpty()) throw new GeoClassNotFoundException();
+        if (!geologicalClassRepo.existsById(name)) throw new GeoClassNotFoundException();
         geologicalClassRepo.deleteById(name);
         logger.info("{} removed", name);
     }
