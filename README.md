@@ -9,7 +9,7 @@ which current section includes. Second table contains names of geological classe
 classes.
 
 All information about import/export , which is status of current process, byte array (contains data to load in/out from
-database), id of the process), stored in memory for test purposes.
+database), id of the process), stored in memory for test purposes. In real case data should be cached in temp files.
 
 To simplify basic authentication/authorization: username, password and role was written directly in web configuration
 class. Default username: "admin" , password "admin".
