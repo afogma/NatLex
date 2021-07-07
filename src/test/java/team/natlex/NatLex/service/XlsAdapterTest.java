@@ -40,7 +40,6 @@ class XlsAdapterTest {
         var sectionFullDTOs1 = new SectionFullDTO("Section 1", geoClassess1);
         var sectionFullDTOs2 = new SectionFullDTO("Section 2", geoClassess2);
         var sectionFullDTOs3 = new SectionFullDTO("Section 3", geoClassess3);
-        List<SectionFullDTO> sectionFullDTOList = List.of(sectionFullDTOs1, sectionFullDTOs2, sectionFullDTOs3);
-        return sectionFullDTOList;
+        return List.of(sectionFullDTOs1, sectionFullDTOs2, sectionFullDTOs3);
     }
 }
