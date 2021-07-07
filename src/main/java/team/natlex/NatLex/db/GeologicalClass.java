@@ -22,5 +22,4 @@ public class GeologicalClass {
     public String classNumber() {
         return name.substring(CLASS_NUMBER_PREFIX);
     }
-
 }

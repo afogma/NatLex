@@ -24,5 +24,4 @@ public class Section {
     @Type(type = "list-array")
     @Column(name = "codes", columnDefinition = "text[]")
     private List<String> codes;
-
 }

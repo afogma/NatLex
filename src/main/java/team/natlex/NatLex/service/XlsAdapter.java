@@ -27,12 +27,12 @@ public class XlsAdapter {
         var sheet = workbook.getSheetAt(0);
         List<SectionFullDTO> sectionFullDTOs = new ArrayList<>();
 
-        Iterator<Row> rowIterator = sheet.iterator();
+        var rowIterator = sheet.iterator();
         rowIterator.next();
         while (rowIterator.hasNext()) {
-            Row row = rowIterator.next();
-            Iterator<Cell> cellIterator = row.cellIterator();
-            List<GeologicalClass> geologicalClassList = new ArrayList<>();
+            var row = rowIterator.next();
+            var cellIterator = row.cellIterator();
+            var geologicalClassList = new ArrayList<GeologicalClass>();
 
             var className = "";
             var classCode = "";
@@ -84,11 +84,9 @@ public class XlsAdapter {
     }
 
     private void drawHeader(List<String> classNumbers, HSSFSheet sheet) {
-        Cell cell;
-        Row row;
-        row = sheet.createRow(0);
 
-        cell = row.createCell(0, CellType.STRING);
+        var row = sheet.createRow(0);
+        var cell = row.createCell(0, CellType.STRING);
         cell.setCellValue("Section name");
 
         var s = 0;
@@ -129,7 +127,6 @@ public class XlsAdapter {
 
                     cell = row.createCell(p + 2, CellType.STRING);
                     cell.setCellValue(codes.get(j));
-
                 } else {
                     cell = row.createCell(p + 1, CellType.STRING);
                     cell.setCellValue("");

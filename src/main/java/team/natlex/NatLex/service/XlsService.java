@@ -60,7 +60,7 @@ public class XlsService {
     void xlsExportProcess(XlsJob job) {
         try {
             var sectionFullDTOList = apiService.findAllSections();
-            byte[] content = xlsAdapter.xlsExportProcess(sectionFullDTOList);
+            var content = xlsAdapter.xlsExportProcess(sectionFullDTOList);
             job.setContent(content);
             job.setStatus(XlsJob.JobStatus.DONE);
             logger.info("job {} finished export", job.getId());

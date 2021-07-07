@@ -13,5 +13,4 @@ public interface GeologicalClassRepo extends JpaRepository<GeologicalClass, Stri
 
     @Query(value = "SELECT * from classes WHERE code IN :codes ORDER BY code", nativeQuery = true)
     List<GeologicalClass> findByCodes(List<String> codes);
-
 }
