@@ -25,7 +25,7 @@ public class XlsAdapter {
         var byteArrayInputStream = new ByteArrayInputStream(content);
         var workbook = new HSSFWorkbook(byteArrayInputStream);
         var sheet = workbook.getSheetAt(0);
-        List<SectionFullDTO> sectionFullDTOs = new ArrayList<>();
+        var sectionFullDTOs = new ArrayList<SectionFullDTO>();
 
         var rowIterator = sheet.iterator();
         rowIterator.next();
