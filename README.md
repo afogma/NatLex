@@ -12,7 +12,9 @@ All information about import/export , which is status of current process, byte a
 database), id of the process), stored in memory for test purposes. In real case data should be cached in temp files.
 
 To simplify basic authentication/authorization: username, password and role was written directly in web configuration
-class. Default username: "admin" , password "admin".
+class. Default username: "admin", password "admin". Database name: "natlex"
+
+PostgreSQL awaits on port 5432, login: "postgres", password "pgadmin" 
 
 Project built with jdk11. It includes lombok, flyway, spring security and openapi libraries. To inspect all crud methods
 follow url: http://server-ip:8080/swagger-ui/index.html?configUrl=/v3/api-docs/swagger-config#/
